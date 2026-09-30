@@ -19,9 +19,9 @@
       }
     },
     "nemotron-3-ultra-large-i01": {
-      "execution_id": "69616c73-0fb6-4f63-9cb9-22dcd31573e2",
+      "execution_id": "ba000628-a5fa-4fae-873f-25e8e63591f3",
       "backend": "seyval",
-      "commit_hash": "3f0ac0caeb0af152de174a747498c4dae9b4d843",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
       "overrides": {
         "run_id": "nemotron-3-ultra-large-i01",
         "mode": "full",
@@ -29,11 +29,11 @@
       },
       "parameters": {},
       "files": {
-        ".research/results/nemotron-3-ultra-large-i01/eval_inputs/scigym_large.json.gz": "7a2e64366c9d42d40df0efeab7e2aa3069931efca1457cc6d02b6b1f25074908",
-        ".research/results/nemotron-3-ultra-large-i01/evaluation/scigym_large.json": "1d9ec703d711e8f90a4c004f792cc9bdb6224529498525dc6a62532fa7b2e0eb",
-        ".research/results/nemotron-3-ultra-large-i01/instances.tar.gz": "ecaa865685a49db7ef50c95dee3390b665b8b479740c73f0f16a70f947511aae",
-        ".research/results/nemotron-3-ultra-large-i01/metrics.json": "290845ad711c481868c22f20b69ccf7331ff4ef1932b0ea7939af0a14bfa0d20",
-        ".research/results/nemotron-3-ultra-large-i01/tokens.json": "a2dc8bbb585268c0066073fd934b82b6cafcdf6609de54dd74e224ebc8f672d1"
+        ".research/results/nemotron-3-ultra-large-i01/eval_inputs/scigym_large.json.gz": "291d8dbf335dc170e51201649fa51f714d7dc3580bf231d7aa4f914b6ba6cecc",
+        ".research/results/nemotron-3-ultra-large-i01/evaluation/scigym_large.json": "d647ae5781b259d5374219531c22533b188b1b7e6bac962b9cce937b6839a549",
+        ".research/results/nemotron-3-ultra-large-i01/instances.tar.gz": "fda8b4d1d031780acff1005067f6784cbd15a03451ef8da180facc9d05b5147c",
+        ".research/results/nemotron-3-ultra-large-i01/metrics.json": "128a3e77c7d0f338add1e6e367df65ff3e82216a0069ed052d480b96b709a174",
+        ".research/results/nemotron-3-ultra-large-i01/tokens.json": "3c147ce91e32d558350954e9b00f7492bc38b3d692e18d887d4c62c40aad15e0"
       }
     },
     "deepseek-v4.1-flash-small-i01": {
