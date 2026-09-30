@@ -1,0 +1,1733 @@
+==> .research/record.json <==
+{
+  "literature": [
+    {
+      "id": "s1",
+      "title": "Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab",
+      "authors": [
+        "Haonan Duan",
+        "Stephen Zhewen Lu",
+        "Caitlin Fiona Harrigan",
+        "Nishkrit Desai",
+        "Jiarui Lu",
+        "Michał Koziarski",
+        "Leonardo Cotta",
+        "Chris J. Maddison"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2507.02083 (NeurIPS 2025 Datasets and Benchmarks Track)",
+      "arxiv_id": "2507.02083",
+      "url": "https://arxiv.org/pdf/2507.02083",
+      "bibkey": "duan-2025-measuring",
+      "verified_by": "arxiv",
+      "verified_at": "2026-09-26T07:28:26+00:00",
+      "fulltext": {
+        "path": ".research/sources/s1/fulltext.txt",
+        "sha256": "da6c8d3dcbbd8c768ee7735346726853026ccc88a9b03d475dc293e347c378fd"
+      },
+      "parser": "pymupdf 1.26.6",
+      "passages": [
+        {
+          "id": "s1.p1",
+          "node_type": "setup",
+          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M).",
+          "judgments": [
+            {
+              "text_sha256": "f2b6e743fbbca58621a03c60ad269aa3765142476376f80531d5b47e4d3a4dc7",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "6340ba698704696b55ff58a5f3039e0345643184ca3622ccc95aebe113211a5a",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "cab92addecfe32734f0b83f2ee8d056a6f8006931f30e7a68b6bf74c4461e2b5",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p2",
+          "node_type": "setup",
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks.",
+          "judgments": [
+            {
+              "text_sha256": "4bd14d32a3be6184688e08a37048bba190762c34821cf097d7696cd278217f46",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "6340ba698704696b55ff58a5f3039e0345643184ca3622ccc95aebe113211a5a",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p3",
+          "node_type": "setup",
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark).",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "de3f57a7770e8fb0430d16913d9e62aa863e41289e486c44ba5e356ce467aea1",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p4",
+          "node_type": "setup",
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure.",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "61e344e75bf4d37a55dfa8445c5e0a76499ac03a758fd83f46176c1704348837",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "de3f57a7770e8fb0430d16913d9e62aa863e41289e486c44ba5e356ce467aea1",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p5",
+          "node_type": "result",
+          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047",
+          "judgments": [
+            {
+              "text_sha256": "cad6ce2ace47860ebd47097b201a0e9d42b336f05a69562d7538f6413d9ba785",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text faithfully reproduces the reported average STE value for GPT-4.1-mini (0.6007) from the source table and attributes it correctly to Table 1 in the cited source."
+            },
+            {
+              "text_sha256": "3d634a07a9c72f8454c3a32e3b3854e42b90651e5068098f3c5b4e695d8fa47d",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately refers to the RMS F1 values (with and without modifiers) for Gemini-2.5-Pro, as found in Table 1 of the cited passage, and correctly states that these are the best values reported for the corresponding columns."
+            },
+            {
+              "text_sha256": "cf105d9baed4844d3d00dd309406a15a18441d4103853b626c7d2c730c42016a",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text faithfully reports the Gemini-2.5-Pro SCIGYM Table 1 Simulation Trajectory Error (0.3212), which matches the quoted passage and its context."
+            },
+            {
+              "text_sha256": "3e16a5e523f6c2ba4b4def6770819c5fbd5e5eac57ea4a589f61f9b5bb62dd53",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately reproduces the STE value (0.6007) for GPT-4.1-mini from the quoted table and attributes it properly, consistent with the context and units of comparison."
+            },
+            {
+              "text_sha256": "f84e49af3e80211db6b108b2c251f859533d34576bbead8d197db4a5a672e5b0",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "8cea5b328d4fc68f396cf806e72c395f92814e4947bbcbfeeb35535af89034b9",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "e16649734baa0b9af39866410449041ccedb08eaa20f2949db45e9690d8fa29d",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p6",
+          "node_type": "claim",
+          "quote": "Our results show that across all model families, pro variants consistently outperform their mini counterparts, with both lower STE errors and higher RMS scores.",
+          "judgments": [
+            {
+              "text_sha256": "ccd1a3186987da233cfda67b0a166bea42cd6ec91c9cbad141771a80f6a1feb6",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p7",
+          "node_type": "claim",
+          "quote": "Among all models evaluated, Gemini-Pro achieved the best overall performance.",
+          "judgments": [
+            {
+              "text_sha256": "ccd1a3186987da233cfda67b0a166bea42cd6ec91c9cbad141771a80f6a1feb6",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "738dd064537f1387e5c4a3c92368ac3e29458f6ad4e6388bd5f61ba4118b3ec6",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The citing text gives an exact value (0.3212) for Gemini-2.5-Pro's performance, but the quoted passage only gives a qualitative statement—no such numeric value is in context."
+            }
+          ]
+        },
+        {
+          "id": "s1.p8",
+          "node_type": "definition",
+          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers.",
+          "judgments": [
+            {
+              "text_sha256": "6eab4b3f8660a90ecd2b91734b3ab6adcbda4b6aa26858fd071b98e7c68ca313",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text faithfully summarizes the passage's description of RMS, including both the standard and stricter versions with matching modifiers required."
+            },
+            {
+              "text_sha256": "3d634a07a9c72f8454c3a32e3b3854e42b90651e5068098f3c5b4e695d8fa47d",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately refers to two versions of the RMS: standard (no modifier) and a stricter version requiring matching modifiers, as described in the quoted passage and its context."
+            }
+          ]
+        },
+        {
+          "id": "s1.p9",
+          "node_type": "definition",
+          "quote": "We employ the Symmetric Mean Absolute Percentage Error (SMAPE) (Makridakis, 1993), which normalizes errors relative to magnitude.",
+          "judgments": [
+            {
+              "text_sha256": "6eab4b3f8660a90ecd2b91734b3ab6adcbda4b6aa26858fd071b98e7c68ca313",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p10",
+          "node_type": "result",
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances.",
+          "judgments": [
+            {
+              "text_sha256": "f2b6e743fbbca58621a03c60ad269aa3765142476376f80531d5b47e4d3a4dc7",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The citing text claims Table 1 reports mean scores for 137 SciGym-small instances, but the cited passage only states it reports averages across all benchmark instances without specifying the instance count or their SciGym-small identity."
+            },
+            {
+              "text_sha256": "6340ba698704696b55ff58a5f3039e0345643184ca3622ccc95aebe113211a5a",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "repository",
+      "title": "h4duan/SciGym",
+      "authors": [
+        "h4duan"
+      ],
+      "year": 2025,
+      "url": "https://github.com/h4duan/SciGym",
+      "commit": "88a7b93609e35b6ecb4eb343d816d6ff09256c6a",
+      "bibkey": "h4duan-2025-scigym",
+      "verified_by": "git",
+      "verified_at": "2026-09-26T07:28:27+00:00",
+      "fulltext": {
+        "path": ".research/sources/s2/fulltext.txt",
+        "sha256": "2d9b434780e56682bd2d52c76948c1658698067b781cfa16ce595950f9f2e1af"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s2.p1",
+          "node_type": "setup",
+          "quote": "temperature: 1.0",
+          "judgments": [
+            {
+              "text_sha256": "61e344e75bf4d37a55dfa8445c5e0a76499ac03a758fd83f46176c1704348837",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "de3f57a7770e8fb0430d16913d9e62aa863e41289e486c44ba5e356ce467aea1",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately states that the published config has temperature: 1.0, matching the cited passage in its context."
+            }
+          ]
+        },
+        {
+          "id": "s2.p2",
+          "node_type": "setup",
+          "quote": "max_iterations: 5",
+          "judgments": [
+            {
+              "text_sha256": "61e344e75bf4d37a55dfa8445c5e0a76499ac03a758fd83f46176c1704348837",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The source shows the default config for max_iterations is 5, but does not mention whether 5 is only for operation checks, nor does it contrast 5 with a value of 20 as in the paper's main experiments."
+            },
+            {
+              "text_sha256": "de3f57a7770e8fb0430d16913d9e62aa863e41289e486c44ba5e356ce467aea1",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s2.p3",
+          "node_type": "setup",
+          "quote": "eval_debug_rounds: 5",
+          "judgments": [
+            {
+              "text_sha256": "61e344e75bf4d37a55dfa8445c5e0a76499ac03a758fd83f46176c1704348837",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "de3f57a7770e8fb0430d16913d9e62aa863e41289e486c44ba5e356ce467aea1",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "statement": "RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。",
+      "assumptions": [
+        "temperature 1.0 での 1 回実行の平均 STE（137 件平均）の実行間変動が 0.05 より十分小さいこと。先行する Table 1 再現では件ごとの STE の標準偏差はおよそ 0.27、137 件平均の標準誤差はおよそ 0.02 であった（c1〜c6）",
+        "RIKYU の推論 API が提供する各モデルが、公開重みと同等の能力を持つこと。量子化や serving の設定は公開されていない（c1〜c6）",
+        "thinking を出力するモデルでも max_tokens 32768 の範囲で本文が返り、本文が空のときの呼び直し（最大 3 回）で十分であること（c1〜c6）",
+        "aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境の libroadrunner 2.8.0 と同じ軌道と評価値を与えること（c1〜c6）",
+        "平均 STE が GPT-4.1-mini の水準に届くかどうかを代表すること。RMS（modifier あり / なし）と NTS は同じ実行から表として報告するが、判定基準には用いない（c1〜c6）",
+        "論文の GPT-4.1-mini の値（0.6007）を比較対象とすること。GPT-4.1-mini を同じ Controller で再実行した先行研究でも 0.60 前後であり、論文値をそのまま使う（c1〜c6）"
+      ],
+      "grounded_on": [
+        "s1.p1",
+        "s1.p5",
+        "s1.p10"
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "statement": "deepseek-v4.1-flash で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "DeepSeek 系で唯一提供されている flash モデルが GPT-4.1-mini の水準に届けば、h1 の deepseek-v4.1-flash の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（max_iterations=20、eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-small 137 件を 1 件 1 プロセスで解かせ、提出モデルと公式データを評価層 scigym_small（公式 Evaluator）で採点する。モデルは RIKYU API の deepseek-v4.1-flash。",
+              "runs": [
+                {
+                  "run_id": "deepseek-v4.1-flash",
+                  "description": "deepseek-v4.1-flash で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "c22311aa-a579-466b-a7ed-d53708908c14",
+                      "commit": "79893c09829f902cd3bfe621901e66645c6afc74",
+                      "eval_inputs": {
+                        "path": ".research/results/deepseek-v4.1-flash/eval_inputs/scigym_small.json",
+                        "sha256": "c49eafff268d8cb1c787fb5b8e9e3638639c417ad10b4bb4454bf54583c4b837"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "282b0d2def038dddf4eedf172d2fba3e2ab3d55f7f704b71d84d644b3210855a",
+                        "versions": {
+                          "airas-eval": "0.12.5",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.4542184950531652,
+                          "reaction_f1_vs_best_published": 0.1159184950531652,
+                          "reaction_f1_with_modifiers": 0.2746169271434236,
+                          "reaction_precision": 0.45570732163690514,
+                          "reaction_precision_with_modifiers": 0.2808608380312974,
+                          "reaction_recall": 0.4717848453249913,
+                          "reaction_recall_with_modifiers": 0.28173734213880186,
+                          "topology_f1": 0.5698110768326368,
+                          "topology_f1_modifier_product": 0.08699683468705209,
+                          "topology_f1_reactant_modifier": 0.08943452380952381,
+                          "topology_f1_reactant_product": 0.47259658652274467,
+                          "topology_precision": 0.7071425261254305,
+                          "topology_recall": 0.5173103478423574,
+                          "trajectory_smape": 0.24046025032909796,
+                          "trajectory_smape_vs_best_published": -0.08073974967090203
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 134.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.4542184950531652,
+                        "reaction_f1_vs_best_published": 0.1159184950531652,
+                        "reaction_f1_with_modifiers": 0.2746169271434236,
+                        "reaction_precision": 0.45570732163690514,
+                        "reaction_precision_with_modifiers": 0.2808608380312974,
+                        "reaction_recall": 0.4717848453249913,
+                        "reaction_recall_with_modifiers": 0.28173734213880186,
+                        "topology_f1": 0.5698110768326368,
+                        "topology_f1_modifier_product": 0.08699683468705209,
+                        "topology_f1_reactant_modifier": 0.08943452380952381,
+                        "topology_f1_reactant_product": 0.47259658652274467,
+                        "topology_precision": 0.7071425261254305,
+                        "topology_recall": 0.5173103478423574,
+                        "trajectory_smape": 0.24046025032909796,
+                        "trajectory_smape_vs_best_published": -0.08073974967090203,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 134.0,
+                        "input_tokens": 46883266,
+                        "output_tokens": 7105051
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "deepseek-v4.1-flash",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "論文 Table 1 で 2025 年前半の mini モデルは 0.42〜0.63、pro モデルは 0.32〜0.46。2026 年の open-weight thinking モデルは論文の pro と mini の間に入ると見込み、GPT-4.1-mini との差は -0.30〜0 と予測する"
+          }
+        },
+        {
+          "id": "c2",
+          "statement": "glm-5.2 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "GLM 系の前世代モデルが GPT-4.1-mini の水準に届けば、h1 の glm-5.2 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d2",
+              "summary": "d1 と同じ設定で、モデルを glm-5.2 に替える。",
+              "runs": [
+                {
+                  "run_id": "glm-5.2",
+                  "description": "glm-5.2 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "glm-5.2",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "c1 と同じ。前世代のため h1 の中では差が小さい側に出ると見込む"
+          }
+        },
+        {
+          "id": "c3",
+          "statement": "kimi-k2.6 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "Kimi 系の前世代モデルが GPT-4.1-mini の水準に届けば、h1 の kimi-k2.6 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d3",
+              "summary": "d1 と同じ設定で、モデルを kimi-k2.6 に替える。",
+              "runs": [
+                {
+                  "run_id": "kimi-k2.6",
+                  "description": "kimi-k2.6 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "60c3267c-0e6c-46b1-8bd1-720248661067",
+                      "commit": "00dd7f7900549b00aac71f53c4a454d9887d96c7",
+                      "eval_inputs": {
+                        "path": ".research/results/kimi-k2.6/eval_inputs/scigym_small.json",
+                        "sha256": "1481e74e9723b33459b9f48647194b8970134957c02343f52a92fc3dacf499cf"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "9547a387d7eada9da02e2d04561f4df493581bd97bce34be06c78ad72a02c3c9",
+                        "versions": {
+                          "airas-eval": "0.12.5",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.4294124664991988,
+                          "reaction_f1_vs_best_published": 0.0911124664991988,
+                          "reaction_f1_with_modifiers": 0.265061174892591,
+                          "reaction_precision": 0.4271041002792827,
+                          "reaction_precision_with_modifiers": 0.26923184277198875,
+                          "reaction_recall": 0.4554918317692041,
+                          "reaction_recall_with_modifiers": 0.27183408643262646,
+                          "topology_f1": 0.7433717835345932,
+                          "topology_f1_modifier_product": 0.07578026248348893,
+                          "topology_f1_reactant_modifier": 0.09004321093136884,
+                          "topology_f1_reactant_product": 0.5145286541126518,
+                          "topology_precision": 0.8297830914136196,
+                          "topology_recall": 0.7196727472218217,
+                          "trajectory_smape": 0.21004969535683385,
+                          "trajectory_smape_vs_best_published": -0.11115030464316614
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 137.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.4294124664991988,
+                        "reaction_f1_vs_best_published": 0.0911124664991988,
+                        "reaction_f1_with_modifiers": 0.265061174892591,
+                        "reaction_precision": 0.4271041002792827,
+                        "reaction_precision_with_modifiers": 0.26923184277198875,
+                        "reaction_recall": 0.4554918317692041,
+                        "reaction_recall_with_modifiers": 0.27183408643262646,
+                        "topology_f1": 0.7433717835345932,
+                        "topology_f1_modifier_product": 0.07578026248348893,
+                        "topology_f1_reactant_modifier": 0.09004321093136884,
+                        "topology_f1_reactant_product": 0.5145286541126518,
+                        "topology_precision": 0.8297830914136196,
+                        "topology_recall": 0.7196727472218217,
+                        "trajectory_smape": 0.21004969535683385,
+                        "trajectory_smape_vs_best_published": -0.11115030464316614,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 137.0,
+                        "input_tokens": 159819464,
+                        "output_tokens": 15120272
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "kimi-k2.6",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "c1 と同じ"
+          }
+        },
+        {
+          "id": "c4",
+          "statement": "kimi-k3 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "Kimi 系の現行モデルが GPT-4.1-mini の水準に届けば、h1 の kimi-k3 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d4",
+              "summary": "d1 と同じ設定で、モデルを kimi-k3 に替える。",
+              "runs": [
+                {
+                  "run_id": "kimi-k3",
+                  "description": "kimi-k3 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "8fe77ff0-f934-4c41-bab7-0be513f432a0",
+                      "commit": "00dd7f7900549b00aac71f53c4a454d9887d96c7",
+                      "eval_inputs": {
+                        "path": ".research/results/kimi-k3/eval_inputs/scigym_small.json",
+                        "sha256": "337c5f2e5e485528675e0ef00be495f9b29d3783211d852ecb1dc720e82dcf5d"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "d954a5dbdf1add45234e3a9e2541b10b341a67dd43dead1057abfdfe1e62bdca",
+                        "versions": {
+                          "airas-eval": "0.12.5",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.4914613457471243,
+                          "reaction_f1_vs_best_published": 0.1531613457471243,
+                          "reaction_f1_with_modifiers": 0.2923589781542141,
+                          "reaction_precision": 0.49966169272738603,
+                          "reaction_precision_with_modifiers": 0.3067993847190928,
+                          "reaction_recall": 0.5032035685320356,
+                          "reaction_recall_with_modifiers": 0.2908730158730158,
+                          "topology_f1": 0.53099015491759,
+                          "topology_f1_modifier_product": 0.08072344322344323,
+                          "topology_f1_reactant_modifier": 0.09620535714285715,
+                          "topology_f1_reactant_product": 0.44459077023603977,
+                          "topology_precision": 0.6533928324986719,
+                          "topology_recall": 0.48981450671986393,
+                          "trajectory_smape": 0.22507247610652192,
+                          "trajectory_smape_vs_best_published": -0.09612752389347806
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 130.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.4914613457471243,
+                        "reaction_f1_vs_best_published": 0.1531613457471243,
+                        "reaction_f1_with_modifiers": 0.2923589781542141,
+                        "reaction_precision": 0.49966169272738603,
+                        "reaction_precision_with_modifiers": 0.3067993847190928,
+                        "reaction_recall": 0.5032035685320356,
+                        "reaction_recall_with_modifiers": 0.2908730158730158,
+                        "topology_f1": 0.53099015491759,
+                        "topology_f1_modifier_product": 0.08072344322344323,
+                        "topology_f1_reactant_modifier": 0.09620535714285715,
+                        "topology_f1_reactant_product": 0.44459077023603977,
+                        "topology_precision": 0.6533928324986719,
+                        "topology_recall": 0.48981450671986393,
+                        "trajectory_smape": 0.22507247610652192,
+                        "trajectory_smape_vs_best_published": -0.09612752389347806,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 130.0,
+                        "input_tokens": 51346776,
+                        "output_tokens": 4810145
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "kimi-k3",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "c1 と同じ。現行世代の大型モデルのため差が大きい側に出ると見込む"
+          }
+        },
+        {
+          "id": "c5",
+          "statement": "qwen3.6-35b で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "Qwen 系の 35B モデルが GPT-4.1-mini の水準に届けば、h1 の qwen3.6-35b の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d5",
+              "summary": "d1 と同じ設定で、モデルを qwen3.6-35b に替える。",
+              "runs": [
+                {
+                  "run_id": "qwen3.6-35b",
+                  "description": "qwen3.6-35b で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "8c74bbfa-b7c6-4d46-ba02-9ad688b2271a",
+                      "commit": "682aa5d2c37dd5c4337cad85dc04d50418c4db5d",
+                      "eval_inputs": {
+                        "path": ".research/results/qwen3.6-35b/eval_inputs/scigym_small.json",
+                        "sha256": "ebcd1951c3ce935fc89afe2468d979e59ce2358030489ae067fa82835b30fe37"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "45b83dc52ea04fa10981ce0abb633990ebc8b7de69d56f8d10ecaae9d1356492",
+                        "versions": {
+                          "airas-eval": "0.12.5",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.2839728037537126,
+                          "reaction_f1_vs_best_published": -0.0543271962462874,
+                          "reaction_f1_with_modifiers": 0.14646098228955112,
+                          "reaction_precision": 0.28688764601173367,
+                          "reaction_precision_with_modifiers": 0.15284176488556048,
+                          "reaction_recall": 0.29741629011702003,
+                          "reaction_recall_with_modifiers": 0.14944965820878228,
+                          "topology_f1": 0.6277499193959062,
+                          "topology_f1_modifier_product": 0.0,
+                          "topology_f1_reactant_modifier": 0.010416666666666666,
+                          "topology_f1_reactant_product": 0.3716510431268968,
+                          "topology_precision": 0.7409614918739008,
+                          "topology_recall": 0.6013826794792677,
+                          "trajectory_smape": 0.4570888053620998,
+                          "trajectory_smape_vs_best_published": 0.1358888053620998
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 129.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.2839728037537126,
+                        "reaction_f1_vs_best_published": -0.0543271962462874,
+                        "reaction_f1_with_modifiers": 0.14646098228955112,
+                        "reaction_precision": 0.28688764601173367,
+                        "reaction_precision_with_modifiers": 0.15284176488556048,
+                        "reaction_recall": 0.29741629011702003,
+                        "reaction_recall_with_modifiers": 0.14944965820878228,
+                        "topology_f1": 0.6277499193959062,
+                        "topology_f1_modifier_product": 0.0,
+                        "topology_f1_reactant_modifier": 0.010416666666666666,
+                        "topology_f1_reactant_product": 0.3716510431268968,
+                        "topology_precision": 0.7409614918739008,
+                        "topology_recall": 0.6013826794792677,
+                        "trajectory_smape": 0.4570888053620998,
+                        "trajectory_smape_vs_best_published": 0.1358888053620998,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 129.0,
+                        "input_tokens": 82065304,
+                        "output_tokens": 13367361
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.6-35b",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "c1 と同じ"
+          }
+        },
+        {
+          "id": "c6",
+          "statement": "qwen3.8-27b で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "Qwen 系の 27B モデルが GPT-4.1-mini の水準に届けば、h1 の qwen3.8-27b の部分を担う。最も小さいモデルであり h1 の下限を決める。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d6",
+              "summary": "d1 と同じ設定で、モデルを qwen3.8-27b に替える。",
+              "runs": [
+                {
+                  "run_id": "qwen3.8-27b",
+                  "description": "qwen3.8-27b で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "48d08098-2e5d-4126-a002-54d192426096",
+                      "commit": "78d58ebb9141802483d67ef08857fb7e8b60039c",
+                      "eval_inputs": {
+                        "path": ".research/results/qwen3.8-27b/eval_inputs/scigym_small.json",
+                        "sha256": "da7f30dd07171957a6a15c160a9f87d3bed690b72b464bf1c07a6c70f7355d4f"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "bb3e04726ecf4d38a508660fafbce3864adad266ce9f184acc43fefc2372e6c9",
+                        "versions": {
+                          "airas-eval": "0.12.5",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.41449558296870986,
+                          "reaction_f1_vs_best_published": 0.07619558296870987,
+                          "reaction_f1_with_modifiers": 0.25167284204377927,
+                          "reaction_precision": 0.4144942648592283,
+                          "reaction_precision_with_modifiers": 0.26519812304483836,
+                          "reaction_recall": 0.4293824585795388,
+                          "reaction_recall_with_modifiers": 0.24714980882864093,
+                          "topology_f1": 0.611931878525335,
+                          "topology_f1_modifier_product": 0.0,
+                          "topology_f1_reactant_modifier": 0.0,
+                          "topology_f1_reactant_product": 0.47103398371762645,
+                          "topology_precision": 0.7195289365720542,
+                          "topology_recall": 0.5875411061274505,
+                          "trajectory_smape": 0.24793430926739368,
+                          "trajectory_smape_vs_best_published": -0.0732656907326063
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 129.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.41449558296870986,
+                        "reaction_f1_vs_best_published": 0.07619558296870987,
+                        "reaction_f1_with_modifiers": 0.25167284204377927,
+                        "reaction_precision": 0.4144942648592283,
+                        "reaction_precision_with_modifiers": 0.26519812304483836,
+                        "reaction_recall": 0.4293824585795388,
+                        "reaction_recall_with_modifiers": 0.24714980882864093,
+                        "topology_f1": 0.611931878525335,
+                        "topology_f1_modifier_product": 0.0,
+                        "topology_f1_reactant_modifier": 0.0,
+                        "topology_f1_reactant_product": 0.47103398371762645,
+                        "topology_precision": 0.7195289365720542,
+                        "topology_recall": 0.5875411061274505,
+                        "trajectory_smape": 0.24793430926739368,
+                        "trajectory_smape_vs_best_published": -0.0732656907326063,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 129.0,
+                        "input_tokens": 70290128,
+                        "output_tokens": 20989696
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.8-27b",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.3,
+            "high": 0.0,
+            "basis": "c1 と同じ。最小のモデルのため差が小さい側に出ると見込む"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 8 モデルの平均 STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の F1（modifier なし / あり、高いほど良い）、Network Topology Score の F1。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 4
+            },
+            {
+              "header": "$\\Delta$ STE vs GPT-4.1-mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "glm-5.2": 0.6007,
+                  "glm-5.3": 0.6007,
+                  "glm-5.3-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 4
+            },
+            {
+              "header": "RMS w/o mod. F1",
+              "ref_path": "reaction_f1",
+              "round": 4
+            },
+            {
+              "header": "RMS w/ mod. F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "NTS F1",
+              "ref_path": "topology_f1",
+              "round": 4
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "glm-5.2",
+              "label": "glm-5.2"
+            },
+            {
+              "run_id": "glm-5.3",
+              "label": "glm-5.3"
+            },
+            {
+              "run_id": "glm-5.3-flash",
+              "label": "glm-5.3-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の評価件数、有効な SBML が提出された件数、トークン消費。出力トークンには thinking を含む。",
+          "columns": [
+            {
+              "header": "n\\_instances",
+              "ref_path": "n_instances",
+              "round": 0
+            },
+            {
+              "header": "n\\_valid\\_submissions",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "glm-5.2",
+              "label": "glm-5.2"
+            },
+            {
+              "run_id": "glm-5.3",
+              "label": "glm-5.3"
+            },
+            {
+              "run_id": "glm-5.3-flash",
+              "label": "glm-5.3-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 5 モデルの平均 STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の F1（modifier なし / あり、高いほど良い）、Network Topology Score の F1。glm-5.2、glm-5.3、glm-5.3-flash の 3 run は期限内に終わらず打ち切ったため行がない。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 4
+            },
+            {
+              "header": "$\\Delta$ STE vs GPT-4.1-mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 4
+            },
+            {
+              "header": "RMS w/o mod. F1",
+              "ref_path": "reaction_f1",
+              "round": 4
+            },
+            {
+              "header": "RMS w/ mod. F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "NTS F1",
+              "ref_path": "topology_f1",
+              "round": 4
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の評価件数、有効な SBML が提出された件数、トークン消費。出力トークンには thinking を含む。入力トークンには本文が空だった応答の呼び直し分を含む。",
+          "columns": [
+            {
+              "header": "n\\_instances",
+              "ref_path": "n_instances",
+              "round": 0
+            },
+            {
+              "header": "n\\_valid\\_submissions",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 5 モデルの結果。STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の適合率 P・再現率 R・F1（modifier あり / なし、高いほど良い）、Network Topology Score の F1、有効な SBML が提出された件数（137 件中）。glm-5.2、glm-5.3、glm-5.3-flash の 3 run は期限内に終わらず打ち切ったため行がない。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 4
+            },
+            {
+              "header": "$\\Delta$ vs mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 4
+            },
+            {
+              "header": "P",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "R",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "P",
+              "ref_path": "reaction_precision",
+              "round": 4
+            },
+            {
+              "header": "R",
+              "ref_path": "reaction_recall",
+              "round": 4
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1",
+              "round": 4
+            },
+            {
+              "header": "NTS F1",
+              "ref_path": "topology_f1",
+              "round": 4
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 5 モデルの結果。STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の適合率 P・再現率 R・F1（w/: modifier あり、w/o: modifier なし。高いほど良い）、Network Topology Score の F1、有効な SBML が提出された件数 n\\_valid（137 件中）。glm-5.2、glm-5.3、glm-5.3-flash の 3 run は期限内に終わらず打ち切ったため行がない。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 4
+            },
+            {
+              "header": "$\\Delta$ vs mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 4
+            },
+            {
+              "header": "w/ P",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "w/ R",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "w/ F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 4
+            },
+            {
+              "header": "w/o P",
+              "ref_path": "reaction_precision",
+              "round": 4
+            },
+            {
+              "header": "w/o R",
+              "ref_path": "reaction_recall",
+              "round": 4
+            },
+            {
+              "header": "w/o F1",
+              "ref_path": "reaction_f1",
+              "round": 4
+            },
+            {
+              "header": "NTS F1",
+              "ref_path": "topology_f1",
+              "round": 4
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 5 モデルの結果。STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の適合率 P・再現率 R・F1（w/: modifier あり、w/o: modifier なし。高いほど良い）、Network Topology Score の F1、有効な SBML が提出された件数 n\\_valid（137 件中）。小数第 3 位まで表示する。glm-5.2、glm-5.3、glm-5.3-flash の 3 run は期限内に終わらず打ち切ったため行がない。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "$\\Delta$ vs mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 3
+            },
+            {
+              "header": "w/ P",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/ R",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/ F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/o P",
+              "ref_path": "reaction_precision",
+              "round": 3
+            },
+            {
+              "header": "w/o R",
+              "ref_path": "reaction_recall",
+              "round": 3
+            },
+            {
+              "header": "w/o F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "NTS F1",
+              "ref_path": "topology_f1",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における RIKYU の open-weight 5 モデルの結果。STE（低いほど良い）、論文 Table 1 の GPT-4.1-mini（0.6007）との差、Reaction Matching Score の適合率 P・再現率 R・F1（w/: modifier あり、w/o: modifier なし。高いほど良い）、有効な SBML が提出された件数 n\\_valid（137 件中）。小数第 3 位まで表示する。glm-5.2、glm-5.3、glm-5.3-flash の 3 run は期限内に終わらず打ち切ったため行がない。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "$\\Delta$ vs mini",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "deepseek-v4.1-flash": 0.6007,
+                  "kimi-k2.6": 0.6007,
+                  "kimi-k3": 0.6007,
+                  "qwen3.6-35b": 0.6007,
+                  "qwen3.8-27b": 0.6007
+                }
+              },
+              "round": 3
+            },
+            {
+              "header": "w/ P",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/ R",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/ F1",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "w/o P",
+              "ref_path": "reaction_precision",
+              "round": 3
+            },
+            {
+              "header": "w/o R",
+              "ref_path": "reaction_recall",
+              "round": 3
+            },
+            {
+              "header": "w/o F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash",
+              "label": "deepseek-v4.1-flash"
+            },
+            {
+              "run_id": "kimi-k2.6",
+              "label": "kimi-k2.6"
+            },
+            {
+              "run_id": "kimi-k3",
+              "label": "kimi-k3"
+            },
+            {
+              "run_id": "qwen3.6-35b",
+              "label": "qwen3.6-35b"
+            },
+            {
+              "run_id": "qwen3.8-27b",
+              "label": "qwen3.8-27b"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "2026-09-27 15:20 JST: glm-5.2 の full run（実行 cd0cfaf4、137 件中 13 件完走）は、RIKYU の推論 API での GLM 系の生成速度（glm-5.3 で約 15 tok/s、glm-5.2 で約 55 tok/s）と断続的な 502 のため期限内に終わる見込みが立たず、利用者の判断で打ち切った。Claim 2 は結果なしのまま残し、途中までの件で集計はしない。",
+        "qwen3.6-35b の推論 API は 2026-09-26 08:00 頃から 27 日 16:00 頃まで 1 語の要求にも応答せず、full run はその後に投げた（実行 8c74bbfa）。",
+        "thinking を出力するモデル（特に kimi-k2.6）は、content が空で reasoning_content にコードブロックまで含む本文が入った応答を返すことがある（finish_reason=stop）。実験コードはこの応答を最初の 1 回で reasoning_content の文を本文として Controller に渡した。上限（max_tokens）で切れた場合は上限を倍にして呼び直した。生の空応答は各件の empty_responses.jsonl として instances.tar.gz に残している。",
+        "deepseek-v4.1-flash の最初の full run（実行 ebf2eff0）は 136 件が完走し、BIOMD0000000783 だけが 3 回の試行とも LLM のコードが ODE 計算の中で止まり 4 時間の上限で打ち切られたため、実験コードが run 全体を失敗と判定して評価に進まなかった。公式の規約では有効な提出がない件は不完全モデルで採点されるので、136 件の出力をそのまま（resume/deepseek-v4.1-flash/instances.tar.gz として commit し）引き継ぎ、打ち切りの 1 件を提出なしとして評価だけを行う run を投げ直した。LLM の呼び出しはやり直していない。"
+      ]
+    },
+    {
+      "id": "h2",
+      "statement": "論文が報告する「各ファミリーで pro 版が mini 版を一貫して上回る」という構図は、open-weight の GLM-5.3 系でも成り立ち、glm-5.3 は glm-5.3-flash より SciGym-small の平均 STE が低い。",
+      "assumptions": [
+        "glm-5.3-flash が glm-5.3 と同世代の小型版であること。両者の構成は公開されておらず、名前から仮定する（c7）",
+        "平均 STE の差 1 本で「上回る」を代表すること。論文は STE と RMS の両方で pro > mini としているが、RMS は表で報告するのみで判定には用いない（c7）",
+        "temperature 1.0 での 1 回実行どうしの比較で、差 0 を境とする判定が実行間変動（標準誤差およそ 0.02）に対して十分頑健であること。差が 0.02 未満のときは結論が揺らぎうる（c7）"
+      ],
+      "grounded_on": [
+        "s1.p6",
+        "s1.p10"
+      ],
+      "claims": [
+        {
+          "id": "c7",
+          "statement": "glm-5.3 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、同条件の glm-5.3-flash の平均 STE 以下である。",
+          "rationale": "同一ファミリー・同世代の大小 2 モデルを同じ Controller で比べる直接の検証であり、h2 の全体を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d7",
+              "summary": "d1 と同じ設定で、モデルを glm-5.3 と glm-5.3-flash に替えて 2 つの run を行い、平均 STE を比べる。",
+              "runs": [
+                {
+                  "run_id": "glm-5.3",
+                  "description": "glm-5.3 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                },
+                {
+                  "run_id": "glm-5.3-flash",
+                  "description": "glm-5.3-flash で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p6",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "glm-5.3",
+            "reference": "glm-5.3-flash",
+            "op": "<="
+          },
+          "prediction": {
+            "low": -0.15,
+            "high": -0.02,
+            "basis": "論文 Table 1 の pro と mini の STE 差は Gemini で -0.097、GPT で -0.140。open-weight でも同程度か、やや小さい差を予測する"
+          }
+        }
+      ],
+      "notes": [
+        "2026-09-27 15:20 JST: glm-5.3（実行 36a094fc、137 件中 5 件完走）と glm-5.3-flash（実行 819fbc83、14 件完走）の full run は、RIKYU の推論 API で glm-5.3 が約 15 tok/s しか出ず、502 も断続的に返ったため、並列度と試行上限を上げて 3 度投げ直した後も期限内に終わる見込みが立たず、利用者の判断で打ち切った。Claim 7（仮説 2）は結果なしのまま残す。"
+      ]
+    }
+  ]
+}
+==> .research/latex/iclr2024/claims.tex <==
+% AUTO-GENERATED by the update_record tool. DO NOT EDIT.
+% verify_paper regenerates this file from record.json and the run outputs
+% and fails on any difference, so manual edits always surface.
+\noindent\textbf{Hypothesis 1.} RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。~\cite[s1.p1, s1.p5, s1.p10]{duan-2025-measuring}
+\begin{enumerate}
+\item[\textbf{Claim 1}] deepseek-v4.1-flash で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} DeepSeek 系で唯一提供されている flash モデルが GPT-4.1-mini の水準に届けば、h1 の deepseek-v4.1-flash の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{deepseek-v4.1-flash}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (論文 Table 1 で 2025 年前半の mini モデルは 0.42〜0.63、pro モデルは 0.32〜0.46。2026 年の open-weight thinking モデルは論文の pro と mini の間に入ると見込み、GPT-4.1-mini との差は -0.30〜0 と予測する).
+  \emph{Observed:} -0.36024.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 2}] glm-5.2 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} GLM 系の前世代モデルが GPT-4.1-mini の水準に届けば、h1 の glm-5.2 の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{glm-5.2}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (c1 と同じ。前世代のため h1 の中では差が小さい側に出ると見込む).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 3}] kimi-k2.6 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Kimi 系の前世代モデルが GPT-4.1-mini の水準に届けば、h1 の kimi-k2.6 の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{kimi-k2.6}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (c1 と同じ).
+  \emph{Observed:} -0.39065.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 4}] kimi-k3 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Kimi 系の現行モデルが GPT-4.1-mini の水準に届けば、h1 の kimi-k3 の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{kimi-k3}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (c1 と同じ。現行世代の大型モデルのため差が大きい側に出ると見込む).
+  \emph{Observed:} -0.375628.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 5}] qwen3.6-35b で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Qwen 系の 35B モデルが GPT-4.1-mini の水準に届けば、h1 の qwen3.6-35b の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{qwen3.6-35b}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (c1 と同じ).
+  \emph{Observed:} -0.143611.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 6}] qwen3.8-27b で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の GPT-4.1-mini の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Qwen 系の 27B モデルが GPT-4.1-mini の水準に届けば、h1 の qwen3.8-27b の部分を担う。最も小さいモデルであり h1 の下限を決める。
+  \emph{Criterion:} \texttt{\detokenize{qwen3.8-27b}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.3, 0]$ (c1 と同じ。最小のモデルのため差が小さい側に出ると見込む).
+  \emph{Observed:} -0.352766.
+  \emph{Verdict:} supported.
+\end{enumerate}
+\noindent\emph{Assumed, so that the claims together imply Hypothesis 1:}
+\begin{itemize}
+\item temperature 1.0 での 1 回実行の平均 STE（137 件平均）の実行間変動が 0.05 より十分小さいこと。先行する Table 1 再現では件ごとの STE の標準偏差はおよそ 0.27、137 件平均の標準誤差はおよそ 0.02 であった（c1〜c6）
+\item RIKYU の推論 API が提供する各モデルが、公開重みと同等の能力を持つこと。量子化や serving の設定は公開されていない（c1〜c6）
+\item thinking を出力するモデルでも max\_tokens 32768 の範囲で本文が返り、本文が空のときの呼び直し（最大 3 回）で十分であること（c1〜c6）
+\item aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境の libroadrunner 2.8.0 と同じ軌道と評価値を与えること（c1〜c6）
+\item 平均 STE が GPT-4.1-mini の水準に届くかどうかを代表すること。RMS（modifier あり / なし）と NTS は同じ実行から表として報告するが、判定基準には用いない（c1〜c6）
+\item 論文の GPT-4.1-mini の値（0.6007）を比較対象とすること。GPT-4.1-mini を同じ Controller で再実行した先行研究でも 0.60 前後であり、論文値をそのまま使う（c1〜c6）
+\end{itemize}
+\noindent\textbf{Hypothesis 2.} 論文が報告する「各ファミリーで pro 版が mini 版を一貫して上回る」という構図は、open-weight の GLM-5.3 系でも成り立ち、glm-5.3 は glm-5.3-flash より SciGym-small の平均 STE が低い。~\cite[s1.p6, s1.p10]{duan-2025-measuring}
+\begin{enumerate}
+\item[\textbf{Claim 7}] glm-5.3 で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、同条件の glm-5.3-flash の平均 STE 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p6, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} 同一ファミリー・同世代の大小 2 モデルを同じ Controller で比べる直接の検証であり、h2 の全体を担う。
+  \emph{Criterion:} \texttt{\detokenize{glm-5.3}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{glm-5.3-flash}}.\texttt{\detokenize{trajectory_smape}} $\leq 0$.
+  \emph{Prediction:} $[-0.15, -0.02]$ (論文 Table 1 の pro と mini の STE 差は Gemini で -0.097、GPT で -0.140。open-weight でも同程度か、やや小さい差を予測する).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\end{enumerate}
+\noindent\emph{Assumed, so that the claims together imply Hypothesis 2:}
+\begin{itemize}
+\item glm-5.3-flash が glm-5.3 と同世代の小型版であること。両者の構成は公開されておらず、名前から仮定する（c7）
+\item 平均 STE の差 1 本で「上回る」を代表すること。論文は STE と RMS の両方で pro > mini としているが、RMS は表で報告するのみで判定には用いない（c7）
+\item temperature 1.0 での 1 回実行どうしの比較で、差 0 を境とする判定が実行間変動（標準誤差およそ 0.02）に対して十分頑健であること。差が 0.02 未満のときは結論が揺らぎうる（c7）
+\end{itemize}

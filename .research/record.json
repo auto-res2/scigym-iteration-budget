@@ -1,1 +1,1453 @@
-{}
+{
+  "literature": [
+    {
+      "id": "s1",
+      "title": "Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab",
+      "authors": [
+        "Haonan Duan",
+        "Stephen Zhewen Lu",
+        "Caitlin Fiona Harrigan",
+        "Nishkrit Desai",
+        "Jiarui Lu",
+        "Michał Koziarski",
+        "Leonardo Cotta",
+        "Chris J. Maddison"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2507.02083 (NeurIPS 2025 Datasets and Benchmarks Track)",
+      "arxiv_id": "2507.02083",
+      "url": "https://arxiv.org/pdf/2507.02083",
+      "bibkey": "duan-2025-measuring",
+      "verified_by": "arxiv",
+      "verified_at": "2026-09-30T11:18:19+00:00",
+      "fulltext": {
+        "path": ".research/sources/s1/fulltext.txt",
+        "sha256": "da6c8d3dcbbd8c768ee7735346726853026ccc88a9b03d475dc293e347c378fd"
+      },
+      "parser": "pymupdf 1.26.6",
+      "passages": [
+        {
+          "id": "s1.p1",
+          "node_type": "setup",
+          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M)."
+        },
+        {
+          "id": "s1.p2",
+          "node_type": "setup",
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks."
+        },
+        {
+          "id": "s1.p3",
+          "node_type": "setup",
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark)."
+        },
+        {
+          "id": "s1.p4",
+          "node_type": "setup",
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations"
+        },
+        {
+          "id": "s1.p5",
+          "node_type": "result",
+          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047"
+        },
+        {
+          "id": "s1.p6",
+          "node_type": "result",
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances."
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "repository",
+      "title": "h4duan/SciGym",
+      "authors": [
+        "h4duan"
+      ],
+      "year": 2025,
+      "url": "https://github.com/h4duan/SciGym",
+      "commit": "88a7b93609e35b6ecb4eb343d816d6ff09256c6a",
+      "bibkey": "h4duan-2025-scigym",
+      "verified_by": "git",
+      "verified_at": "2026-09-30T11:18:20+00:00",
+      "fulltext": {
+        "path": ".research/sources/s2/fulltext.txt",
+        "sha256": "ef43f447563987d222448b49dc32ea96f55b0df79e5ea614f247dc36166bc6f2"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s2.p1",
+          "node_type": "setup",
+          "quote": "temperature: 1.0"
+        },
+        {
+          "id": "s2.p2",
+          "node_type": "setup",
+          "quote": "max_iterations: 5"
+        },
+        {
+          "id": "s2.p3",
+          "node_type": "setup",
+          "quote": "eval_debug_rounds: 5"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "kind": "airas_record",
+      "title": "SciGym-small における open-weight モデルの事前登録評価: RIKYU の推論 API で提供される 8 モデルは論文の GPT-4.1-mini に届くか",
+      "authors": [
+        "auto-res2/scigym-rikyu-open-models (AIRAS)"
+      ],
+      "year": 2026,
+      "url": "https://github.com/auto-res2/scigym-rikyu-open-models",
+      "commit": "448f37a09a0b08100c7106ae09d7dfdb474c5372",
+      "bibkey": "scigymrikyuopenmodels-2026-scigym",
+      "verified_by": "airas_records",
+      "verified_at": "2026-09-30T11:18:28+00:00",
+      "fulltext": {
+        "path": ".research/sources/s3/fulltext.txt",
+        "sha256": "0b78acd15b4b3ecf545d3c43ff0e4bbc9e6eb8efb975d34fb7a77a14a82161bf"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s3.p1",
+          "node_type": "claim",
+          "quote": "RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。"
+        },
+        {
+          "id": "s3.p2",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.24046025032909796"
+        },
+        {
+          "id": "s3.p3",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.24793430926739368"
+        }
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "statement": "SciGym 公開コードの Controller を論文条件（eval_debug_rounds=3、temperature=1.0）のまま用い、open-weight 3 モデル（DeepSeek-V4.1-Flash、Qwen3.8-27B、Nemotron-3-Ultra）を自前 serving して SciGym-small 137 件と SciGym-large 213 件を解かせたとき、反復上限を論文の 20 から 80 に増やすと平均 Simulation Trajectory Error（STE）は雑音幅を超えて（0.03 以上）改善する。",
+      "assumptions": [
+        "temperature 1.0 での 1 回実行の平均 STE の実行間変動が判定に対して十分小さいこと（137 件平均の標準誤差約 0.02）（c1〜c12）",
+        "自前 serving（vLLM / NIM）したモデルが、提供元の推奨設定で呼んだ場合と同じ能力で応答すること。思考はサーバー側の reasoning parser で本文から分離する（c1〜c12）",
+        "文脈長の拡張（YaRN、NIM_MAX_MODEL_LEN）が 262,144 以内の応答品質を変えないこと（c1〜c12）",
+        "aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境と同じ軌道と評価値を与えること（c1〜c12）"
+      ],
+      "grounded_on": [
+        "s1.p3",
+        "s1.p5",
+        "s1.p6",
+        "s3.p1"
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "statement": "DeepSeek-V4.1-Flash で SciGym-small 137 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "DeepSeek-V4.1-Flash の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-small 137 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_small（公式 Evaluator）で採点する。モデルは vLLM 0.30.0（TP4、native 1M 文脈、reasoning parser deepseek_v41）、文脈長 1,048,576（native）。反復上限 40 の run は c7（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i01",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i05",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i10",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i20",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i80",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "deepseek-v4.1-flash-small-i80",
+            "reference": "deepseek-v4.1-flash-small-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.15,
+            "high": -0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        },
+        {
+          "id": "c2",
+          "statement": "DeepSeek-V4.1-Flash で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "DeepSeek-V4.1-Flash の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-large 213 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_large（公式 Evaluator）で採点する。モデルは vLLM 0.30.0（TP4、native 1M 文脈、reasoning parser deepseek_v41）、文脈長 1,048,576（native）。反復上限 40 の run は c8（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i01",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i05",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i10",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i20",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i80",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "deepseek-v4.1-flash-large-i80",
+            "reference": "deepseek-v4.1-flash-large-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.15,
+            "high": -0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        },
+        {
+          "id": "c3",
+          "statement": "Qwen3.8-27B で SciGym-small 137 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "Qwen3.8-27B の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-small 137 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_small（公式 Evaluator）で採点する。モデルは vLLM 0.30.0（TP4、公式モデルカードの YaRN 設定で 1M 文脈、reasoning parser qwen3）、文脈長 1,000,000（YaRN factor 4.0、native 262,144）。反復上限 40 の run は c9（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "qwen3.8-27b-small-i01",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-small-i05",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-small-i10",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-small-i20",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-small-i80",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.8-27b-small-i80",
+            "reference": "qwen3.8-27b-small-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.08,
+            "high": 0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        },
+        {
+          "id": "c4",
+          "statement": "Qwen3.8-27B で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "Qwen3.8-27B の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-large 213 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_large（公式 Evaluator）で採点する。モデルは vLLM 0.30.0（TP4、公式モデルカードの YaRN 設定で 1M 文脈、reasoning parser qwen3）、文脈長 1,000,000（YaRN factor 4.0、native 262,144）。反復上限 40 の run は c10（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "qwen3.8-27b-large-i01",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-large-i05",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-large-i10",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-large-i20",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "qwen3.8-27b-large-i80",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.8-27b-large-i80",
+            "reference": "qwen3.8-27b-large-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.08,
+            "high": 0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        },
+        {
+          "id": "c5",
+          "statement": "Nemotron-3-Ultra で SciGym-small 137 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "Nemotron-3-Ultra の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-small 137 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_small（公式 Evaluator）で採点する。モデルは NIM 2.0.11（vLLM backend、NIM_MAX_MODEL_LEN=1048576）、文脈長 1,048,576（NIM_MAX_MODEL_LEN、config は 262,144）。反復上限 40 の run は c11（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "nemotron-3-ultra-small-i01",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-small-i05",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-small-i10",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-small-i20",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-small-i80",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "nemotron-3-ultra-small-i80",
+            "reference": "nemotron-3-ultra-small-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.12,
+            "high": -0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        },
+        {
+          "id": "c6",
+          "statement": "Nemotron-3-Ultra で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。",
+          "rationale": "Nemotron-3-Ultra の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-large 213 件を、反復上限だけを 1 / 5 / 10 / 20 / 80 に変えて各 1 回解かせ、評価層 scigym_large（公式 Evaluator）で採点する。モデルは NIM 2.0.11（vLLM backend、NIM_MAX_MODEL_LEN=1048576）、文脈長 1,048,576（NIM_MAX_MODEL_LEN、config は 262,144）。反復上限 40 の run は c12（飽和の主張）の下にある。",
+              "runs": [
+                {
+                  "run_id": "nemotron-3-ultra-large-i01",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 1",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-large-i05",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 5",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-large-i10",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 10",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-large-i20",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 20",
+                  "params": {
+                    "mode": "full"
+                  }
+                },
+                {
+                  "run_id": "nemotron-3-ultra-large-i80",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 80",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3",
+            "s1.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "nemotron-3-ultra-large-i80",
+            "reference": "nemotron-3-ultra-large-i20",
+            "op": "<=",
+            "margin": -0.03
+          },
+          "prediction": {
+            "low": -0.12,
+            "high": -0.02,
+            "basis": "先行する 100 反復の内部試行では kimi-k3 が 20→100 反復で STE 0.225→0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457→0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "key": "small",
+          "caption": "SciGym-small 137 件。行はモデル / 反復上限。平均 STE（低いほど良い）、Reaction Matching Score の F1（modifier なし・あり、高いほど良い）、有効な提出件数、提出までの平均反復数、上限前に自ら提出した件数、文脈長を超えて提出に至らなかった件数。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "F1$_m$",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "平均反復",
+              "ref_path": "mean_iterations",
+              "round": 1
+            },
+            {
+              "header": "早期提出",
+              "ref_path": "n_early_submit",
+              "round": 0
+            },
+            {
+              "header": "文脈超過",
+              "ref_path": "n_context_overflow",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-small-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            }
+          ]
+        },
+        {
+          "key": "large",
+          "caption": "SciGym-large 213 件。列は表 small と同じ。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "F1$_m$",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "平均反復",
+              "ref_path": "mean_iterations",
+              "round": 1
+            },
+            {
+              "header": "早期提出",
+              "ref_path": "n_early_submit",
+              "round": 0
+            },
+            {
+              "header": "文脈超過",
+              "ref_path": "n_context_overflow",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-large-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            }
+          ]
+        },
+        {
+          "key": "context",
+          "caption": "文脈の使用量。行はモデル / 反復上限（small・large）。反復上限、サーバーの文脈長設定、LLM 呼び出し数、1 呼び出しあたりの平均プロンプト長と最大プロンプト長（トークン）、文脈超過で提出に至らなかった件数。",
+          "columns": [
+            {
+              "header": "上限",
+              "ref_path": "max_iterations",
+              "round": 0
+            },
+            {
+              "header": "文脈長",
+              "ref_path": "context_window",
+              "round": 0
+            },
+            {
+              "header": "呼び出し",
+              "ref_path": "n_calls",
+              "round": 0
+            },
+            {
+              "header": "平均プロンプト",
+              "ref_path": "mean_prompt_tokens",
+              "round": 0
+            },
+            {
+              "header": "最大プロンプト",
+              "ref_path": "max_prompt_tokens",
+              "round": 0
+            },
+            {
+              "header": "文脈超過",
+              "ref_path": "n_context_overflow",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-small-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "トークン使用量。行はモデル / 反復上限（small・large）。入力・出力トークン総数、LLM 呼び出し数、思考が本文に混じって除去した応答数。",
+          "columns": [
+            {
+              "header": "入力",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力",
+              "ref_path": "output_tokens",
+              "round": 0
+            },
+            {
+              "header": "呼び出し",
+              "ref_path": "n_calls",
+              "round": 0
+            },
+            {
+              "header": "思考混入",
+              "ref_path": "n_thinking_in_content",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-small-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i01",
+              "label": "DeepSeek-V4.1-Flash / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i05",
+              "label": "DeepSeek-V4.1-Flash / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i10",
+              "label": "DeepSeek-V4.1-Flash / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i20",
+              "label": "DeepSeek-V4.1-Flash / 20"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i40",
+              "label": "DeepSeek-V4.1-Flash / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i80",
+              "label": "DeepSeek-V4.1-Flash / 80"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i01",
+              "label": "Qwen3.8-27B / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i05",
+              "label": "Qwen3.8-27B / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i10",
+              "label": "Qwen3.8-27B / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i20",
+              "label": "Qwen3.8-27B / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i40",
+              "label": "Qwen3.8-27B / 40"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i80",
+              "label": "Qwen3.8-27B / 80"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i01",
+              "label": "Nemotron-3-Ultra / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i05",
+              "label": "Nemotron-3-Ultra / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i10",
+              "label": "Nemotron-3-Ultra / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i20",
+              "label": "Nemotron-3-Ultra / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i40",
+              "label": "Nemotron-3-Ultra / 40"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i80",
+              "label": "Nemotron-3-Ultra / 80"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "ギャップ: SciGym 論文は反復上限を 20 に固定して評価している（s1.p3）。エージェントは残り反復数を毎回知らされるので、上限は探索の深さそのものを決めるパラメータだが、上限を変えたときの性能変化は報告されていない。本研究は open-weight 3 モデルで上限を 1 / 5 / 10 / 20 / 40 / 80 に振り、STE の改善（h1）と飽和（h2）を事前登録して測る。",
+        "上限 k のとき Controller は反復 0〜k の k+1 回の実験・コード実行を許し、その後に提出を促す。1 本の長い run から途中点は切り出せない（上限がプロンプトに含まれ行動を変える）ので、上限ごとに独立の run とする。",
+        "margin: 先行する Table 1 再現で件ごとの STE の標準偏差は約 0.27、137 件平均の標準誤差は約 0.02、2 run の差では約 0.03。h1 の margin −0.03 は雑音幅を超える改善を要求し、h2 の 0.05 は「倍の予算で 0.05 未満」を飽和の定義とする。large（213 件）は標準誤差がやや小さいが同じ margin を使う。",
+        "run と主張の対応: c1〜c6（h1）は model × split ごとに i01 / i05 / i10 / i20 / i80 を持ち、criterion は i80 − i20。c7〜c12（h2）は同じ model × split の i40 を持ち、criterion は i40 − i80（i80 は c1〜c6 の run を参照）。順序は deepseek-v4.1-flash（small, large）、qwen3.8-27b（small, large）、nemotron-3-ultra（small, large）。i01 / i05 / i10 は主張の判定には使わず、表と図で曲線を示す。",
+        "計算環境: RIKYU（GB200 × 4 / ノード、aarch64）。LLM は run ごとに専用サーバー 1 ノードを Slurm job で立て、重みは job 開始時に HF から計算ノードの /tmp へ取得する（共有ストレージには置かない）。deepseek-v4.1-flash と qwen3.8-27b は vLLM 0.30.0（aarch64 sif、TP4）、nemotron-3-ultra は NIM 2.0.11。実験 run は Seyval BYO（RIKYU）で 1 run 1 job、同時 30 run まで。",
+        "文脈長: 論文条件からの逸脱として、qwen3.8-27b は公式モデルカードの YaRN 設定（factor 4.0、original 262,144）で 1M に、nemotron-3-ultra は NIM_MAX_MODEL_LEN=1048576 で 1M に拡張する（どちらも配布時の既定は 262,144）。deepseek-v4.1-flash は native 1M。反復上限 80 の large で文脈超過が反復の効果と混ざるのを避けるため。超過した件は提出なしとして不完全モデルで採点し、件数を表 context に出す。",
+        "実行の規則: instance_timeout = max(7200, 720 × 上限) 秒。出力が 3600 秒止まった試行は打ち切って反復 0 からやり直し、最大 3 試行。3 試行とも終わらなかった件は提出なしとして採点。思考が本文に混じった応答は本文先頭の思考節を除いてから Controller に渡し、件数を表 tokens に出す。",
+        "投入順: 反復上限 1 の 6 run を先に回し（sanity を含む）、終わり次第 残り 30 run を同時投入する（Seyval の同時上限 30）。"
+      ]
+    },
+    {
+      "id": "h2",
+      "statement": "同じ条件で反復上限を 40 から 80 に倍増しても、平均 STE の改善は 0.05 未満にとどまる（論文条件の 2 倍程度で性能は飽和する）。",
+      "assumptions": [
+        "h1 と同じ実行・serving・評価環境の仮定（c7〜c12）",
+        "反復上限 40 と 80 の run が同じサーバー設定・同じコミットで実行され、差が予算以外の条件によらないこと（c7〜c12）"
+      ],
+      "grounded_on": [
+        "s1.p3"
+      ],
+      "claims": [
+        {
+          "id": "c7",
+          "statement": "DeepSeek-V4.1-Flash で SciGym-small 137 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "DeepSeek-V4.1-Flash の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c1 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c1 と同じ条件で反復上限 40 の run を 1 回実行し、c1 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "deepseek-v4.1-flash-small-i40",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-small、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "deepseek-v4.1-flash-small-i40",
+            "reference": "deepseek-v4.1-flash-small-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": 0.0,
+            "high": 0.08,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        },
+        {
+          "id": "c8",
+          "statement": "DeepSeek-V4.1-Flash で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "DeepSeek-V4.1-Flash の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c2 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c2 と同じ条件で反復上限 40 の run を 1 回実行し、c2 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "deepseek-v4.1-flash-large-i40",
+                  "description": "DeepSeek-V4.1-Flash、SciGym-large、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "deepseek-v4.1-flash-large-i40",
+            "reference": "deepseek-v4.1-flash-large-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": 0.0,
+            "high": 0.08,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        },
+        {
+          "id": "c9",
+          "statement": "Qwen3.8-27B で SciGym-small 137 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "Qwen3.8-27B の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c3 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c3 と同じ条件で反復上限 40 の run を 1 回実行し、c3 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "qwen3.8-27b-small-i40",
+                  "description": "Qwen3.8-27B、SciGym-small、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.8-27b-small-i40",
+            "reference": "qwen3.8-27b-small-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": -0.02,
+            "high": 0.04,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        },
+        {
+          "id": "c10",
+          "statement": "Qwen3.8-27B で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "Qwen3.8-27B の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c4 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c4 と同じ条件で反復上限 40 の run を 1 回実行し、c4 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "qwen3.8-27b-large-i40",
+                  "description": "Qwen3.8-27B、SciGym-large、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "qwen3.8-27b-large-i40",
+            "reference": "qwen3.8-27b-large-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": -0.02,
+            "high": 0.04,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        },
+        {
+          "id": "c11",
+          "statement": "Nemotron-3-Ultra で SciGym-small 137 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "Nemotron-3-Ultra の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c5 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c5 と同じ条件で反復上限 40 の run を 1 回実行し、c5 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "nemotron-3-ultra-small-i40",
+                  "description": "Nemotron-3-Ultra、SciGym-small、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "nemotron-3-ultra-small-i40",
+            "reference": "nemotron-3-ultra-small-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": -0.01,
+            "high": 0.06,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        },
+        {
+          "id": "c12",
+          "statement": "Nemotron-3-Ultra で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。",
+          "rationale": "Nemotron-3-Ultra の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c6 の反復上限 80。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "c6 と同じ条件で反復上限 40 の run を 1 回実行し、c6 の反復上限 80 の run と比較する。",
+              "runs": [
+                {
+                  "run_id": "nemotron-3-ultra-large-i40",
+                  "description": "Nemotron-3-Ultra、SciGym-large、反復上限 40",
+                  "params": {
+                    "mode": "full"
+                  }
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "nemotron-3-ultra-large-i40",
+            "reference": "nemotron-3-ultra-large-i80",
+            "op": "<=",
+            "margin": 0.05
+          },
+          "prediction": {
+            "low": -0.01,
+            "high": 0.06,
+            "basis": "内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40→80 の差は雑音幅（約 0.03）程度と見る"
+          }
+        }
+      ]
+    }
+  ]
+}
