@@ -1,29 +1,27 @@
-# Please list the required python packages in `dependencies` below.
-# Keep this file limited to dependencies (hydra-core, wandb, plus
-# task-specific libraries).
-
 [project]
 name = "experiment"
 version = "0.1.0"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 dependencies = [
-    "hydra-core",
-    "wandb",
+    "pyyaml==6.0.2",
 ]
 
 # `src/` is run with `uv run python -m src.main` from the repository root,
 # never installed as a distribution, so this project is not a package.
 [tool.uv]
 package = false
+# 実験コードは公式 Controller を使うので、評価層の scigym extra に入る SciGym をそのまま使う
+default-groups = ["eval"]
+# aarch64 に wheel が無い固定版だけ差し替える（RIKYU の scigym_improvement と同じ）
+prerelease = "allow"
+override-dependencies = ["antimony==2.14.0", "libroadrunner==2.7.0"]
+# python-libnuml / python-libcombine は aarch64 の sdist ビルドが落ちる。tellurium は libnuml を使わず、
+# libcombine は import 時に参照するだけなので Dockerfile でスタブを置く
+exclude-dependencies = ["rrplugins", "phrasedml", "python-libnuml", "python-libcombine"]
 
-# Evaluation layer (managed by AIRAS). Pinned so the reported metrics are
-# reproducible; experiment code must NOT import airas_eval — it is invoked only
-# through `make evaluate` / the airas-eval CLI on the eval_inputs files.
+# 評価層。ベンチマークパック scigym_small は SciGym（コミット固定）と pygraphviz を extra で持つ
 [dependency-groups]
-eval = ["airas-eval"]
+eval = ["airas-eval[scigym]"]
 
-# airas-eval は git のタグで配布される(PyPI に無い git 固定の依存をベンチマークパックの
-# extra が持つため)。パックを使う研究は eval を `airas-eval[<pack>]` と書き、そのパックが
-# 要求する設定(プラットフォーム別の差し替えなど)は `airas-eval list <task>` の説明に従って研究側に置く
 [tool.uv.sources]
-airas-eval = { git = "https://github.com/airas-org/airas-eval", tag = "v0.12.5" }
+airas-eval = { git = "https://github.com/airas-org/airas-eval", tag = "v0.13.1" }

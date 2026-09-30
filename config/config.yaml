@@ -1,18 +1,13 @@
-# Main configuration for Hydra
-# This file will be populated by AI code generator based on experimental design
-
-defaults:
-  - _self_
-  - run: ???  # loads from config/run/, accessible as 'run=' in CLI
-
-# Execution mode: full, sanity, or pilot
 mode: full
-
-# Results output directory
 results_dir: .research/results
 
-# WandB configuration (will be set by AI agent)
-wandb:
-  entity: ???
-  project: ???
-  mode: online
+data_root: /data1/rkp00041/scigym_improvement/data/scigym_sbml  # small / large の親。run の yaml の split で選ぶ
+base_url: http://localhost:8000/v1  # 既定。run の yaml の base_url_file（NIM サーバーの job が書く接続先）で上書きする
+max_iterations: 20  # 既定。run の yaml で 5 / 10 / 20 / 40 / 80 に上書きする（本研究の独立変数）
+eval_debug_rounds: 3
+temperature: 1.0
+max_tokens: 32768
+workers: 16  # run ごとに専用サーバー（GB200 1 ノード）を立てるので、1 サーバーあたりの同時要求はこの数
+instance_timeout: 14400  # 1 件 1 試行の上限秒。run の yaml で上限反復に比例させる（max(2 時間, 720 秒 × 上限)）
+stall_timeout: 3600  # 出力が止まってからこの秒数で試行を打ち切る（ODE の C ライブラリ内で止まった件）
+resume_root: /data1/rkp00041/rku00122/resume  # 打ち切った run の完了済みの件（checkpoints/*.tar.gz）を run_id ごとに置く

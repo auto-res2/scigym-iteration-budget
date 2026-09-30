@@ -1,0 +1,7 @@
+model: qwen3.8-27b-large-i10
+split: large
+max_iterations: 10
+base_url_file: /data1/rkp00041/vllm/rku00122/qwen3.8-27b-large-i10.url  # サーバー job が書く接続先。run ごとに 1 サーバー
+context_window: 1000000
+instance_timeout: 7200  # 1 件 1 試行の上限秒。上限反復に比例（20 反復で 4 時間）
+workers: 16
