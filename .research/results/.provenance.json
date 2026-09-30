@@ -37,9 +37,9 @@
       }
     },
     "deepseek-v4.1-flash-small-i01": {
-      "execution_id": "3f116a1e-7652-4721-a3be-a0f88cd3007d",
+      "execution_id": "bd1842a8-4d94-4eda-9a7a-0237c8d28dd7",
       "backend": "seyval",
-      "commit_hash": "3f0ac0caeb0af152de174a747498c4dae9b4d843",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
       "overrides": {
         "run_id": "deepseek-v4.1-flash-small-i01",
         "mode": "full",
@@ -47,11 +47,11 @@
       },
       "parameters": {},
       "files": {
-        ".research/results/deepseek-v4.1-flash-small-i01/eval_inputs/scigym_small.json.gz": "70e25139d3f52f552df0059e8254a06e720b1a5a9e1890c058c5233b89626b90",
-        ".research/results/deepseek-v4.1-flash-small-i01/evaluation/scigym_small.json": "cad7929625dea7fe594068eab5486c72c18b4b52437d319211b09d358f91813e",
-        ".research/results/deepseek-v4.1-flash-small-i01/instances.tar.gz": "4174de0f475b45766fb446e0a233509ee2bfc7db352e8630a14a3b48b6cd751a",
-        ".research/results/deepseek-v4.1-flash-small-i01/metrics.json": "9f6a6d203a521f4f6d91b754c50d1be83f0e87a7ce25d581d922316ffa1ab3ec",
-        ".research/results/deepseek-v4.1-flash-small-i01/tokens.json": "ee4eff62b14720f8ece3e1d09a445dcd1e58f103e3d0d51295a80d9f812bbd5a"
+        ".research/results/deepseek-v4.1-flash-small-i01/eval_inputs/scigym_small.json.gz": "16724b6932246d2e4576ef66d3f64f06989bd83e6c2ceb9885e0ee6fec4dfc20",
+        ".research/results/deepseek-v4.1-flash-small-i01/evaluation/scigym_small.json": "25499e72c0cd6ea1de7a8d848b2d1a35a87d304663312f9dee6af6b1df736ffc",
+        ".research/results/deepseek-v4.1-flash-small-i01/instances.tar.gz": "4970d250176f53efa22107067770955d909f2e649383eb0222cc63014a6da065",
+        ".research/results/deepseek-v4.1-flash-small-i01/metrics.json": "389853212dfb54e37d83bff59839f9720fc6ec5faf0247e814c009ae3e961cd8",
+        ".research/results/deepseek-v4.1-flash-small-i01/tokens.json": "21f84a9532893622d7f273587088f7b3f6b26e1e9fcb5b1ec059972ec52a637d"
       }
     },
     "qwen3.8-27b-small-i01": {
