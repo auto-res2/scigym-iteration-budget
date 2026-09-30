@@ -1,0 +1,40 @@
+name: "Verify Paper"
+run-name: "🔎 Verify the paper"
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  verify-paper:
+    name: Verify the paper
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      # Values only, no PDF build: the build commits back onto the protected
+      # branch, so it stays in the non-required publish_paper workflow. A
+      # repository with no paper yet passes.
+      - name: Verify paper values against the record
+        env:
+          SEYVAL_API_KEY: ${{ secrets.SEYVAL_API_KEY }}
+          GH_PERSONAL_ACCESS_TOKEN: ${{ github.token }}
+        run: |
+          uvx --from "airas @ git+https://github.com/airas-org/airas.git@main#subdirectory=backend" \
+            airas verify-paper --local-path .

@@ -1,0 +1,184 @@
+name: "Publish Paper"
+run-name: "📄 Build the paper and publish the artifact of record"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".research/latex/**"
+      - ".research/record.json"
+      - ".research/results/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish-paper:
+    name: Build and publish the paper
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Decide whether this commit is our own PDF commit
+        id: guard
+        run: |
+          skip=false
+          if [ "${GITHUB_EVENT_NAME}" = "push" ] && git rev-parse --verify -q HEAD~1 > /dev/null; then
+            changed=$(git diff --name-only HEAD~1 HEAD)
+            if [ -n "$changed" ] \
+               && ! printf '%s\n' "$changed" | grep -q -v -E '^\.research/latex/[^/]+/paper\.pdf$'; then
+              skip=true
+              echo "HEAD changes only paper.pdf (the gate verified it against its artifact); nothing to build."
+            fi
+          fi
+          echo "skip=$skip" >> "$GITHUB_OUTPUT"
+
+      - name: Look for a paper
+        id: paper
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          if compgen -G ".research/latex/*/main.tex" > /dev/null; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No .research/latex/*/main.tex — nothing to build yet."
+          fi
+
+      - name: Install LaTeX toolchain
+        if: steps.paper.outputs.present == 'true'
+        uses: Wandalen/wretry.action@v3
+        with:
+          attempt_limit: 3
+          attempt_delay: 30000
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y \
+              texlive-base \
+              texlive-latex-recommended \
+              texlive-fonts-recommended \
+              texlive-latex-extra \
+              texlive-science \
+              texlive-luatex \
+              texlive-lang-japanese \
+              texlive-font-utils \
+              ghostscript
+
+      # pdflatex runs without shell escape, so epstopdf cannot convert the EPS
+      # files a class includes (mdpi's logo) during the build; convert them
+      # here under the name epstopdf-pkg looks for.
+      - name: Convert EPS files the templates include
+        if: steps.paper.outputs.present == 'true'
+        run: |
+          shopt -s nullglob
+          for eps in .research/latex/*/Definitions/*.eps .research/latex/*/*.eps; do
+            epstopdf "$eps" --outfile="${eps%.eps}-eps-converted-to.pdf"
+          done
+
+      - name: Install uv
+        if: steps.paper.outputs.present == 'true'
+        uses: astral-sh/setup-uv@v5
+
+      # Build only: the required paper gate (verify_paper) already verified
+      # the values on this commit before it could land here.
+      - name: Build the paper PDF
+        if: steps.paper.outputs.present == 'true'
+        run: |
+          uvx --from "airas @ git+https://github.com/airas-org/airas.git@main#subdirectory=backend" \
+            airas publish-paper --local-path . --output-dir paper-artifact
+
+      - name: Upload the built PDF
+        if: always() && steps.paper.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-paper-${{ github.sha }}
+          path: paper-artifact/
+          if-no-files-found: ignore
+
+      - name: Commit the CI-built PDF onto the protected branch
+        if: success() && steps.paper.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          pdf=$(ls paper-artifact/*.pdf 2>/dev/null | head -1 || true)
+          if [ -z "$pdf" ]; then
+            echo "No PDF to commit (verification removed it)."
+            exit 0
+          fi
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "GH_PERSONAL_ACCESS_TOKEN is not set as a repository secret;" \
+                 "the PDF stays in the artifact only (set_github_actions_secrets fixes this)."
+            exit 0
+          fi
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          template=$(basename "$(dirname "$(ls .research/latex/*/main.tex | head -1)")")
+          dest=".research/latex/$template/paper.pdf"
+          if [ -f "$dest" ] && cmp -s "$pdf" "$dest"; then
+            echo "$dest already holds this build."
+            exit 0
+          fi
+
+          cp "$pdf" "$dest"
+          digest=$(sha256sum "$pdf" | cut -d' ' -f1)
+          echo "paper.pdf sha256 for ${GITHUB_SHA}: ${digest}"
+          printf '### paper.pdf\n\n- built from: `%s`\n- sha256: `%s`\n- artifact: `verified-paper-%s`\n' \
+            "${GITHUB_SHA}" "${digest}" "${GITHUB_SHA}" >> "$GITHUB_STEP_SUMMARY"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          git commit -q \
+            -m "paper: CI-built PDF for ${GITHUB_SHA}" \
+            -m "Built by Publish Paper run ${GITHUB_RUN_ID} from ${GITHUB_SHA}; byte-identical to the artifact verified-paper-${GITHUB_SHA}."
+          sha=$(git rev-parse HEAD)
+          scratch="verify-paper-${GITHUB_SHA::12}"
+          echo "PDF commit $sha, staged on $scratch"
+
+          git push -q --force "$remote" "HEAD:refs/heads/$scratch"
+
+          state=pending
+          for _ in $(seq 1 60); do
+            sleep 20
+            state=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${sha}/check-runs" \
+              --jq '[.check_runs[] | select(.name == "Verify the record")]
+                    | if length == 0 then "pending"
+                      else (.[0] | if .status == "completed" then .conclusion else .status end) end')
+            echo "Verify the record on $sha: $state"
+            case "$state" in
+              success) break ;;
+              failure|cancelled|timed_out|action_required|stale)
+                echo "The gate rejected the PDF commit; nothing lands." >&2
+                exit 1 ;;
+            esac
+          done
+          if [ "$state" != success ]; then
+            echo "The gate did not finish in time; nothing lands." >&2
+            exit 1
+          fi
+
+          landed=false
+          for _ in $(seq 1 12); do
+            if git push -q "$remote" "HEAD:refs/heads/${GITHUB_REF_NAME}"; then
+              landed=true
+              break
+            fi
+            echo "push not accepted yet; retrying"
+            sleep 10
+          done
+          if [ "$landed" != true ]; then
+            echo "The PDF commit did not land on ${GITHUB_REF_NAME}." >&2
+            exit 1
+          fi
+          git push -q "$remote" --delete "$scratch" || true
+          echo "paper.pdf for ${GITHUB_SHA} landed as $sha on ${GITHUB_REF_NAME}."

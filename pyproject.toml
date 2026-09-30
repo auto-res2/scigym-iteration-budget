@@ -1,0 +1,29 @@
+# Please list the required python packages in `dependencies` below.
+# Keep this file limited to dependencies (hydra-core, wandb, plus
+# task-specific libraries).
+
+[project]
+name = "experiment"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "hydra-core",
+    "wandb",
+]
+
+# `src/` is run with `uv run python -m src.main` from the repository root,
+# never installed as a distribution, so this project is not a package.
+[tool.uv]
+package = false
+
+# Evaluation layer (managed by AIRAS). Pinned so the reported metrics are
+# reproducible; experiment code must NOT import airas_eval — it is invoked only
+# through `make evaluate` / the airas-eval CLI on the eval_inputs files.
+[dependency-groups]
+eval = ["airas-eval"]
+
+# airas-eval は git のタグで配布される(PyPI に無い git 固定の依存をベンチマークパックの
+# extra が持つため)。パックを使う研究は eval を `airas-eval[<pack>]` と書き、そのパックが
+# 要求する設定(プラットフォーム別の差し替えなど)は `airas-eval list <task>` の説明に従って研究側に置く
+[tool.uv.sources]
+airas-eval = { git = "https://github.com/airas-org/airas-eval", tag = "v0.12.5" }

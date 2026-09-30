@@ -1,0 +1,15 @@
+# Keeps the evaluation-layer pin current: when airas-eval publishes a new
+# version on PyPI, Dependabot opens a PR bumping airas-eval == X.Y.Z in
+# pyproject. toml. Merging it decides which evaluator new experiment
+# repositories are generated with; existing repositories keep their pin.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "airas-eval"
+    commit-message:
+      prefix: "deps(eval)"
+    labels: ["airas-eval"]

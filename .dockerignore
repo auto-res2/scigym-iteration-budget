@@ -1,0 +1,48 @@
+# Git files
+.git
+.gitignore
+.github
+
+# Python cache
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+# .venv must stay excluded: the image builds its own /workspace/.venv before
+# `COPY . .`, and UV_NO_SYNC=1 means a host .venv copied over it would not be
+# repaired at run time.
+.venv/
+venv/
+env/
+ENV/
+
+# uv cache
+.uv-cache/
+
+# Results and logs
+.research/results/**
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Lean build outputs (lean/.lake is rebuilt inside the image)
+lean/.lake/

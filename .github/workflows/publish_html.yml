@@ -1,0 +1,97 @@
+name: "Publish HTML"
+run-name: "🌐 Publish the HTML page"
+
+# Deploys the paper's HTML page to GitHub Pages from a workflow artifact:
+# no gh-pages branch, no commit. The repository's Pages source must be
+# "GitHub Actions" (prepare_repository sets it through the API).
+#
+# The page is .research/html/index.html when the repository holds one, else
+# the `full_html` field of .research/research_history.json. Figures under
+# .research/results and .research/diagrams are converted to PNG next to it
+# as images/<relative path>.png, the path the HTML refers to them by.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  RESULTS_DIR: ".research/results"
+  DIAGRAMS_DIR: ".research/diagrams"
+  SITE_DIR: "/tmp/site"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      has_page: ${{ steps.page.outputs.has_page }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect the page
+        id: page
+        run: |
+          set -e
+          mkdir -p "$SITE_DIR"
+          if [ -f .research/html/index.html ]; then
+            cp .research/html/index.html "$SITE_DIR/index.html"
+          else
+            python3 - <<'PY'
+          import json, os, sys
+          path = ".research/research_history.json"
+          history = json.load(open(path)) if os.path.isfile(path) else {}
+          html = history.get("full_html")
+          if not html:
+              print("No .research/html/index.html and no full_html in research_history.json — nothing to publish.")
+              sys.exit(0)
+          open(os.path.join(os.environ["SITE_DIR"], "index.html"), "w").write(html)
+          PY
+          fi
+          if [ -f "$SITE_DIR/index.html" ]; then
+            echo "has_page=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_page=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Convert figures to PNG
+        if: steps.page.outputs.has_page == 'true'
+        run: |
+          set -e
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils > /dev/null
+          for dir in "$RESULTS_DIR" "$DIAGRAMS_DIR"; do
+            [ -d "$dir" ] || continue
+            # In place under its own relative path, so same-named figures from
+            # different runs do not overwrite each other.
+            find "$dir" -type f -name "*.pdf" -print0 | while IFS= read -r -d '' pdf; do
+              rel="${pdf#"$dir"/}"
+              out="$SITE_DIR/images/${rel%.pdf}"
+              mkdir -p "$(dirname "$out")"
+              pdftoppm -singlefile -png "$pdf" "$out"
+            done
+          done
+
+      - name: Upload the page as the Pages artifact
+        if: steps.page.outputs.has_page == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.SITE_DIR }}
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.has_page == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

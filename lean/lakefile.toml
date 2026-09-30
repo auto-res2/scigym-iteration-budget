@@ -1,0 +1,29 @@
+# Lean project for `lean` claims (managed by AIRAS — not part of the agent's
+# allowed files, like the Makefile).
+#
+# The agent writes theorems and proofs under Airas/ and imports them from
+# Airas.lean. `make run RUN_ID=<run_id> MODE=<mode>` builds the module named in
+# config/run/<run_id>.yaml and writes .research/results/<run_id>/lean.json
+# through `lake exe airas-report`. The toolchain (lean-toolchain) and the
+# mathlib revision below are what the record's verifier pins; the gate
+# re-derives the report from them, so bumping either is a change to the record,
+# not a convenience.
+
+name = "airas"
+defaultTargets = ["Airas"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
+
+[[lean_lib]]
+name = "Airas"
+
+# Writes lean.json for one declaration: its type as Lean prints it, the axioms
+# it depends on (sorryAx included), and the build's errors and warnings. It
+# never judges: the verdict is derived by airas from this report.
+[[lean_exe]]
+name = "airas-report"
+root = "AirasReport"
+supportInterpreter = true
