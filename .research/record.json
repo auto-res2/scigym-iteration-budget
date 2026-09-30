@@ -34,27 +34,88 @@
         {
           "id": "s1.p2",
           "node_type": "setup",
-          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks."
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks.",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "31385d4cece7d4329777e698652bbc7402ec5105acd9eb8dae1b9e9244718474",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The cited source only supports that the small split has 137 tasks; it does not mention the large split or its size (213)."
+            }
+          ]
         },
         {
           "id": "s1.p3",
           "node_type": "setup",
-          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark)."
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark).",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "2007c12a3751eec6beb742ae0123c0dd1d8bed8c9e936bd0ae715dbbb1a02505",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "85e0aeb996d7bc30bac7a713c6ef12aea03af1bf932fa2f62d48bd9a98f3bf34",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p4",
           "node_type": "setup",
-          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations"
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations",
+          "judgments": [
+            {
+              "text_sha256": "2007c12a3751eec6beb742ae0123c0dd1d8bed8c9e936bd0ae715dbbb1a02505",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "d14f21936ac7e1c8331735c6938c7ae1ab62e685e3bd0f70a2eaaee3276684d7",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p5",
           "node_type": "result",
-          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047"
+          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047",
+          "judgments": [
+            {
+              "text_sha256": "0ac952c94442ae23e6b9abfb9cd3dff6281ec4ecd171522f40a56d7286878ccd",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p6",
           "node_type": "result",
-          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances."
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances.",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "03e3b446a0408ca51d2c29231f025c2545fc286a1b7b58c07ee37abf2346b6cc",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         }
       ]
     },
@@ -80,17 +141,52 @@
         {
           "id": "s2.p1",
           "node_type": "setup",
-          "quote": "temperature: 1.0"
+          "quote": "temperature: 1.0",
+          "judgments": [
+            {
+              "text_sha256": "822e83436cb77de4c12b249a228975550ede779c57e0a959dab667e5c5d4693a",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately states that the temperature is set to 1.0 as shown in the quoted configuration passage."
+            },
+            {
+              "text_sha256": "d14f21936ac7e1c8331735c6938c7ae1ab62e685e3bd0f70a2eaaee3276684d7",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text states that temperature is 1.0, which is directly and unambiguously shown in the quoted config passage."
+            }
+          ]
         },
         {
           "id": "s2.p2",
           "node_type": "setup",
-          "quote": "max_iterations: 5"
+          "quote": "max_iterations: 5",
+          "judgments": [
+            {
+              "text_sha256": "03e3b446a0408ca51d2c29231f025c2545fc286a1b7b58c07ee37abf2346b6cc",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text correctly reports that the default config sets max_iterations (反復上限) to 5, as seen in the quoted source."
+            }
+          ]
         },
         {
           "id": "s2.p3",
           "node_type": "setup",
-          "quote": "eval_debug_rounds: 5"
+          "quote": "eval_debug_rounds: 5",
+          "judgments": [
+            {
+              "text_sha256": "03e3b446a0408ca51d2c29231f025c2545fc286a1b7b58c07ee37abf2346b6cc",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "d14f21936ac7e1c8331735c6938c7ae1ab62e685e3bd0f70a2eaaee3276684d7",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The source passage specifies 'eval_debug_rounds: 5' in the config file, which matches the cited statement about the default value being 5."
+            }
+          ]
         }
       ]
     },
@@ -116,17 +212,53 @@
         {
           "id": "s3.p1",
           "node_type": "claim",
-          "quote": "RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。"
+          "quote": "RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The cited passage states that the 6 models were evaluated under 'up to 20 iterations', but does not explicitly say this matches the same '20 iteration' condition as Duan et al. or that evaluation protocols are fully identical. The citing text claims evaluation was under '同じ 20 反復の条件' (same 20-iteration condition), which could overstate the degree of experimental equivalence supported by the quoted passage alone."
+            }
+          ]
         },
         {
           "id": "s3.p2",
           "node_type": "result",
-          "quote": "\"trajectory_smape\": 0.24046025032909796"
+          "quote": "\"trajectory_smape\": 0.24046025032909796",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text claims that the average STE (trajectory_smape) for deepseek-v4.1-flash is 0.2405, and the quoted passage provides the value 0.24046025032909796 for 'trajectory_smape', which supports the claim."
+            },
+            {
+              "text_sha256": "8adb26b3fa9b1ca6174c585e816807a2118958b7d7f4d7609dfd4d9d2712986a",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately reports the 'trajectory_smape' value from the passage, with sufficient precision and context."
+            }
+          ]
         },
         {
           "id": "s3.p3",
           "node_type": "result",
-          "quote": "\"trajectory_smape\": 0.24793430926739368"
+          "quote": "\"trajectory_smape\": 0.24793430926739368",
+          "judgments": [
+            {
+              "text_sha256": "e897e62b2ccc216defd024e237ce23070cdfde116222e7e7547f925befb2d5ca",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text correctly reports the 'trajectory_smape' value (0.2479) for qwen3.8-27b, as found in the source passage."
+            },
+            {
+              "text_sha256": "8adb26b3fa9b1ca6174c585e816807a2118958b7d7f4d7609dfd4d9d2712986a",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text correctly reports the value of 0.2479 for qwen3.8-27b from the 'trajectory_smape' metric in the source."
+            }
+          ]
         }
       ]
     }
