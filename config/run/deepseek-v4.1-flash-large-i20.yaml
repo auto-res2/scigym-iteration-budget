@@ -1,4 +1,4 @@
-model: deepseek-v4.1-flash-large-i20
+model: deepseek-v4.1-flash  # vLLM の --served-model-name（モデル短名。どの run のサーバーでも同じ）
 split: large
 max_iterations: 20
 base_url_file: /data1/rkp00041/vllm/rku00122/deepseek-v4.1-flash-large-i20.url  # サーバー job が書く接続先。run ごとに 1 サーバー

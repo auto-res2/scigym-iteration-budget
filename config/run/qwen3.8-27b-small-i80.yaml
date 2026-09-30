@@ -1,4 +1,4 @@
-model: qwen3.8-27b-small-i80
+model: qwen3.8-27b  # vLLM の --served-model-name（モデル短名。どの run のサーバーでも同じ）
 split: small
 max_iterations: 80
 base_url_file: /data1/rkp00041/vllm/rku00122/qwen3.8-27b-small-i80.url  # サーバー job が書く接続先。run ごとに 1 サーバー
