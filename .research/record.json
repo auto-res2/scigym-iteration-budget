@@ -46,6 +46,16 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The cited source only supports that the small split has 137 tasks; it does not mention the large split or its size (213)."
+            },
+            {
+              "text_sha256": "3380c62d6b2b0b4ea00988a88fb6c62ee253d379afba22a6711dbe7adc3e26e0",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "08f791543c364e665e384684b5018e2d8a3e04ad7724878b3ab0b102970b11b6",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -66,6 +76,11 @@
             },
             {
               "text_sha256": "85e0aeb996d7bc30bac7a713c6ef12aea03af1bf932fa2f62d48bd9a98f3bf34",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "836d35ee153298fac8987b98c1fedf93532940fea344916e37b29bed4c6cf1d9",
               "model": "gpt-4.1",
               "supported": true
             }
@@ -97,6 +112,12 @@
               "text_sha256": "0ac952c94442ae23e6b9abfb9cd3dff6281ec4ecd171522f40a56d7286878ccd",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "33897364c21cab8d27d62348411f7d98049519b9481ff321f2a8ab5951b5de49",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The cited value for Gemini-2.5-Pro's STE (0.3212) is directly taken from Table 1 in the quoted passage."
             }
           ]
         },
@@ -112,6 +133,11 @@
             },
             {
               "text_sha256": "03e3b446a0408ca51d2c29231f025c2545fc286a1b7b58c07ee37abf2346b6cc",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "3380c62d6b2b0b4ea00988a88fb6c62ee253d379afba22a6711dbe7adc3e26e0",
               "model": "gpt-4.1",
               "supported": true
             }
@@ -219,6 +245,11 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The cited passage states that the 6 models were evaluated under 'up to 20 iterations', but does not explicitly say this matches the same '20 iteration' condition as Duan et al. or that evaluation protocols are fully identical. The citing text claims evaluation was under '同じ 20 反復の条件' (same 20-iteration condition), which could overstate the degree of experimental equivalence supported by the quoted passage alone."
+            },
+            {
+              "text_sha256": "836d35ee153298fac8987b98c1fedf93532940fea344916e37b29bed4c6cf1d9",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -238,6 +269,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text accurately reports the 'trajectory_smape' value from the passage, with sufficient precision and context."
+            },
+            {
+              "text_sha256": "836d35ee153298fac8987b98c1fedf93532940fea344916e37b29bed4c6cf1d9",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text presents the STE for deepseek-v4.1-flash as 0.2405, which is the SMAPE metric ('trajectory_smape') of 0.24046025032909796 from the quoted passage; there is no exaggeration or omission, so the citation is supported."
             }
           ]
         },
@@ -257,6 +294,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text correctly reports the value of 0.2479 for qwen3.8-27b from the 'trajectory_smape' metric in the source."
+            },
+            {
+              "text_sha256": "836d35ee153298fac8987b98c1fedf93532940fea344916e37b29bed4c6cf1d9",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text reports the average STE of qwen3.8-27b under the same evaluation conditions as in the quoted passage, whose 'trajectory_smape' is 0.2479, matching the value given. No overstatement or additional claim is present."
             }
           ]
         }
