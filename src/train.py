@@ -42,7 +42,15 @@ class OpenAICompatible(LLM):
 
     def _connect(self):
         if self.base_url_file:
-            self.base_url = Path(self.base_url_file).read_text().strip()
+            for waited in range(MAX_RETRIES):  # サーバーの job が立つ（立ち直る）までは接続先ファイルが無い。初回接続でも待つ
+                try:
+                    self.base_url = Path(self.base_url_file).read_text().strip()
+                    break
+                except FileNotFoundError:
+                    if waited == MAX_RETRIES - 1:
+                        raise
+                    print(f"no server url yet ({self.base_url_file}); wait 60s", flush=True)
+                    time.sleep(60)
         # NIM は認証なし（鍵の環境変数が無ければダミー）。15 tok/s のモデルは 1 応答に 10 分を超えるので timeout は 1 時間
         self.client = OpenAI(api_key=os.environ.get("RIKYU_API_KEY", "none"), base_url=self.base_url, max_retries=1, timeout=3600)
 
