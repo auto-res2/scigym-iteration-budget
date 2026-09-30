@@ -341,6 +341,24 @@
         ".research/results/nemotron-3-ultra-large-i20/metrics.json": "a2adc914f79186b90898df3901db93b26c5879ec7b7307c446b9da7e9294e2a7",
         ".research/results/nemotron-3-ultra-large-i20/tokens.json": "3e8dfbf1510ecb60df35ea05d8713d1fda93e4cf093beb028be1923fff6ab754"
       }
+    },
+    "deepseek-v4.1-flash-small-i20": {
+      "execution_id": "6d6fb591-be79-41b9-926e-85ccaf6ea01a",
+      "backend": "seyval",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
+      "overrides": {
+        "run_id": "deepseek-v4.1-flash-small-i20",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/deepseek-v4.1-flash-small-i20/eval_inputs/scigym_small.json.gz": "554b8541fef9aaa22ad385553ccb9560ccede4821a77616b343ad7105ecf949d",
+        ".research/results/deepseek-v4.1-flash-small-i20/evaluation/scigym_small.json": "63abe39ed3bb5aecb4d8e76714c85815e7d8830c271fb44e615b5b7e6604d134",
+        ".research/results/deepseek-v4.1-flash-small-i20/instances.tar.gz": "a31e07edbf0356caa728b1b6478e7ccb596735f362ad00e117e1d5d8ee948013",
+        ".research/results/deepseek-v4.1-flash-small-i20/metrics.json": "f9a11c8dfa3396598025274f52c4f47e20505c06d833e7fb0cdbf9bef6a4da0a",
+        ".research/results/deepseek-v4.1-flash-small-i20/tokens.json": "a141c1653e03d3f6f770409e25698df4bb41c80177a08ae18138b09b99686196"
+      }
     }
   }
 }
