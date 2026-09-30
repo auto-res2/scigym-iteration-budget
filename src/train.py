@@ -21,6 +21,9 @@ from scigym.controller import Controller  # noqa: E402
 
 BUDGET_EXCEEDED = 42  # 予算超過（HTTP 402）。RIKYU では起きない想定だが main.py は run 全体を止める
 CONTEXT_OVERFLOW = 43  # 会話が文脈長を超えた。main.py はやり直さず「提出に至らなかった件」として数える
+THINKING_EXHAUSTED = 44  # 思考だけで出力上限を使い切り本文が空の応答が続いた。文脈超過とは別に数える
+MAX_OUTPUT_TOKENS = 131072  # 1 応答の出力上限。思考で使い切ったらここまで倍々に上げる
+RESAMPLES = 2  # 出力上限でも本文が空なら、温度 1.0 で別サンプルをこの回数まで引き直す
 MAX_RETRIES = 360  # 5xx や接続断は 60 秒おきに最大 6 時間呼び直す。推論 API は数時間止まることがあり、試行を落とすと反復が無駄になる
 CONTEXT_WINDOW = 262144  # 既定。run の yaml の context_window（サーバーの /v1/models の max_model_len）で上書きする
 # サーバー側の reasoning parser が思考を分離し損ねたときの保険。本文先頭の <think>…</think> か、思考の見出しで始まる節を除く
@@ -52,6 +55,7 @@ class OpenAICompatible(LLM):
     def get_response(self, user_message):
         self.add_message("user", user_message)
         max_tokens = self.max_length
+        resamples = 0
         for attempt in range(MAX_RETRIES):
             try:
                 response = self.client.chat.completions.create(
@@ -95,7 +99,14 @@ class OpenAICompatible(LLM):
                 f.write(json.dumps(response.model_dump(), ensure_ascii=False) + "\n")
             if choice.finish_reason == "length":  # thinking で使い切った。文脈長に収まる範囲で上限を上げて呼び直す
                 prompt_tokens = usage["prompt_tokens"] if usage else 0
-                new_max = min(max_tokens * 2, 131072, self.context_window - prompt_tokens - 1024)
+                if max_tokens >= MAX_OUTPUT_TOKENS:  # 出力上限でも本文が出ない。思考が終わらないサンプル
+                    if resamples < RESAMPLES:
+                        resamples += 1
+                        print(f"thinking exhausted {max_tokens} tokens; resample {resamples}/{RESAMPLES}", flush=True)
+                        continue
+                    print(f"thinking exhausted: {RESAMPLES + 1} samples used {max_tokens} tokens without content", flush=True)
+                    sys.exit(THINKING_EXHAUSTED)
+                new_max = min(max_tokens * 2, MAX_OUTPUT_TOKENS, self.context_window - prompt_tokens - 1024)
                 if new_max <= max_tokens:
                     print(f"context overflow: prompt {prompt_tokens} tokens leaves no room to grow max_tokens", flush=True)
                     sys.exit(CONTEXT_OVERFLOW)

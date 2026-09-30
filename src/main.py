@@ -15,6 +15,7 @@ import yaml
 
 BUDGET_EXCEEDED = 42
 CONTEXT_OVERFLOW = 43
+THINKING_EXHAUSTED = 44
 
 
 def cli_args():
@@ -26,8 +27,8 @@ def run_instance(cfg, run_dir, instance):
     out = run_dir / "instances" / instance.name
     if (out / "evaluation.json").exists():
         return 0
-    if (out / "context_overflow").exists():
-        return 0  # 文脈長を超えた件。やり直しても同じなので「提出なし」として不完全モデルで採点する
+    if (out / "context_overflow").exists() or (out / "thinking_exhausted").exists():
+        return 0  # 文脈長を超えた件、思考が終わらなかった件。やり直さず「提出なし」として不完全モデルで採点する
     if (out / "stdout.txt").exists() and (out / "stdout.txt").read_text().count("killed after") >= 3:
         return 0  # 3 試行とも上限で打ち切られた件。公式の「有効な提出なし」と同じく不完全モデルで採点する
     args = {
@@ -60,9 +61,11 @@ def run_instance(cfg, run_dir, instance):
                 return 1
     if proc.returncode == CONTEXT_OVERFLOW:
         (out / "context_overflow").touch()
+    if proc.returncode == THINKING_EXHAUSTED:
+        (out / "thinking_exhausted").touch()
     if not (out / "evaluation.json").exists():  # 失敗した run の作業ディレクトリは残らないので原因を標準出力へ
         print(f"[{instance.name}] no evaluation.json; log tail:", *(out / "stdout.txt").read_text().splitlines()[-25:], sep="\n  ")
-    if (out / "evaluation.json").exists() or (out / "context_overflow").exists():
+    if (out / "evaluation.json").exists() or (out / "context_overflow").exists() or (out / "thinking_exhausted").exists():
         checkpoint(run_dir, instance.name)
     return proc.returncode
 
@@ -116,11 +119,13 @@ def main():
             print(f"{stage}_VALIDATION: FAIL reason=budget_exceeded")
             sys.exit(1)
     submitted, tokens = {}, {"input_tokens": 0, "output_tokens": 0, "n_calls": 0, "n_thinking_in_content": 0, "max_prompt_tokens": 0}
-    iterations, n_overflow = [], 0
+    iterations, n_overflow, n_exhausted = [], 0, 0
     for instance in instances:
         out = run_dir / "instances" / instance.name
         if (out / "context_overflow").exists():
             n_overflow += 1
+        if (out / "thinking_exhausted").exists():
+            n_exhausted += 1
         # 文脈超過した件の呼び出し数・最大プロンプト長も文脈の表に数える（tokens.json は超過時にも書く）
         if (out / "tokens.json").exists():
             for k, v in json.loads((out / "tokens.json").read_text()).items():
@@ -135,6 +140,7 @@ def main():
         "mean_iterations": sum(iterations) / len(iterations) if iterations else 0.0,
         "n_early_submit": sum(i < max_iterations for i in iterations),  # 上限を使い切らずに自ら提出した件
         "n_context_overflow": n_overflow,
+        "n_thinking_exhausted": n_exhausted,  # 思考だけで出力上限を使い切る応答が 3 サンプル続いて提出に至らなかった件
         "n_not_finished": len(instances) - len(submitted),
     }
     (run_dir / "eval_inputs").mkdir(parents=True, exist_ok=True)
