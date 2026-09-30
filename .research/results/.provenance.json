@@ -359,6 +359,24 @@
         ".research/results/deepseek-v4.1-flash-small-i20/metrics.json": "f9a11c8dfa3396598025274f52c4f47e20505c06d833e7fb0cdbf9bef6a4da0a",
         ".research/results/deepseek-v4.1-flash-small-i20/tokens.json": "a141c1653e03d3f6f770409e25698df4bb41c80177a08ae18138b09b99686196"
       }
+    },
+    "deepseek-v4.1-flash-large-i20": {
+      "execution_id": "496d7a05-421a-498e-a0b9-6106ab4df682",
+      "backend": "seyval",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
+      "overrides": {
+        "run_id": "deepseek-v4.1-flash-large-i20",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_large"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/deepseek-v4.1-flash-large-i20/eval_inputs/scigym_large.json.gz": "176402012778cea9be92d8fff4d3820b75266f0ee10198e6e8d2d18ab9002c3f",
+        ".research/results/deepseek-v4.1-flash-large-i20/evaluation/scigym_large.json": "e718992e4fd8c1fb4af1cdfa77b28d1e230053d9423f080568cb6cdacf743347",
+        ".research/results/deepseek-v4.1-flash-large-i20/instances.tar.gz": "7766a49c5ee8bf125c69b5de0fce64b777625d8a0374a10ef4b6b6bb7e899f65",
+        ".research/results/deepseek-v4.1-flash-large-i20/metrics.json": "ad8b7d361dbaf1097c13dc22079097068ee0779208c83e6f6a340fc167e4171f",
+        ".research/results/deepseek-v4.1-flash-large-i20/tokens.json": "e75ccce7487901594a229c86f77ed03410484d701b604e907b028071c163d735"
+      }
     }
   }
 }
