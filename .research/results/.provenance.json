@@ -287,6 +287,24 @@
         ".research/results/qwen3.8-27b-small-i05/metrics.json": "4520ff3e84673524609f76e873bd2efe47390f32a489af51969155726690bd8d",
         ".research/results/qwen3.8-27b-small-i05/tokens.json": "5c4965089e6185bc282c5ba2abbd51a23f9c721684777499b129db7d4754b796"
       }
+    },
+    "nemotron-3-ultra-small-i40": {
+      "execution_id": "3f27fa97-ff85-42c7-92e8-9d5d840a0612",
+      "backend": "seyval",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
+      "overrides": {
+        "run_id": "nemotron-3-ultra-small-i40",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/nemotron-3-ultra-small-i40/eval_inputs/scigym_small.json.gz": "6d8322e9a55afdb2cb6e160c4981e2ac7ac29015c5f9b399b93be1d3082ad86a",
+        ".research/results/nemotron-3-ultra-small-i40/evaluation/scigym_small.json": "13557f0c8f49f7e64ab0b7bd4a9fce2b63562f52a66d2ada582bc3d0c8a57849",
+        ".research/results/nemotron-3-ultra-small-i40/instances.tar.gz": "f8c837a064afd8c7b8893e49d39fbd858b5f6b20c41215b286c7be9a1f95140a",
+        ".research/results/nemotron-3-ultra-small-i40/metrics.json": "db407cf377f802fd658fd9116b5a9fefc07eeb5bf3443b39ea28dd945c20185d",
+        ".research/results/nemotron-3-ultra-small-i40/tokens.json": "3ead03c84933076798f0af81b79bd5e601bbd09eaa380da3a385d6d55318b612"
+      }
     }
   }
 }
