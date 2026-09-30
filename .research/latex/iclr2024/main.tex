@@ -1,0 +1,119 @@
+\PassOptionsToPackage{numbers}{natbib}
+\documentclass{article}
+\usepackage{iclr2024_conference}
+\usepackage{luatexja-fontspec}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\graphicspath{{../}}
+
+\InputIfFileExists{values.tex}{}{}
+\providecommand{\airasval}[1]{\textbf{??airasval:\detokenize{#1}??}}
+\providecommand{\unverified}[1]{#1}
+\providecommand{\airasrecordlink}[1]{#1}
+
+\title{SciGym における反復上限の効果の事前登録評価: open-weight 3 モデルで上限を 1 から 80 まで振り、改善と飽和を測る}
+\author{AIRAS}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+SciGym \citep{duan-2025-measuring} は、反応をすべて取り除いた SBML モデルを LLM エージェントに渡し、摂動実験とコード実行を繰り返して反応機構を復元させるベンチマークである。論文はエージェントが使える反復の上限を 20 に固定して評価しており、上限を変えたときに性能がどう変わるかは報告されていない。エージェントは残り反復数を毎回知らされるので、上限は探索の深さそのものを決めるパラメータである。本研究は、公開コードの Controller と評価器をそのまま用い、反復上限だけを 1 / 5 / 10 / 20 / 40 / 80 に変えて、open-weight 3 モデル（DeepSeek-V4.1-Flash、Qwen3.8-27B、Nemotron-3-Ultra）を RIKYU の GB200 ノード上で自前 serving し、SciGym-small 137 件と SciGym-large 213 件で評価する。実験前に、上限を論文の 20 から 80 に増やすと平均 Simulation Trajectory Error（STE）が雑音幅を超えて改善すること（仮説 1）と、40 から 80 への改善は 0.05 未満にとどまること（仮説 2）を、モデル × split ごとの 12 の主張として登録する。上限に対して実際に使った反復数、自発的に提出した件数、文脈長の使用量と超過件数を STE と並べて報告し、上限が効くのはモデルが予算を使い切る場合に限られるかを見る。
+\end{abstract}
+
+\section{はじめに}
+\label{sec:intro}
+LLM に科学的発見のサイクル全体（実験の設計、結果の解析、機構の提案）を行わせて測るベンチマークとして、SciGym \citep{duan-2025-measuring} が提案された。BioModels 由来の SBML モデルから反応をすべて取り除いたものをエージェントに渡し、エージェントは初期濃度を変えた摂動実験を要求し、返ってきた時系列を Python で解析し、最終的な SBML を提出する。提出モデルは真のモデルと、軌道誤差（STE）と反応の一致度（RMS）で比較される。
+
+論文の主結果である Table 1 は、3 社の pro / mini 計 6 モデルを SciGym-small の 137 件で評価した平均値である \cite[s1.p2, s1.p6]{duan-2025-measuring}。この評価では、エージェントはいつでも提出できるが反復の上限は 20 に固定されている \cite[s1.p3]{duan-2025-measuring}。AIRAS の先行研究は、RIKYU の推論 API で提供される open-weight モデル 6 種を、公開コードの Controller で SciGym-small 137 件を最大 20 反復で解かせて評価し \cite[s3.p1]{scigymrikyuopenmodels-2026-scigym}、deepseek-v4.1-flash の平均 STE が \unverified{0.2405} \cite[s3.p2]{scigymrikyuopenmodels-2026-scigym}、qwen3.8-27b が \unverified{0.2479} \cite[s3.p3]{scigymrikyuopenmodels-2026-scigym} と、論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回ることを示した。
+
+いずれの評価も反復上限 20 という 1 点での測定である。SciGym の Controller はエージェントに毎ターン「残り反復数 / 上限」を伝えるので、上限は単に打ち切りの位置ではなく、エージェントがどれだけ探索してから提出するかを決める条件でもある。上限を増やせば実験データが増えて性能が上がるのか、それともモデルは上限に関わらず一定の反復で自発的に提出してしまい上限は効かないのか、そして効くとすればどこで飽和するのかは分かっていない。本研究はこの 1 軸を系統的に振る。判定は AIRAS の事前登録の枠組みに従い、仮説・判定基準・予測区間・実行条件を実験前に記録へ凍結し、実験後は計測値だけを流し込む。
+
+\section{関連研究}
+\label{sec:related}
+SciGym \citep{duan-2025-measuring} は、単一スキルを測る既存のベンチマークと異なり、エージェントが自ら摂動実験を設計してその結果を受け取る閉ループを評価する。評価指標は STE、RMS（modifier まで要求する厳格版もある）、NTS の 3 つで、論文は pro モデルが mini モデルを一貫して上回り、Gemini-Pro が最良であったと報告している \cite[s1.p6]{duan-2025-measuring}。公開コードの既定の config は反復上限 5 \cite[s2.p2]{h4duan-2025-scigym}、デバッグ反復 5 \cite[s2.p3]{h4duan-2025-scigym} で、論文の条件（20 と 3）とは異なる。
+
+open-weight モデルの 20 反復での評価では、deepseek-v4.1-flash が \unverified{0.2405} \cite[s3.p2]{scigymrikyuopenmodels-2026-scigym}、qwen3.8-27b が \unverified{0.2479} \cite[s3.p3]{scigymrikyuopenmodels-2026-scigym} に達している。本研究の 3 モデルのうち 2 つはこの先行研究と同じモデルであり、上限 20 の run は先行値の再測定にもなる。
+
+\section{仮説と予測}
+\label{sec:hypothesis}
+以下は記録（record.json）から生成された仮説・主張・判定基準・予測区間の一覧である。実験後は Observed と Verdict が計測値から埋められる。
+
+\input{claims.tex}
+
+\paragraph{判定基準と予測区間の根拠.}
+仮説 1（Claim 1〜6）の反証線は「（上限 80 の平均 STE）$-$（上限 20 の平均 STE）$\le -0.03$」である。先行する Table 1 再現では件ごとの STE の標準偏差はおよそ 0.27 で、137 件平均の標準誤差は約 0.02、2 つの run の差では約 0.03 になる。margin $-0.03$ は、この雑音幅を超える改善だけを「効いた」と数えるための線である。仮説 2（Claim 7〜12）の反証線は「（上限 40 の平均 STE）$-$（上限 80 の平均 STE）$\le 0.05$」で、予算を倍にしても改善が 0.05 未満であることを飽和の定義とする。上限 80 の run は仮説 1 の主張の下にあり、仮説 2 の主張はそれを基準 run として参照する。large（213 件）は標準誤差がやや小さいが、同じ margin を使う。
+
+予測区間はモデルごとに置いた。根拠は、本記録には含まれない予備試行で、kimi-k3 が上限 100 のとき平均 67.8 反復まで使って STE が 20 反復時の 0.225 から 0.088 へ大きく改善した一方、qwen3.6-35b は上限 100 でも平均 20.7 反復で自発的に提出し 0.457 から 0.446 とほぼ横ばいだったことである。予算を使い切るモデルほど改善が大きいと見て、DeepSeek-V4.1-Flash（文脈長 1M、大型 MoE）には広い改善幅、Qwen3.8-27B（qwen 系は早く提出する傾向）には 0 を含む幅、Nemotron-3-Ultra（20 反復の先行実行で 137 件中 50 件を上限前に提出）にはその中間を置く。反復上限 1 / 5 / 10 の run は主張の判定には使わず、曲線の低予算側を表と図で示すためのものである。
+
+\section{方法}
+\label{sec:method}
+\paragraph{タスク.}
+各インスタンスは真の SBML（\texttt{truth.xml}）、反応を取り除いた不完全な SBML（\texttt{partial.xml}）、シミュレーション条件（\texttt{truth.sedml}）からなる。エージェントは不完全な SBML を受け取り、各ターンで実験（初期濃度の変更を指定し、真のモデルの時系列を得る）、コード実行（numpy / pandas / scipy / libsbml と、仮説モデルを走らせる \texttt{simulate} 関数が使える）、提出のいずれかを markdown 形式で返す。提出は任意の時点で行え、論文では反復数の上限は 20 である \cite[s1.p3]{duan-2025-measuring}。提出した SBML が無効な場合は追加のデバッグ反復が許され \cite[s1.p4]{duan-2025-measuring}、それでも無効なら不完全 SBML のまま採点される。
+
+\paragraph{反復上限の意味.}
+公開コードの Controller は、上限 $k$ のとき反復 $0$ から $k$ までの $k+1$ 回の実験・コード実行を許し、各ターンのフィードバックに「残り反復数 / 上限」を含める。残りが 0 になると最終モデルの提出を促す。上限はプロンプトの一部としてエージェントに見えているので、上限 80 の run の 20 反復目と上限 20 の run の 20 反復目は同じ状態ではない。したがって 1 本の長い run から途中の点を切り出すことはできず、上限ごとに独立した run を実行する。
+
+\paragraph{実行系.}
+ループ、プロンプト、実験の実行はすべて公開コード \citep{h4duan-2025-scigym} の \texttt{Controller} をそのまま用いる。本研究が書くのは、(1) OpenAI 互換 API でモデルを呼ぶ \texttt{LLM} 実装（公式の GPT 実装と同じく、システムプロンプトと全履歴を毎回送る）、(2) インスタンスごとに 1 プロセスで Controller を起動し、複数件を並列に走らせる駆動部、(3) 各インスタンスの提出モデルと公式データを評価層の入力ファイルに書き出す部分だけである。公式コードでは履歴がクラス属性として定義されており 1 プロセスで複数件を走らせると履歴が持ち越されるが、1 件 1 プロセスとすることでこの問題を避ける。LLM が書いた解析コードや提出モデルの評価が ODE ソルバーの C ライブラリ内で止まると公式の 3 分制限（\texttt{signal.alarm}）が効かないので、駆動部は出力が 60 分止まった試行を打ち切って反復 0 からやり直す（最大 3 試行）。1 件 1 試行の上限時間は上限反復に比例させ、$\max(2\,\text{時間},\ 12\,\text{分} \times \text{上限})$ とする。
+
+\paragraph{serving.}
+3 モデルはいずれも RIKYU の GB200 ノード（4 GPU）上に、run ごとに専用の OpenAI 互換サーバーを Slurm job で立てて呼ぶ。DeepSeek-V4.1-Flash と Qwen3.8-27B は vLLM 0.30.0（tensor parallel 4）、Nemotron-3-Ultra は NVIDIA NIM 2.0.11（vLLM backend）である。重みは共有ストレージに置かず、job の開始時に Hugging Face から計算ノードのローカルディスクへ取得する。思考（reasoning）はサーバー側の reasoning parser で本文から分離し（vLLM は \texttt{qwen3} / \texttt{deepseek\_v41}、NIM は既定）、分離し損ねて本文の先頭に思考の節が残った応答は駆動部が除いてから Controller に渡し、その件数を表に出す。サーバーの job は計算機の 4 日上限で打ち切られうるので、実験側はサーバーの接続先を共有ディスク上のファイルから読み、接続断のたびに読み直して別ノードで立ち直ったサーバーに繋ぎ直す。
+
+\paragraph{文脈長.}
+反復が増えると会話履歴に実験データの表が積み上がり、上限 80 の large では配布時の文脈長 262,144 トークンを超える件が多くなると見込まれる。文脈超過が反復の効果と混ざるのを避けるため、論文条件からの逸脱として文脈長を 1M に揃える。DeepSeek-V4.1-Flash は native で 1,048,576 トークン、Qwen3.8-27B は公式モデルカードの YaRN 設定（factor 4.0、original 262,144）で 1,000,000 トークン、Nemotron-3-Ultra は NIM の \texttt{NIM\_MAX\_MODEL\_LEN} で 1,048,576 トークンに設定する（後の 2 つは配布時の既定 262,144 からの拡張）。それでも超過した件は提出なしとして不完全モデルの採点値で平均に含め、件数と 1 呼び出しあたりの平均・最大プロンプト長を表に出す。
+
+\paragraph{指標.}
+採点は評価層 airas-eval のベンチマークパック \texttt{scigym\_small}（137 件）と \texttt{scigym\_large}（213 件）が行う。パックは公式リリースの各件（truth / partial / sedml）を sha256 で固定し、公開コードの \texttt{Evaluator}（コミット 88a7b93）で提出モデルを採点して、STE（\texttt{trajectory\_smape}）、RMS の適合率・再現率・F1（modifier なし \texttt{reaction\_*}、あり \texttt{reaction\_*\_with\_modifiers}）、NTS の F1（\texttt{topology\_f1}）を件の単純平均で返す。提出 SBML が無い、または無効な件は、公式評価どおり不完全 SBML の採点値で平均に含める。駆動部は STE に加えて、提出までに使った反復数の平均、上限前に自ら提出した件数、LLM 呼び出し数、入力・出力トークン、1 呼び出しあたりの平均・最大プロンプト長、文脈超過の件数を数える。
+
+\section{実験設計}
+\label{sec:design}
+\paragraph{独立変数.}
+反復上限 \texttt{max\_iterations} $\in \{1, 5, 10, 20, 40, 80\}$。20 が論文条件 \cite[s1.p3]{duan-2025-measuring} で、それ以外は 2 倍刻みの前後である。上限 1 は観測 2 回で提出する下限、80 は文脈長 1M と 4 日の job 上限の中で収まる上限として置いた。
+
+\paragraph{モデル.}
+DeepSeek-V4.1-Flash（deepseek-ai/DeepSeek-V4.1-Flash、FP8、native 1M 文脈）、Qwen3.8-27B（Qwen/Qwen3.8-27B、BF16）、Nemotron-3-Ultra（nvidia/nemotron-3-ultra-550b-a55b、NIM の NVFP4 量子化）の 3 種。いずれも重みが公開されており、思考は既定の有効のまま、温度は公開 config の 1.0 \cite[s2.p1]{h4duan-2025-scigym} で呼ぶ。
+
+\paragraph{データ.}
+SciGym の公式リリース（Hugging Face \texttt{h4duan/scigym-sbml}）のうち、論文の評価対象は small split の 137 件である \cite[s1.p2]{duan-2025-measuring}。本研究はこれに加えて公式リリースの large split 213 件も用いる（いずれも RIKYU 上のコピー）。評価層は各件の内容を公式リリースの sha256 と照合する。
+
+\paragraph{run.}
+1 run は 1 モデル × 1 split × 1 上限で、3 × 2 × 6 = 36 run。run id は \texttt{<model>-<split>-i<上限 2 桁>}（例 \texttt{qwen3.8-27b-small-i20}）。各 run は各インスタンスを 1 回ずつ実行する。並列は 1 run あたり 16 件で、run ごとに専用のサーバー 1 ノードを使う。
+
+\paragraph{設定.}
+\texttt{eval\_debug\_rounds} は論文本文の 3 \cite[s1.p4]{duan-2025-measuring}（公開 config の既定値は 5 \cite[s2.p3]{h4duan-2025-scigym}）、\texttt{temperature} は 1.0 \cite[s2.p1]{h4duan-2025-scigym}、摂動は初期濃度の変更のみとする。応答のトークン上限は 32768 とし、思考で使い切った応答は文脈長に収まる範囲で上限を倍にして呼び直す。上限反復以外の設定は全 run で同一である。
+
+\paragraph{計算資源と環境.}
+実行は Seyval を通じて RIKYU（Slurm、GB200 ノード、aarch64）で行い、LLM は同じ計算機上のサーバーを呼ぶ。環境は Dockerfile と \texttt{uv.lock} で固定する。aarch64 向けの wheel が無いため、libroadrunner は公式の 2.8.0 ではなく 2.7.0、antimony は 2.14.0 を用い、rrplugins と phrasedml は除外する。この差でシミュレーション結果がわずかに変わる可能性があり、仮説の前提として記録する。
+
+\paragraph{段階と順序.}
+sanity は small の先頭 1 件を 2 反復で走らせて配管を確かめる。主張の判定は full の結果だけで行い、sanity の結果は記録に取り込まない。full は上限 1 の 6 run を先に回し、終わり次第残り 30 run を同時に投入する（実行基盤の同時 run 上限が 30）。
+
+\paragraph{run と主張の対応.}
+Claim 1〜6 は model × split（DeepSeek small / large、Qwen small / large、Nemotron small / large の順）ごとに上限 1 / 5 / 10 / 20 / 80 の 5 run を持ち、判定は上限 80 と 20 の差で行う。Claim 7〜12 は同じ順で上限 40 の run を 1 つずつ持ち、判定は対応する Claim の上限 80 の run との差で行う。
+
+% ===== airas: post-experiment sections, filled once runs exist =====
+
+\section{結果}
+\label{sec:results}
+（実験後に記入）
+
+\section{考察}
+\label{sec:discussion}
+（実験後に記入）
+
+\section{結論}
+\label{sec:conclusion}
+（実験後に記入）
+
+\section*{データの利用可能性}
+記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、サーバーの起動スクリプト、各 run の結果と provenance は同じリポジトリに含まれる。
+
+\bibliographystyle{iclr2024_conference}
+\bibliography{references}
+
+\end{document}
