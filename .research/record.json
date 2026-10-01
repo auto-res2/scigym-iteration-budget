@@ -4132,6 +4132,272 @@
               "label": "Nemotron-3-Ultra large / 20"
             }
           ]
+        },
+        {
+          "key": "context",
+          "caption": "文脈の使用量。行はモデル split / 反復上限（DeepSeek = DeepSeek-V4.1-Flash、Qwen = Qwen3.8-27B、Nemotron = Nemotron-3-Ultra）。反復上限、サーバーの文脈長設定、LLM 呼び出し数、1 呼び出しあたりの平均プロンプト長と最大プロンプト長（トークン）、文脈超過で提出に至らなかった件数。 実行中の run は含めない（暫定版）。",
+          "columns": [
+            {
+              "header": "上限",
+              "ref_path": "max_iterations",
+              "round": 0
+            },
+            {
+              "header": "文脈長",
+              "ref_path": "context_window",
+              "round": 0
+            },
+            {
+              "header": "呼び出し",
+              "ref_path": "n_calls",
+              "round": 0
+            },
+            {
+              "header": "平均プロンプト",
+              "ref_path": "mean_prompt_tokens",
+              "round": 0
+            },
+            {
+              "header": "最大プロンプト",
+              "ref_path": "max_prompt_tokens",
+              "round": 0
+            },
+            {
+              "header": "文脈超過",
+              "ref_path": "n_context_overflow",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-small-i01",
+              "label": "DeepSeek small / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i05",
+              "label": "DeepSeek small / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i10",
+              "label": "DeepSeek small / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i20",
+              "label": "DeepSeek small / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i01",
+              "label": "Qwen small / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i05",
+              "label": "Qwen small / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i10",
+              "label": "Qwen small / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i20",
+              "label": "Qwen small / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i01",
+              "label": "Nemotron small / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i05",
+              "label": "Nemotron small / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i10",
+              "label": "Nemotron small / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i20",
+              "label": "Nemotron small / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i40",
+              "label": "Nemotron small / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i01",
+              "label": "DeepSeek large / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i05",
+              "label": "DeepSeek large / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i10",
+              "label": "DeepSeek large / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i20",
+              "label": "DeepSeek large / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i01",
+              "label": "Qwen large / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i05",
+              "label": "Qwen large / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i10",
+              "label": "Qwen large / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i20",
+              "label": "Qwen large / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i01",
+              "label": "Nemotron large / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i05",
+              "label": "Nemotron large / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i10",
+              "label": "Nemotron large / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i20",
+              "label": "Nemotron large / 20"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "トークン使用量。行はモデル split / 反復上限（DeepSeek = DeepSeek-V4.1-Flash、Qwen = Qwen3.8-27B、Nemotron = Nemotron-3-Ultra）。入力・出力トークン総数、LLM 呼び出し数、思考が本文に混じって除去した応答数。 実行中の run は含めない（暫定版）。",
+          "columns": [
+            {
+              "header": "入力",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力",
+              "ref_path": "output_tokens",
+              "round": 0
+            },
+            {
+              "header": "呼び出し",
+              "ref_path": "n_calls",
+              "round": 0
+            },
+            {
+              "header": "思考混入",
+              "ref_path": "n_thinking_in_content",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "deepseek-v4.1-flash-small-i01",
+              "label": "DeepSeek small / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i05",
+              "label": "DeepSeek small / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i10",
+              "label": "DeepSeek small / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-small-i20",
+              "label": "DeepSeek small / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i01",
+              "label": "Qwen small / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i05",
+              "label": "Qwen small / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i10",
+              "label": "Qwen small / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-small-i20",
+              "label": "Qwen small / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i01",
+              "label": "Nemotron small / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i05",
+              "label": "Nemotron small / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i10",
+              "label": "Nemotron small / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i20",
+              "label": "Nemotron small / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-small-i40",
+              "label": "Nemotron small / 40"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i01",
+              "label": "DeepSeek large / 1"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i05",
+              "label": "DeepSeek large / 5"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i10",
+              "label": "DeepSeek large / 10"
+            },
+            {
+              "run_id": "deepseek-v4.1-flash-large-i20",
+              "label": "DeepSeek large / 20"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i01",
+              "label": "Qwen large / 1"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i05",
+              "label": "Qwen large / 5"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i10",
+              "label": "Qwen large / 10"
+            },
+            {
+              "run_id": "qwen3.8-27b-large-i20",
+              "label": "Qwen large / 20"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i01",
+              "label": "Nemotron large / 1"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i05",
+              "label": "Nemotron large / 5"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i10",
+              "label": "Nemotron large / 10"
+            },
+            {
+              "run_id": "nemotron-3-ultra-large-i20",
+              "label": "Nemotron large / 20"
+            }
+          ]
         }
       ],
       "charts": [
