@@ -94,6 +94,11 @@
               "text_sha256": "9830df7d309ded45a3e22e7a106bfaf289e46c8a33db6d2bb6934d55283031b5",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "dc78fe0c0a4c57d0a48c74aaafe76c66406a2f32e2543ceea30e07807592a58e",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -134,6 +139,12 @@
               "text_sha256": "71f69bab096a4f8e88fc4237587d14eddaa92f5b2e8b1b328131da925515e3b9",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "52c9fb074b2168e82ba03dce7717c9e19c47488220505c15db3be5c6cb1b0e06",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The passage includes Table 1 where Gemini-2.5-Pro has a value of 0.3212 for STE, supporting the citation's comparison claim for that benchmark."
             }
           ]
         },
