@@ -89,6 +89,11 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The cited passage only states that there is a maximum of 20 iterations in the benchmark, not that 'performance is controlled by the budget' or that the models 'use up the given budget' up to 20, which the citing text claims."
+            },
+            {
+              "text_sha256": "9830df7d309ded45a3e22e7a106bfaf289e46c8a33db6d2bb6934d55283031b5",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
