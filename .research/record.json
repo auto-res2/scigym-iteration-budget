@@ -3900,6 +3900,241 @@
               "renderer": "vl-convert-python 1.9.0"
             }
           ]
+        },
+        {
+          "path": "iterations_vs_budget_v1.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Mean iterations used vs iteration budget (runs finished by v1)",
+            "data": {
+              "values": [
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "small (137)",
+                  "budget": "metric:deepseek-v4.1-flash-small-i01.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-small-i01.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "small (137)",
+                  "budget": "metric:deepseek-v4.1-flash-small-i05.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-small-i05.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "small (137)",
+                  "budget": "metric:deepseek-v4.1-flash-small-i10.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-small-i10.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "small (137)",
+                  "budget": "metric:deepseek-v4.1-flash-small-i20.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-small-i20.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "large (213)",
+                  "budget": "metric:deepseek-v4.1-flash-large-i01.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-large-i01.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "large (213)",
+                  "budget": "metric:deepseek-v4.1-flash-large-i05.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-large-i05.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "large (213)",
+                  "budget": "metric:deepseek-v4.1-flash-large-i10.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-large-i10.mean_iterations"
+                },
+                {
+                  "model": "DeepSeek-V4.1-Flash",
+                  "split": "large (213)",
+                  "budget": "metric:deepseek-v4.1-flash-large-i20.max_iterations",
+                  "y": "metric:deepseek-v4.1-flash-large-i20.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "small (137)",
+                  "budget": "metric:qwen3.8-27b-small-i01.max_iterations",
+                  "y": "metric:qwen3.8-27b-small-i01.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "small (137)",
+                  "budget": "metric:qwen3.8-27b-small-i05.max_iterations",
+                  "y": "metric:qwen3.8-27b-small-i05.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "small (137)",
+                  "budget": "metric:qwen3.8-27b-small-i10.max_iterations",
+                  "y": "metric:qwen3.8-27b-small-i10.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "small (137)",
+                  "budget": "metric:qwen3.8-27b-small-i20.max_iterations",
+                  "y": "metric:qwen3.8-27b-small-i20.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "large (213)",
+                  "budget": "metric:qwen3.8-27b-large-i01.max_iterations",
+                  "y": "metric:qwen3.8-27b-large-i01.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "large (213)",
+                  "budget": "metric:qwen3.8-27b-large-i05.max_iterations",
+                  "y": "metric:qwen3.8-27b-large-i05.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "large (213)",
+                  "budget": "metric:qwen3.8-27b-large-i10.max_iterations",
+                  "y": "metric:qwen3.8-27b-large-i10.mean_iterations"
+                },
+                {
+                  "model": "Qwen3.8-27B",
+                  "split": "large (213)",
+                  "budget": "metric:qwen3.8-27b-large-i20.max_iterations",
+                  "y": "metric:qwen3.8-27b-large-i20.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "small (137)",
+                  "budget": "metric:nemotron-3-ultra-small-i01.max_iterations",
+                  "y": "metric:nemotron-3-ultra-small-i01.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "small (137)",
+                  "budget": "metric:nemotron-3-ultra-small-i05.max_iterations",
+                  "y": "metric:nemotron-3-ultra-small-i05.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "small (137)",
+                  "budget": "metric:nemotron-3-ultra-small-i10.max_iterations",
+                  "y": "metric:nemotron-3-ultra-small-i10.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "small (137)",
+                  "budget": "metric:nemotron-3-ultra-small-i20.max_iterations",
+                  "y": "metric:nemotron-3-ultra-small-i20.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "small (137)",
+                  "budget": "metric:nemotron-3-ultra-small-i40.max_iterations",
+                  "y": "metric:nemotron-3-ultra-small-i40.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "large (213)",
+                  "budget": "metric:nemotron-3-ultra-large-i01.max_iterations",
+                  "y": "metric:nemotron-3-ultra-large-i01.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "large (213)",
+                  "budget": "metric:nemotron-3-ultra-large-i05.max_iterations",
+                  "y": "metric:nemotron-3-ultra-large-i05.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "large (213)",
+                  "budget": "metric:nemotron-3-ultra-large-i10.max_iterations",
+                  "y": "metric:nemotron-3-ultra-large-i10.mean_iterations"
+                },
+                {
+                  "model": "Nemotron-3-Ultra",
+                  "split": "large (213)",
+                  "budget": "metric:nemotron-3-ultra-large-i20.max_iterations",
+                  "y": "metric:nemotron-3-ultra-large-i20.mean_iterations"
+                }
+              ]
+            },
+            "mark": {
+              "type": "line",
+              "point": true
+            },
+            "encoding": {
+              "x": {
+                "field": "budget",
+                "type": "quantitative",
+                "scale": {
+                  "type": "log",
+                  "domain": [
+                    1,
+                    100
+                  ]
+                },
+                "axis": {
+                  "title": "max_iterations (log)",
+                  "values": [
+                    1,
+                    5,
+                    10,
+                    20,
+                    40,
+                    80
+                  ]
+                }
+              },
+              "y": {
+                "field": "y",
+                "type": "quantitative",
+                "axis": {
+                  "title": "mean iterations used"
+                },
+                "scale": {
+                  "type": "log",
+                  "domain": [
+                    1,
+                    100
+                  ]
+                }
+              },
+              "color": {
+                "field": "model",
+                "type": "nominal",
+                "sort": [
+                  "DeepSeek-V4.1-Flash",
+                  "Qwen3.8-27B",
+                  "Nemotron-3-Ultra"
+                ],
+                "legend": {
+                  "title": null,
+                  "orient": "bottom"
+                }
+              },
+              "column": {
+                "field": "split",
+                "type": "nominal",
+                "sort": [
+                  "small (137)",
+                  "large (213)"
+                ],
+                "header": {
+                  "title": null
+                }
+              }
+            },
+            "width": 240,
+            "height": 200
+          },
+          "renders": [
+            {
+              "renderer": "vl-convert-python 1.9.0"
+            }
+          ]
         }
       ],
       "notes": [
