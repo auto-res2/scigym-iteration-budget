@@ -146,7 +146,14 @@ Nemotron-3-Ultra の 4 主張が判定された。Claim 5（small、上限 80 �
 以下は各件の会話履歴（\texttt{chat\_history.yaml}）と実験要求の記録（\texttt{experiment\_request.json}）から数えた値で、記録の検証対象ではない（すべて \texttt{unverified}）。行動の分類は Controller と同じ見出し（\texttt{\#\#\# Experiment}、\texttt{\#\#\# Code}、\texttt{final\_sbml} の代入）で行った。件ごとの STE は Controller が公式 Evaluator で採点した \texttt{evaluation.json} の値を用いた。
 
 \paragraph{増えた予算はコードに使われる.}
-表~\ref{tab:behavior} に、1 件あたりの実験要求回数とコード実行回数、提出した反復の中央値、摂動を伴わない実験要求の割合を示す。上限を 20 から 40 に倍にしても、実験要求は DeepSeek で \unverified{5.0} から \unverified{7.8} 回（small）、Qwen で \unverified{2.3} から \unverified{2.7} 回、Nemotron で \unverified{4.7} から \unverified{5.2} 回とわずかに増えるだけで、増分の大半はコード実行（small の上限 40 で DeepSeek \unverified{24.6} 回、Qwen \unverified{25.6} 回、Nemotron \unverified{17.8} 回）に使われている。Qwen は実験が最も少なく、コード中心の戦略である。軌道上の位置で見ると、実験要求は前 1/3 に集中し（上限 20 の small で、前 1/3 の行動のうち実験が DeepSeek \unverified{40}\%、Qwen \unverified{26}\%、Nemotron \unverified{47}\%）、後 1/3 ではコードがほとんどになる（同 \unverified{12}\%、\unverified{5}\%、\unverified{8}\%）。摂動を伴わない実験要求（初期条件のまま時系列を観測する）は上限 1 では 9 割以上、上限 20 以上でも 2〜4 割を占め、最初の実験は「素の時系列を見る」ことに使われている。提出した反復の中央値は、Nemotron が上限 40 でも 80 でも small で \unverified{21}、large で \unverified{25}〜\unverified{27} であり、上限に関わらず 20 前後で切り上げている。
+図~\ref{fig:budget} に、上限 40 の run で各反復番号に何をしていたか（実験要求・コード実行・提出済み）を全件の割合として示す。実験要求（赤）は反復 0 と序盤の数反復に集中し、その後はコード実行（青）がほぼ全てを占める。提出済み（薄灰）は Nemotron では反復 5 あたりから増え始めて反復 20 で半数に達するのに対し、DeepSeek と Qwen は上限直前まで提出しない。表~\ref{tab:behavior} に、1 件あたりの実験要求回数とコード実行回数、提出した反復の中央値、摂動を伴わない実験要求の割合を示す。上限を 20 から 40 に倍にしても、実験要求は DeepSeek で \unverified{5.0} から \unverified{7.8} 回（small）、Qwen で \unverified{2.3} から \unverified{2.7} 回、Nemotron で \unverified{4.7} から \unverified{5.2} 回とわずかに増えるだけで、増分の大半はコード実行（small の上限 40 で DeepSeek \unverified{24.6} 回、Qwen \unverified{25.6} 回、Nemotron \unverified{17.8} 回）に使われている。Qwen は実験が最も少なく、コード中心の戦略である。軌道上の位置で見ると、実験要求は前 1/3 に集中し（上限 20 の small で、前 1/3 の行動のうち実験が DeepSeek \unverified{40}\%、Qwen \unverified{26}\%、Nemotron \unverified{47}\%）、後 1/3 ではコードがほとんどになる（同 \unverified{12}\%、\unverified{5}\%、\unverified{8}\%）。摂動を伴わない実験要求（初期条件のまま時系列を観測する）は上限 1 では 9 割以上、上限 20 以上でも 2〜4 割を占め、最初の実験は「素の時系列を見る」ことに使われている。提出した反復の中央値は、Nemotron が上限 40 でも 80 でも small で \unverified{21}、large で \unverified{25}〜\unverified{27} であり、上限に関わらず 20 前後で切り上げている。
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.98\linewidth]{images/budget_use_i40.png}
+  \caption{各反復で何をしていたか（記録外の補助分析、上限 40 の run）。横軸は反復番号、縦軸は全件に対する割合の積み上げ。赤 = 実験要求、青 = コード実行、濃灰 = その他（解析できない応答など）、薄灰 = 既に提出した件。上段 small、下段 large。}
+  \label{fig:budget}
+\end{figure}
 
 \begin{table}[t]
 \centering
