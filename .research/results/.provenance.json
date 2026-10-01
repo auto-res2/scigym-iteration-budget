@@ -413,6 +413,24 @@
         ".research/results/qwen3.8-27b-large-i05/metrics.json": "11fad42fbf0ebfc64d8dae9ee3fe0e7bea2d50075325bc5f6d8ae41f3ff89809",
         ".research/results/qwen3.8-27b-large-i05/tokens.json": "7c4d848912864858654265a6518c9b809cf8362e4a9525f411e2830f1ecce460"
       }
+    },
+    "qwen3.8-27b-small-i20": {
+      "execution_id": "a5689f25-bf4b-47f7-9498-8bae4ec43822",
+      "backend": "seyval",
+      "commit_hash": "d95588967d9c70dfe437674bd5bab24922b67502",
+      "overrides": {
+        "run_id": "qwen3.8-27b-small-i20",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/qwen3.8-27b-small-i20/eval_inputs/scigym_small.json.gz": "38a954ab6d9d3631610e4fe75d6d582e89e9fa3abaf48bd6c0db26974d7bc573",
+        ".research/results/qwen3.8-27b-small-i20/evaluation/scigym_small.json": "567b3aadda3a164a57189ec88cf086f6ded07863d3a55264f266730acf6805b9",
+        ".research/results/qwen3.8-27b-small-i20/instances.tar.gz": "01c0f0b35c837efd8a37534150627d383f9e6577c8832e81a4b31e44f8715762",
+        ".research/results/qwen3.8-27b-small-i20/metrics.json": "bb1c3f48a12ecb499e69fb8263fa2fa32ef3d91f8fd9f505d50155b8489f4641",
+        ".research/results/qwen3.8-27b-small-i20/tokens.json": "7318dc78a9c93020d49e9962de762d3bfd3eab716c066512e6646e54ad8cf106"
+      }
     }
   }
 }
