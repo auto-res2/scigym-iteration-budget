@@ -134,7 +134,7 @@ large では改善は小さい。上限 1 から 20 で、DeepSeek は \airasval
 {\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/context.tex}}
 
 \paragraph{トークン.}
-表~\ref{tab:tokens} に入力・出力トークン総数を示す。入力トークンは反復とともに会話履歴が積み上がるため上限に対して超線形に増え、Nemotron の large で上限 1 の \airasval{nemotron-3-ultra-large-i01.input_tokens} から上限 20 の \airasval{nemotron-3-ultra-large-i20.input_tokens} へと約 25 倍になった。出力トークンには思考を含み、Qwen は他の 2 モデルより 2〜3 倍多い（small 上限 20 で Qwen \airasval{qwen3.8-27b-small-i20.output_tokens}、DeepSeek \airasval{deepseek-v4.1-flash-small-i20.output_tokens}）。思考が本文に混じって除去した応答は全 run で 0 件である。
+表~\ref{tab:tokens} に入力・出力トークン総数を示す。入力トークンは反復とともに会話履歴が積み上がるため上限に対して超線形に増え、Nemotron の large では上限 1 から 20 で約 \unverified{25} 倍になった。出力トークンには思考を含み、Qwen は他の 2 モデルより 2〜3 倍多い。思考が本文に混じって除去した応答は全 run で 0 件である。
 
 {\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/tokens.tex}}
 
