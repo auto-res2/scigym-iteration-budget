@@ -31,14 +31,14 @@
   \emph{Rationale:} Nemotron-3-Ultra の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-small-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-small-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.12, -0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
-  \emph{Observed:} pending.
-  \emph{Verdict:} pending.
+  \emph{Observed:} -0.0280823.
+  \emph{Verdict:} refuted.
 \item[\textbf{Claim 6}] Nemotron-3-Ultra で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。~\cite[s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Nemotron-3-Ultra の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-large-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-large-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.12, -0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
-  \emph{Observed:} pending.
-  \emph{Verdict:} pending.
+  \emph{Observed:} -0.0411857.
+  \emph{Verdict:} supported.
 \end{enumerate}
 \noindent\emph{Assumed, so that the claims together imply Hypothesis 1:}
 \begin{itemize}
@@ -77,14 +77,14 @@
   \emph{Rationale:} Nemotron-3-Ultra の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c5 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-small-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-small-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[-0.01, 0.06]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
-  \emph{Observed:} pending.
-  \emph{Verdict:} pending.
+  \emph{Observed:} 0.0264056.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 12}] Nemotron-3-Ultra で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。~\cite[s1.p3, s1.p4]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Nemotron-3-Ultra の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c6 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-large-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-large-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[-0.01, 0.06]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
-  \emph{Observed:} pending.
-  \emph{Verdict:} pending.
+  \emph{Observed:} 0.0152157.
+  \emph{Verdict:} supported.
 \end{enumerate}
 \noindent\emph{Assumed, so that the claims together imply Hypothesis 2:}
 \begin{itemize}
