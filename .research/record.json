@@ -83,6 +83,12 @@
               "text_sha256": "836d35ee153298fac8987b98c1fedf93532940fea344916e37b29bed4c6cf1d9",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "23f0178f8a34b4e5e38cb488b6aa2395391145a3bf109bae1e3a60931c2523bc",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The cited passage only states that there is a maximum of 20 iterations in the benchmark, not that 'performance is controlled by the budget' or that the models 'use up the given budget' up to 20, which the citing text claims."
             }
           ]
         },
@@ -118,6 +124,11 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The cited value for Gemini-2.5-Pro's STE (0.3212) is directly taken from Table 1 in the quoted passage."
+            },
+            {
+              "text_sha256": "71f69bab096a4f8e88fc4237587d14eddaa92f5b2e8b1b328131da925515e3b9",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
