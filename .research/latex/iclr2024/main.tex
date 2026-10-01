@@ -98,26 +98,26 @@ Claim 1〜6 は model × split（DeepSeek small / large、Qwen small / large、N
 
 % ===== airas: post-experiment sections, filled once runs exist =====
 
-\section{結果（暫定版 v1）}
+\section{結果（暫定版 v2）}
 \label{sec:results}
-本版は 2026 年 10 月 1 日 11:00（JST）時点の暫定版である。36 run のうち 25 run（反復上限 1 / 5 / 10 / 20 の全 24 run と、Nemotron-3-Ultra の small で上限 40）の結果を取り込み、残る 11 run（上限 40 の 5 run と上限 80 の 6 run）は同じサーバー群で実行中である。表 small / large / context / tokens はこの 25 run の行だけで描き直した（記録の表の宣言は同じ key で追記してあり、全 run が揃った第 2 版で全行に戻す）。Claim 1〜12 の判定には上限 80 の run が要るので、本版では全主張が判定保留である。全 36 run は同じコミットで実行している。
+本版は 2026 年 10 月 2 日（JST）時点の暫定版 v2 である。36 run のうち 32 run の結果を取り込み、残る 4 run（DeepSeek-V4.1-Flash と Qwen3.8-27B の上限 80、small と large）は同じサーバー群で実行中である。Nemotron-3-Ultra は 12 run がすべて揃い、Claim 5・6・11・12 の判定が記録から導かれた。他の 8 主張は上限 80 の run を待って判定保留である。表 small / large / context / tokens は 32 run の行で描き直した（記録の表の宣言は同じ key で追記してあり、全 run が揃った版で全行に戻す）。全 36 run は同じコミットで実行している。
 
 \paragraph{反復上限と STE.}
-図~\ref{fig:ste} と表~\ref{tab:small}、表~\ref{tab:large} に、上限ごとの平均 STE を示す。small では 3 モデルとも上限を増やすほど STE が下がった。DeepSeek-V4.1-Flash は上限 1 の \airasval{deepseek-v4.1-flash-small-i01.trajectory_smape} から上限 5 で \airasval{deepseek-v4.1-flash-small-i05.trajectory_smape}、上限 10 で \airasval{deepseek-v4.1-flash-small-i10.trajectory_smape}、上限 20 で \airasval{deepseek-v4.1-flash-small-i20.trajectory_smape} と単調に改善し、上限 20 では論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回った。Qwen3.8-27B は上限 1 の \airasval{qwen3.8-27b-small-i01.trajectory_smape} が 3 モデルで最も悪いが、上限 5 で \airasval{qwen3.8-27b-small-i05.trajectory_smape}、上限 20 で \airasval{qwen3.8-27b-small-i20.trajectory_smape} まで下がり、改善幅は最も大きい。Nemotron-3-Ultra は上限 1 の \airasval{nemotron-3-ultra-small-i01.trajectory_smape} から上限 10 の \airasval{nemotron-3-ultra-small-i10.trajectory_smape} までほぼ平坦で、上限 20 で \airasval{nemotron-3-ultra-small-i20.trajectory_smape} に下がり、上限 40 では \airasval{nemotron-3-ultra-small-i40.trajectory_smape} と上限 20 から変わらなかった。
+図~\ref{fig:ste} と表~\ref{tab:small}、表~\ref{tab:large} に、上限ごとの平均 STE を示す。small では 3 モデルとも上限 1 から 40 まで STE が下がり続けた。DeepSeek は上限 1 の \airasval{deepseek-v4.1-flash-small-i01.trajectory_smape} から上限 20 で \airasval{deepseek-v4.1-flash-small-i20.trajectory_smape}、上限 40 で \airasval{deepseek-v4.1-flash-small-i40.trajectory_smape}、Qwen は \airasval{qwen3.8-27b-small-i01.trajectory_smape} から \airasval{qwen3.8-27b-small-i20.trajectory_smape}、\airasval{qwen3.8-27b-small-i40.trajectory_smape} で、どちらも上限 20 で論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回った。Nemotron は上限 10 まで平坦（\airasval{nemotron-3-ultra-small-i01.trajectory_smape} から \airasval{nemotron-3-ultra-small-i10.trajectory_smape}）で、上限 20 で \airasval{nemotron-3-ultra-small-i20.trajectory_smape} に下がり、上限 40 は \airasval{nemotron-3-ultra-small-i40.trajectory_smape} と横ばい、上限 80 で \airasval{nemotron-3-ultra-small-i80.trajectory_smape} であった。
 
-large では改善は小さい。上限 1 から 20 で、DeepSeek は \airasval{deepseek-v4.1-flash-large-i01.trajectory_smape} から \airasval{deepseek-v4.1-flash-large-i20.trajectory_smape}、Qwen は \airasval{qwen3.8-27b-large-i01.trajectory_smape} から \airasval{qwen3.8-27b-large-i20.trajectory_smape}、Nemotron は \airasval{nemotron-3-ultra-large-i01.trajectory_smape} から \airasval{nemotron-3-ultra-large-i20.trajectory_smape} に下がったが、DeepSeek は上限 5 以降（\airasval{deepseek-v4.1-flash-large-i05.trajectory_smape}、\airasval{deepseek-v4.1-flash-large-i10.trajectory_smape}）で横ばいである。上限 20 の 3 モデルは 0.42〜0.44 の狭い帯に集まった。
+large では上限 20 までの改善が小さい。DeepSeek は上限 5 から 20 まで横ばい（\airasval{deepseek-v4.1-flash-large-i05.trajectory_smape}、\airasval{deepseek-v4.1-flash-large-i10.trajectory_smape}、\airasval{deepseek-v4.1-flash-large-i20.trajectory_smape}）だったが、上限 40 で \airasval{deepseek-v4.1-flash-large-i40.trajectory_smape} に下がった。Qwen も上限 20 の \airasval{qwen3.8-27b-large-i20.trajectory_smape} から上限 40 で \airasval{qwen3.8-27b-large-i40.trajectory_smape} に下がった。Nemotron は上限 20 の \airasval{nemotron-3-ultra-large-i20.trajectory_smape} から上限 40 で \airasval{nemotron-3-ultra-large-i40.trajectory_smape}、上限 80 で \airasval{nemotron-3-ultra-large-i80.trajectory_smape} と緩やかに下がった。
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.95\linewidth]{images/chart/ste_vs_budget_v1.png}
-  \caption{反復上限ごとの平均 STE（低いほど良い）。左 small 137 件、右 large 213 件。点は取り込み済みの run のみ（上限 40 は Nemotron の small のみ、上限 80 は未完）。横軸は対数。}
+  \includegraphics[width=0.95\linewidth]{images/chart/ste_vs_budget_v2.png}
+  \caption{反復上限ごとの平均 STE（低いほど良い）。左 small 137 件、右 large 213 件。点は取り込み済みの 32 run（DeepSeek と Qwen の上限 80 は未完）。横軸は対数。}
   \label{fig:ste}
 \end{figure}
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.95\linewidth]{images/chart/iterations_vs_budget_v1.png}
-  \caption{反復上限に対して実際に使った平均反復数（両軸対数）。対角線上なら予算を使い切り、下に外れれば上限前に自ら提出している。上限 20 まではどのモデルもほぼ使い切り、Nemotron の small は上限 40 で平均 \airasval{nemotron-3-ultra-small-i40.mean_iterations} 反復にとどまった。}
+  \includegraphics[width=0.95\linewidth]{images/chart/iterations_vs_budget_v2.png}
+  \caption{反復上限に対して実際に使った平均反復数（両軸対数）。対角線上なら予算を使い切り、下に外れれば上限前に自ら提出している。上限 20 までは 3 モデルとも使い切り、Nemotron は上限 40 以上で下に外れる。}
   \label{fig:it}
 \end{figure}
 
@@ -125,42 +125,98 @@ large では改善は小さい。上限 1 から 20 で、DeepSeek は \airasval
 
 {\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/large.tex}}
 
+\paragraph{主張の判定.}
+Nemotron-3-Ultra の 4 主張が判定された。Claim 5（small、上限 80 が上限 20 より 0.03 以上良い）は、差が \airasval{nemotron-3-ultra-small-i80.trajectory_smape} $-$ \airasval{nemotron-3-ultra-small-i20.trajectory_smape} $= -0.028$ で margin $-0.03$ にわずかに届かず\textbf{反証}された。Claim 6（large、同じ基準）は差 $-0.041$ で\textbf{支持}された。Claim 11・12（上限 40 から 80 への改善が 0.05 未満）は、small で差 $0.026$、large で差 $0.015$ と、どちらも\textbf{支持}された。差は予測区間（Claim 5: $[-0.12, -0.02]$、Claim 6: 同、Claim 11: $[-0.01, 0.06]$、Claim 12: 同）の内側である。DeepSeek と Qwen の 8 主張は上限 80 の run の完了後に判定する。
+
 \paragraph{予算を使うか.}
-図~\ref{fig:it} に、上限に対して実際に使った平均反復数を示す。上限 20 までは 3 モデルとも平均反復数が上限とほぼ一致し（small の上限 20 で DeepSeek \airasval{deepseek-v4.1-flash-small-i20.mean_iterations}、Qwen \airasval{qwen3.8-27b-small-i20.mean_iterations}、Nemotron \airasval{nemotron-3-ultra-small-i20.mean_iterations}）、予算を使い切ってから提出している。上限前に自ら提出した件数は small の上限 20 で DeepSeek \airasval{deepseek-v4.1-flash-small-i20.n_early_submit} 件、Qwen \airasval{qwen3.8-27b-small-i20.n_early_submit} 件、Nemotron \airasval{nemotron-3-ultra-small-i20.n_early_submit} 件である。Nemotron の small で上限を 40 にすると平均反復数は \airasval{nemotron-3-ultra-small-i40.mean_iterations} にとどまり、137 件中 \airasval{nemotron-3-ultra-small-i40.n_early_submit} 件が上限前に提出した。上限 1 では、Qwen が small の \airasval{qwen3.8-27b-small-i01.n_early_submit} 件、large の \airasval{qwen3.8-27b-large-i01.n_early_submit} 件で実験を 1 回も行わずに提出しており、DeepSeek（small \airasval{deepseek-v4.1-flash-small-i01.n_early_submit} 件）と Nemotron（\airasval{nemotron-3-ultra-small-i01.n_early_submit} 件）より多い。平均反復数は無効な提出のあとのデバッグ反復を含むため、上限を超えることがある。
+図~\ref{fig:it} に、上限に対して実際に使った平均反復数を示す。上限 20 までは 3 モデルとも平均反復数が上限とほぼ一致し、予算を使い切ってから提出している。上限 40 では分かれる。DeepSeek と Qwen は平均 \airasval{deepseek-v4.1-flash-small-i40.mean_iterations}（small）、\airasval{deepseek-v4.1-flash-large-i40.mean_iterations}（large）、Qwen は \airasval{qwen3.8-27b-small-i40.mean_iterations}、\airasval{qwen3.8-27b-large-i40.mean_iterations} と大半を使うのに対し、Nemotron は small で \airasval{nemotron-3-ultra-small-i40.mean_iterations}、large で \airasval{nemotron-3-ultra-large-i40.mean_iterations} にとどまり、上限 80 でも small \airasval{nemotron-3-ultra-small-i80.mean_iterations}、large \airasval{nemotron-3-ultra-large-i80.mean_iterations} である。上限前に自ら提出した件数は、Nemotron の small 上限 80 で 137 件中 \airasval{nemotron-3-ultra-small-i80.n_early_submit} 件、large 上限 80 で 213 件中 \airasval{nemotron-3-ultra-large-i80.n_early_submit} 件に達する。上限 1 では、Qwen が small の \airasval{qwen3.8-27b-small-i01.n_early_submit} 件、large の \airasval{qwen3.8-27b-large-i01.n_early_submit} 件で実験を行わずに提出した。平均反復数は無効な提出のあとのデバッグ反復を含むため、上限を超えることがある。
 
 \paragraph{有効な提出と文脈.}
-有効な SBML が提出された件数（表の n\_valid）は、small では DeepSeek と Nemotron が 131〜137 件、Qwen が上限 20 で \airasval{qwen3.8-27b-small-i20.n_valid_submissions} 件と最も少ない。large では上限 20 で DeepSeek \airasval{deepseek-v4.1-flash-large-i20.n_valid_submissions} 件、Nemotron \airasval{nemotron-3-ultra-large-i20.n_valid_submissions} 件、Qwen \airasval{qwen3.8-27b-large-i20.n_valid_submissions} 件である。表~\ref{tab:context} に文脈の使用量を示す。文脈長を 1M に揃えたことで、文脈超過で提出に至らなかった件は上限 20 までの 24 run で合計 \unverified{12} 件（large の上限 10〜20 に集中。DeepSeek の large 上限 20 で \airasval{deepseek-v4.1-flash-large-i20.n_context_overflow} 件、Nemotron で \airasval{nemotron-3-ultra-large-i20.n_context_overflow} 件）にとどまった。1 呼び出しあたりの最大プロンプト長は large の上限 10 以上で 100 万トークン近くに達している（DeepSeek の large 上限 20 で \airasval{deepseek-v4.1-flash-large-i20.max_prompt_tokens} トークン）。思考だけで出力上限を使い切って本文が出なかった件（n\_thinking\_exhausted）は全 25 run で 0 であった。
+有効な SBML が提出された件数（表の n\_valid）は、DeepSeek と Nemotron が small で 131〜137 件、Qwen は上限 40 で \airasval{qwen3.8-27b-small-i40.n_valid_submissions} 件と最も少ない。表~\ref{tab:context} に文脈の使用量を示す。文脈長を 1M に揃えたことで、文脈超過で提出に至らなかった件は 32 run 合計 \unverified{30} 件（すべて large。上限 40 で DeepSeek \airasval{deepseek-v4.1-flash-large-i40.n_context_overflow} 件、Qwen \airasval{qwen3.8-27b-large-i40.n_context_overflow} 件、Nemotron の上限 80 で \airasval{nemotron-3-ultra-large-i80.n_context_overflow} 件）にとどまった。1 呼び出しあたりの最大プロンプト長は large の上限 10 以上で 100 万トークン近くに達している。思考だけで出力上限を使い切って本文が出なかった件（n\_thinking\_exhausted）は全 32 run で 0 であった。3 試行とも打ち切られて提出に至らなかった件は、Qwen の上限 40 で small \unverified{7} 件、large \unverified{8} 件、DeepSeek の上限 40 で small \unverified{3} 件、large \unverified{5} 件あり、表の n\_valid の差の一部を占める。
 
 {\tiny\setlength{\tabcolsep}{2pt}\input{tables/context.tex}}
 
 \paragraph{トークン.}
-表~\ref{tab:tokens} に入力・出力トークン総数を示す。入力トークンは反復とともに会話履歴が積み上がるため上限に対して超線形に増え、Nemotron の large では上限 1 から 20 で約 \unverified{25} 倍になった。出力トークンには思考を含み、Qwen は他の 2 モデルより 2〜3 倍多い。思考が本文に混じって除去した応答は全 run で 0 件である。
+表~\ref{tab:tokens} に入力・出力トークン総数を示す。入力トークンは反復とともに会話履歴が積み上がるため上限に対して超線形に増える。出力トークンには思考を含み、Qwen は他の 2 モデルより 2〜3 倍多い。思考が本文に混じって除去した応答は全 run で 0 件である。
 
 {\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/tokens.tex}}
 
-\paragraph{実行で起きたこと.}
-事前登録した設計からの逸脱と、実行中に判明した事実を記す。第一に、最初の投入分は取り消して全 36 run を回し直した。きっかけは 2 つで、(a) Qwen3.8-27B の large 上限 1 で、思考だけで出力上限 131,072 トークンを使い切り本文が空のまま終わる応答が \unverified{3} 件あり、当初のクライアントがこれを文脈超過として数えていたこと、(b) 一部のサーバーの起動前に run が始まり、接続先ファイルが無いことで全件が即座に失敗した run があったことである。前者は「出力上限でも本文が空なら温度 1.0 で 2 回まで引き直し、なお空なら思考枯渇として別に数える」処理を、後者は「接続先ファイルが現れるまで待つ」処理をクライアントに加え、ユーザーの判断で全 run を 1 つのコミットで回し直した。Controller・プロンプト・採点には触れていない。引き直しを入れた後、思考枯渇に至った件は 0 である。第二に、LLM の解析コードや提出モデルの評価が ODE ソルバーの C ライブラリ内で止まり、60 分の無出力で試行を打ち切ってやり直した件が上限 20 以上の run で出ている（DeepSeek の small 上限 40 で \unverified{32} 回）。3 試行とも打ち切られた件は本版の時点で 0 である。第三に、重みは共有ストレージに置かず各サーバーの job 開始時に取得したが、1 つの複製元に 10 サーバーが同時に接続したため 2 サーバーが外部からの再取得に戻り、起動が 1 時間半遅れた。第四に、Nemotron-3-Ultra の small 上限 20 の STE \airasval{nemotron-3-ultra-small-i20.trajectory_smape} は、先行研究で同条件を 1 回走らせた値 0.284 とほぼ一致し、run 間の変動が margin（0.03）に対して小さいことを裏付けた。
+\subsection{補助分析: 予算の使い方（記録外）}
+\label{sec:behavior}
+以下は各件の会話履歴（\texttt{chat\_history.yaml}）と実験要求の記録（\texttt{experiment\_request.json}）から数えた値で、記録の検証対象ではない（すべて \texttt{unverified}）。行動の分類は Controller と同じ見出し（\texttt{\#\#\# Experiment}、\texttt{\#\#\# Code}、\texttt{final\_sbml} の代入）で行った。件ごとの STE は Controller が公式 Evaluator で採点した \texttt{evaluation.json} の値を用いた。
 
-\section{考察（暫定版 v1）}
+\paragraph{増えた予算はコードに使われる.}
+表~\ref{tab:behavior} に、1 件あたりの実験要求回数とコード実行回数、提出した反復の中央値、摂動を伴わない実験要求の割合を示す。上限を 20 から 40 に倍にしても、実験要求は DeepSeek で \unverified{5.0} から \unverified{7.8} 回（small）、Qwen で \unverified{2.3} から \unverified{2.7} 回、Nemotron で \unverified{4.7} から \unverified{5.2} 回とわずかに増えるだけで、増分の大半はコード実行（small の上限 40 で DeepSeek \unverified{24.6} 回、Qwen \unverified{25.6} 回、Nemotron \unverified{17.8} 回）に使われている。Qwen は実験が最も少なく、コード中心の戦略である。軌道上の位置で見ると、実験要求は前 1/3 に集中し（上限 20 の small で、前 1/3 の行動のうち実験が DeepSeek \unverified{40}\%、Qwen \unverified{26}\%、Nemotron \unverified{47}\%）、後 1/3 ではコードがほとんどになる（同 \unverified{12}\%、\unverified{5}\%、\unverified{8}\%）。摂動を伴わない実験要求（初期条件のまま時系列を観測する）は上限 1 では 9 割以上、上限 20 以上でも 2〜4 割を占め、最初の実験は「素の時系列を見る」ことに使われている。提出した反復の中央値は、Nemotron が上限 40 でも 80 でも small で \unverified{21}、large で \unverified{25}〜\unverified{27} であり、上限に関わらず 20 前後で切り上げている。
+
+\begin{table}[t]
+\centering
+\caption{予算の使い方（記録外の補助分析）。1 件あたりの実験要求回数（exp）とコード実行回数（code）、提出した反復の中央値（submit@）、摂動を伴わない実験要求の割合（pert0）。}
+\label{tab:behavior}
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrrrrrrrrrrrrr}
+\hline
+ & & \multicolumn{4}{c}{上限 5} & \multicolumn{4}{c}{上限 10} & \multicolumn{4}{c}{上限 20} & \multicolumn{4}{c}{上限 40} \\
+モデル & split & exp & code & sub@ & pert0 & exp & code & sub@ & pert0 & exp & code & sub@ & pert0 & exp & code & sub@ & pert0 \\
+\hline
+DeepSeek & small & \unverified{1.8} & \unverified{3.9} & \unverified{6} & \unverified{.59} & \unverified{3.3} & \unverified{7.0} & \unverified{10} & \unverified{.33} & \unverified{5.0} & \unverified{13.8} & \unverified{20} & \unverified{.26} & \unverified{7.8} & \unverified{24.6} & \unverified{39} & \unverified{.22} \\
+DeepSeek & large & \unverified{1.6} & \unverified{4.0} & \unverified{6} & \unverified{.63} & \unverified{2.9} & \unverified{7.5} & \unverified{10} & \unverified{.39} & \unverified{5.9} & \unverified{14.1} & \unverified{20} & \unverified{.23} & \unverified{9.3} & \unverified{28.3} & \unverified{40} & \unverified{.21} \\
+Qwen & small & \unverified{1.3} & \unverified{3.6} & \unverified{5} & \unverified{.72} & \unverified{1.7} & \unverified{8.0} & \unverified{10} & \unverified{.56} & \unverified{2.3} & \unverified{14.2} & \unverified{20} & \unverified{.40} & \unverified{2.7} & \unverified{25.6} & \unverified{36} & \unverified{.35} \\
+Qwen & large & \unverified{1.3} & \unverified{3.8} & \unverified{5} & \unverified{.76} & \unverified{1.7} & \unverified{8.1} & \unverified{10} & \unverified{.59} & \unverified{2.4} & \unverified{16.3} & \unverified{20} & \unverified{.40} & \unverified{3.9} & \unverified{31.2} & \unverified{39} & \unverified{.24} \\
+Nemotron & small & \unverified{2.8} & \unverified{2.9} & \unverified{6} & \unverified{.36} & \unverified{3.8} & \unverified{6.3} & \unverified{10} & \unverified{.29} & \unverified{4.7} & \unverified{12.3} & \unverified{19} & \unverified{.24} & \unverified{5.2} & \unverified{17.8} & \unverified{21} & \unverified{.26} \\
+Nemotron & large & \unverified{2.7} & \unverified{3.0} & \unverified{6} & \unverified{.39} & \unverified{4.2} & \unverified{5.8} & \unverified{10} & \unverified{.27} & \unverified{5.5} & \unverified{12.2} & \unverified{19} & \unverified{.22} & \unverified{6.0} & \unverified{19.8} & \unverified{25} & \unverified{.20} \\
+\hline
+\end{tabular}}
+\end{table}
+
+\paragraph{平均の改善は一部の件が作る.}
+表~\ref{tab:paired} に、隣接する上限で同じ件の STE がどう動いたか（両方で採点された件）を示す。最も大きい改善は 1 から 5 の段で（small の Qwen で平均 \unverified{-0.250}、DeepSeek で \unverified{-0.136}）、10 以降はどの段でも中央値がほぼ 0 で、改善した件と悪化した件が 4:3 程度に拮抗する。平均が下がるのは少数の件が大きく改善するためで、予算増は「全体が少しずつ良くなる」のではなく「解けなかった件がいくつか解ける」形で効いている。large の DeepSeek は 5 から 20 まで完全に横ばい（10 から 20 で \unverified{+0.006}）だったあと、20 から 40 で \unverified{-0.099}（改善した件 \unverified{58}\%）と最大の改善が出た。Nemotron は 10 から 20 の段で最も改善し（small \unverified{-0.086}、large \unverified{-0.071}）、40 から 80 では small \unverified{-0.026}、large \unverified{-0.016} にとどまる。
+
+\begin{table}[t]
+\centering
+\caption{同じ件の対応づけ（記録外の補助分析）。隣接する上限の間で、両方で採点された件の STE の差（上限が大きい方 $-$ 小さい方）の平均と、0.01 以上改善した件・悪化した件の割合。}
+\label{tab:paired}
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrrrrrrrrrrrr}
+\hline
+ & & \multicolumn{3}{c}{1$\to$5} & \multicolumn{3}{c}{5$\to$10} & \multicolumn{3}{c}{10$\to$20} & \multicolumn{3}{c}{20$\to$40} & \multicolumn{3}{c}{40$\to$80} \\
+モデル & split & 平均 & 改善 & 悪化 & 平均 & 改善 & 悪化 & 平均 & 改善 & 悪化 & 平均 & 改善 & 悪化 & 平均 & 改善 & 悪化 \\
+\hline
+DeepSeek & small & \unverified{-.136} & \unverified{.59} & \unverified{.27} & \unverified{-.056} & \unverified{.47} & \unverified{.31} & \unverified{-.028} & \unverified{.40} & \unverified{.35} & \unverified{-.033} & \unverified{.39} & \unverified{.28} & -- & -- & -- \\
+DeepSeek & large & \unverified{-.070} & \unverified{.54} & \unverified{.33} & \unverified{-.002} & \unverified{.41} & \unverified{.49} & \unverified{+.006} & \unverified{.43} & \unverified{.45} & \unverified{-.099} & \unverified{.58} & \unverified{.33} & -- & -- & -- \\
+Qwen & small & \unverified{-.250} & \unverified{.69} & \unverified{.18} & \unverified{-.059} & \unverified{.45} & \unverified{.37} & \unverified{-.064} & \unverified{.47} & \unverified{.25} & \unverified{-.055} & \unverified{.43} & \unverified{.22} & -- & -- & -- \\
+Qwen & large & \unverified{-.100} & \unverified{.58} & \unverified{.21} & \unverified{-.011} & \unverified{.46} & \unverified{.39} & \unverified{-.041} & \unverified{.50} & \unverified{.39} & \unverified{-.060} & \unverified{.60} & \unverified{.29} & -- & -- & -- \\
+Nemotron & small & \unverified{-.017} & \unverified{.48} & \unverified{.42} & \unverified{-.005} & \unverified{.49} & \unverified{.40} & \unverified{-.086} & \unverified{.51} & \unverified{.28} & \unverified{-.002} & \unverified{.39} & \unverified{.40} & \unverified{-.026} & \unverified{.48} & \unverified{.31} \\
+Nemotron & large & \unverified{+.005} & \unverified{.48} & \unverified{.45} & \unverified{-.033} & \unverified{.55} & \unverified{.40} & \unverified{-.071} & \unverified{.58} & \unverified{.32} & \unverified{-.031} & \unverified{.53} & \unverified{.38} & \unverified{-.016} & \unverified{.44} & \unverified{.42} \\
+\hline
+\end{tabular}}
+\end{table}
+
+\paragraph{件の難しさは安定していてモデル間で共通.}
+同じモデルで上限 1 と上限 20 の件ごとの STE の順位相関（Spearman）は \unverified{+0.20}（Qwen small）から \unverified{+0.68}（Nemotron small）で、上限 1 で難しかった件は 20 でも難しい。上限 20 でのモデル間の順位相関は small で \unverified{+0.53}〜\unverified{+0.68}、large で \unverified{+0.48}〜\unverified{+0.57} で、どのモデルでも同じ件が難しい。run の中では「使った反復が多い件ほど STE が悪い」（順位相関は上限 40 の small で DeepSeek \unverified{+0.65}、Qwen \unverified{+0.68}）。これは因果ではなく、簡単な件は早く提出し、難しい件ほど最後まで粘るという行動の反映である。
+
+\paragraph{実行で起きたこと.}
+事前登録した設計からの逸脱と、実行中に判明した事実を記す。第一に、最初の投入分は取り消して全 36 run を回し直した。きっかけは 2 つで、(a) Qwen3.8-27B の large 上限 1 で、思考だけで出力上限 131,072 トークンを使い切り本文が空のまま終わる応答が \unverified{3} 件あり、当初のクライアントがこれを文脈超過として数えていたこと、(b) 一部のサーバーの起動前に run が始まり、接続先ファイルが無いことで全件が即座に失敗した run があったことである。前者は「出力上限でも本文が空なら温度 1.0 で 2 回まで引き直し、なお空なら思考枯渇として別に数える」処理を、後者は「接続先ファイルが現れるまで待つ」処理をクライアントに加え、ユーザーの判断で全 run を 1 つのコミットで回し直した。Controller・プロンプト・採点には触れていない。引き直しを入れた後、思考枯渇に至った件は 0 である。第二に、LLM の解析コードや提出モデルの評価が ODE ソルバーの C ライブラリ内で止まり、60 分の無出力で試行を打ち切ってやり直した試行が上限とともに増え、Qwen の small 上限 40 では 137 件中 \unverified{63} 件が少なくとも 1 回打ち切られた。打ち切りは反復 0 からのやり直しなので、上限 40 以上の run の所要時間の主因になっている。第三に、重みは共有ストレージに置かず各サーバーの job 開始時に取得したが、1 つの複製元に 10 サーバーが同時に接続したため 2 サーバーが外部からの再取得に戻り、起動が 1 時間半遅れた。第四に、Nemotron-3-Ultra の small 上限 20 の STE \airasval{nemotron-3-ultra-small-i20.trajectory_smape} は、先行研究で同条件を 1 回走らせた値 0.284 とほぼ一致し、run 間の変動が margin（0.03）に対して小さいことを裏付けた。
+
+\section{考察（暫定版 v2）}
 \label{sec:discussion}
 \paragraph{上限 20 までは予算が性能を決める.}
-上限 1 から 20 の範囲では、3 モデルとも平均反復数が上限とほぼ一致し（図~\ref{fig:it}）、STE は上限とともに下がった（図~\ref{fig:ste}）。論文は反復上限を 20 に固定している \cite[s1.p3]{duan-2025-measuring}。本研究の 3 モデルはこの範囲で与えられた予算を使い切っており、上限 20 は性能を予算で制限している条件だと言える。small での改善幅はモデルで異なり、Qwen が最も大きく（上限 1 の \airasval{qwen3.8-27b-small-i01.trajectory_smape} から上限 20 の \airasval{qwen3.8-27b-small-i20.trajectory_smape}）、Nemotron は上限 10 まで平坦で 20 で初めて下がった。上限 1 では Qwen の多くの件が実験をせずに提出しており、少ない予算では「実験してから提出する」という行動そのものがモデルで異なる。
+論文は反復上限を 20 に固定している \cite[s1.p3]{duan-2025-measuring}。本研究の 3 モデルはこの範囲で与えられた予算を使い切っており（図~\ref{fig:it}）、STE は上限とともに下がった（図~\ref{fig:ste}）。上限 20 は性能を予算で制限している条件だと言える。ただし補助分析が示すように、追加の予算は実験ではなくコード実行に使われ、改善は一部の件に集中する。
 
-\paragraph{large では予算を使い切っても伸びが小さい.}
-large では上限 20 で 3 モデルが 0.42〜0.44 に集まり、DeepSeek は上限 5 以降横ばいである。平均反復数は上限と一致しているので、予算を使っていないのではなく、使っても STE が下がらない。反応数の多い系では 20 回の実験で得られる情報が機構の復元に足りていないか、文脈に積み上がった実験データを使い切れていない可能性がある。上限 40・80 の run が揃えば、large で予算をさらに増やしたときに改善が再開するか、頭打ちのままかが分かる。
+\paragraph{Nemotron は 20 前後で自ら止まり、飽和が支持された.}
+Nemotron-3-Ultra は上限 40・80 でも 20 前後で提出し、上限 40 から 80 への改善は small \airasval{nemotron-3-ultra-small-i40.trajectory_smape} $\to$ \airasval{nemotron-3-ultra-small-i80.trajectory_smape}、large \airasval{nemotron-3-ultra-large-i40.trajectory_smape} $\to$ \airasval{nemotron-3-ultra-large-i80.trajectory_smape} と小さく、Claim 11・12 が支持された。一方で上限 20 から 80 への改善は small で $-0.028$ と margin にわずかに届かず（Claim 5 反証）、large では $-0.041$ で届いた（Claim 6 支持）。small の反証は改善が無いという意味ではなく、雑音幅と同程度の改善しか無いという意味である。予算を使わないモデルにとって、上限は性能の制約ではない。
 
-\paragraph{飽和の兆候.}
-Nemotron の small では上限 20 と 40 の STE が同じで、上限 40 では 137 件中 \airasval{nemotron-3-ultra-small-i40.n_early_submit} 件が上限前に提出した。予算を増やしても使わなくなった最初の点であり、仮説 2（40 から 80 への改善が 0.05 未満）が支持される方向の兆候である。ただし他のモデル・split の上限 40・80 は未完で、仮説 1（上限 80 が上限 20 より 0.03 以上良い）の判定もできていない。
+\paragraph{DeepSeek と Qwen は 40 まで改善が続き、large では 40 で初めて効く.}
+DeepSeek と Qwen は上限 40 でも平均反復数が上限の 8〜10 割で、STE は 20 から 40 で small・large とも下がった。large の DeepSeek は 5 から 20 まで横ばいで、同じ件の対応づけでも 10 から 20 の差は \unverified{+0.006} と無かったが、20 から 40 では改善した件が \unverified{58}\% に増えた。反応数の多い系では、20 回の実験と解析では機構の復元に足りず、40 で初めて足りる件があると読める。上限 80 で改善が続くか（Claim 1〜4）、40 から 80 で飽和するか（Claim 7〜10）は、残る 4 run で判定する。
 
 \paragraph{文脈長を揃えたことの効果.}
-文脈長を 1M に揃えたことで、上限 20 までの文脈超過は 24 run 合計 \unverified{12} 件にとどまり、先行研究で 262,144 トークンの設定のときに large の上限 20 で 1 run あたり 17 件あった超過と比べて大きく減った。一方で large の最大プロンプト長は上限 20 で既に 100 万トークン近くに達しており、上限 40・80 では 1M でも超過が増える見込みである。文脈超過は提出なしとして採点されるので、第 2 版では上限の効果と文脈超過を分けて読む必要がある。
+文脈長を 1M に揃えたことで、文脈超過は 32 run 合計 \unverified{30} 件（すべて large）にとどまり、先行研究で 262,144 トークンの設定のときに large の上限 20 で 1 run あたり 17 件あった超過と比べて大きく減った。large の最大プロンプト長は上限 20 で既に 100 万トークン近くに達しており、上限 80 では 1M でも超過が増える見込みである。文脈超過は提出なしとして採点されるので、上限の効果と文脈超過を分けて読む必要がある。
 
-\section{結論（暫定版 v1）}
+\section{結論（暫定版 v2）}
 \label{sec:conclusion}
-open-weight 3 モデルを自前 serving し、SciGym の反復上限を 1 から 80 まで振る 36 run のうち 25 run を取り込んだ時点の暫定結果を報告した。上限 1 から 20 の範囲では 3 モデルとも予算を使い切り、STE は上限とともに改善した。改善幅は small で大きく large で小さい。Nemotron-3-Ultra の small では上限 20 と 40 の STE が同じで、予算を使い切らなくなる最初の点が見えた。仮説 1・2 の判定は上限 80 の run を要するため本版では保留とし、残る 11 run が揃った第 2 版で、全行の表と判定を載せる。
+open-weight 3 モデルを自前 serving し、SciGym の反復上限を 1 から 80 まで振る 36 run のうち 32 run を取り込んだ時点の暫定結果を報告した。上限 1 から 20 の範囲では 3 モデルとも予算を使い切り、STE は上限とともに改善した。改善は実験回数ではなくコード実行の増加を伴い、一部の件の大きな改善として現れる。Nemotron-3-Ultra は上限 40・80 でも 20 前後で自ら提出し、40 から 80 への改善は 0.05 未満で、飽和の主張（Claim 11・12）が支持された。上限 20 から 80 への改善は large で margin を超え（Claim 6 支持）、small では雑音幅にとどまった（Claim 5 反証）。DeepSeek と Qwen は上限 40 まで改善が続き、large では 40 で初めて効いた。残る 4 run（DeepSeek と Qwen の上限 80）が揃った版で、全 36 行の表と 12 主張の判定を載せる。
 
 \section*{データの利用可能性}
-記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、サーバーの起動スクリプト、各 run の結果と provenance は同じリポジトリに含まれる。
+記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、サーバーの起動スクリプト、各 run の結果と provenance は同じリポジトリに含まれる。補助分析の集計スクリプトは記録外であり、各 run の \texttt{instances.tar.gz} から再計算できる。
 
 \bibliographystyle{iclr2024_conference}
 \bibliography{references}
