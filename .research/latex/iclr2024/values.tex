@@ -5,21 +5,19 @@
 \newcommand{\airasval}[1]{\@ifundefined{airasval@#1}{\airasvalmissing{#1}}{\csname airasval@#1\endcsname}}
 \newcommand{\airasvalmissing}[1]{\textbf{??airasval:\detokenize{#1}??}}
 \providecommand{\unverified}[1]{#1}
-\newcommand{\airasrecordlink}[2][]{\ifdefined\href\href{https://github.com/auto-res2/scigym-iteration-budget/blob/91197b1a840792d2074de6597c8c34819eb76da6/.research/record.json#1}{#2}\else#2\fi}
+\newcommand{\airasrecordlink}[2][]{\ifdefined\href\href{https://github.com/auto-res2/scigym-iteration-budget/blob/69111284d972dcbe750862c591d3f9c825d50cdd/.research/record.json#1}{#2}\else#2\fi}
 % deepseek-v4.1-flash-small-i01.trajectory_smape = deepseek-v4.1-flash-small-i01.trajectory_smape
 \expandafter\def\csname airasval@deepseek-v4.1-flash-small-i01.trajectory_smape\endcsname{\airasrecordlink[\#L420]{0.442684}}
-% deepseek-v4.1-flash-small-i05.trajectory_smape = deepseek-v4.1-flash-small-i05.trajectory_smape
-\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i05.trajectory_smape\endcsname{\airasrecordlink[\#L507]{0.307173}}
-% deepseek-v4.1-flash-small-i10.trajectory_smape = deepseek-v4.1-flash-small-i10.trajectory_smape
-\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i10.trajectory_smape\endcsname{\airasrecordlink[\#L594]{0.251432}}
 % deepseek-v4.1-flash-small-i20.trajectory_smape = deepseek-v4.1-flash-small-i20.trajectory_smape
 \expandafter\def\csname airasval@deepseek-v4.1-flash-small-i20.trajectory_smape\endcsname{\airasrecordlink[\#L681]{0.223137}}
+% deepseek-v4.1-flash-small-i40.trajectory_smape = deepseek-v4.1-flash-small-i40.trajectory_smape
+\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6225]{0.197789}}
 % qwen3.8-27b-small-i01.trajectory_smape = qwen3.8-27b-small-i01.trajectory_smape
 \expandafter\def\csname airasval@qwen3.8-27b-small-i01.trajectory_smape\endcsname{\airasrecordlink[\#L1188]{0.622135}}
-% qwen3.8-27b-small-i05.trajectory_smape = qwen3.8-27b-small-i05.trajectory_smape
-\expandafter\def\csname airasval@qwen3.8-27b-small-i05.trajectory_smape\endcsname{\airasrecordlink[\#L1275]{0.371881}}
 % qwen3.8-27b-small-i20.trajectory_smape = qwen3.8-27b-small-i20.trajectory_smape
 \expandafter\def\csname airasval@qwen3.8-27b-small-i20.trajectory_smape\endcsname{\airasrecordlink[\#L1449]{0.263002}}
+% qwen3.8-27b-small-i40.trajectory_smape = qwen3.8-27b-small-i40.trajectory_smape
+\expandafter\def\csname airasval@qwen3.8-27b-small-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6467]{0.209968}}
 % nemotron-3-ultra-small-i01.trajectory_smape = nemotron-3-ultra-small-i01.trajectory_smape
 \expandafter\def\csname airasval@nemotron-3-ultra-small-i01.trajectory_smape\endcsname{\airasrecordlink[\#L1956]{0.391928}}
 % nemotron-3-ultra-small-i10.trajectory_smape = nemotron-3-ultra-small-i10.trajectory_smape
@@ -27,59 +25,57 @@
 % nemotron-3-ultra-small-i20.trajectory_smape = nemotron-3-ultra-small-i20.trajectory_smape
 \expandafter\def\csname airasval@nemotron-3-ultra-small-i20.trajectory_smape\endcsname{\airasrecordlink[\#L2217]{0.283335}}
 % nemotron-3-ultra-small-i40.trajectory_smape = nemotron-3-ultra-small-i40.trajectory_smape
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6156]{0.281658}}
-% deepseek-v4.1-flash-large-i01.trajectory_smape = deepseek-v4.1-flash-large-i01.trajectory_smape
-\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i01.trajectory_smape\endcsname{\airasrecordlink[\#L809]{0.508354}}
-% deepseek-v4.1-flash-large-i20.trajectory_smape = deepseek-v4.1-flash-large-i20.trajectory_smape
-\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L1058]{0.442956}}
-% qwen3.8-27b-large-i01.trajectory_smape = qwen3.8-27b-large-i01.trajectory_smape
-\expandafter\def\csname airasval@qwen3.8-27b-large-i01.trajectory_smape\endcsname{\airasrecordlink[\#L1577]{0.582307}}
-% qwen3.8-27b-large-i20.trajectory_smape = qwen3.8-27b-large-i20.trajectory_smape
-\expandafter\def\csname airasval@qwen3.8-27b-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L1826]{0.430569}}
-% nemotron-3-ultra-large-i01.trajectory_smape = nemotron-3-ultra-large-i01.trajectory_smape
-\expandafter\def\csname airasval@nemotron-3-ultra-large-i01.trajectory_smape\endcsname{\airasrecordlink[\#L2427]{0.515519}}
-% nemotron-3-ultra-large-i20.trajectory_smape = nemotron-3-ultra-large-i20.trajectory_smape
-\expandafter\def\csname airasval@nemotron-3-ultra-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L2676]{0.418199}}
+\expandafter\def\csname airasval@nemotron-3-ultra-small-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6709]{0.281658}}
+% nemotron-3-ultra-small-i80.trajectory_smape = nemotron-3-ultra-small-i80.trajectory_smape
+\expandafter\def\csname airasval@nemotron-3-ultra-small-i80.trajectory_smape\endcsname{\airasrecordlink[\#L2304]{0.255252}}
 % deepseek-v4.1-flash-large-i05.trajectory_smape = deepseek-v4.1-flash-large-i05.trajectory_smape
 \expandafter\def\csname airasval@deepseek-v4.1-flash-large-i05.trajectory_smape\endcsname{\airasrecordlink[\#L892]{0.43835}}
 % deepseek-v4.1-flash-large-i10.trajectory_smape = deepseek-v4.1-flash-large-i10.trajectory_smape
 \expandafter\def\csname airasval@deepseek-v4.1-flash-large-i10.trajectory_smape\endcsname{\airasrecordlink[\#L975]{0.436666}}
+% deepseek-v4.1-flash-large-i20.trajectory_smape = deepseek-v4.1-flash-large-i20.trajectory_smape
+\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L1058]{0.442956}}
+% deepseek-v4.1-flash-large-i40.trajectory_smape = deepseek-v4.1-flash-large-i40.trajectory_smape
+\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6345]{0.351825}}
+% qwen3.8-27b-large-i20.trajectory_smape = qwen3.8-27b-large-i20.trajectory_smape
+\expandafter\def\csname airasval@qwen3.8-27b-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L1826]{0.430569}}
+% qwen3.8-27b-large-i40.trajectory_smape = qwen3.8-27b-large-i40.trajectory_smape
+\expandafter\def\csname airasval@qwen3.8-27b-large-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6587]{0.372967}}
+% nemotron-3-ultra-large-i20.trajectory_smape = nemotron-3-ultra-large-i20.trajectory_smape
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i20.trajectory_smape\endcsname{\airasrecordlink[\#L2676]{0.418199}}
+% nemotron-3-ultra-large-i40.trajectory_smape = nemotron-3-ultra-large-i40.trajectory_smape
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i40.trajectory_smape\endcsname{\airasrecordlink[\#L6831]{0.392229}}
+% nemotron-3-ultra-large-i80.trajectory_smape = nemotron-3-ultra-large-i80.trajectory_smape
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i80.trajectory_smape\endcsname{\airasrecordlink[\#L2759]{0.377013}}
+% deepseek-v4.1-flash-small-i40.mean_iterations = deepseek-v4.1-flash-small-i40.mean_iterations
+\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i40.mean_iterations\endcsname{\airasrecordlink[\#L6235]{33.2313}}
+% deepseek-v4.1-flash-large-i40.mean_iterations = deepseek-v4.1-flash-large-i40.mean_iterations
+\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i40.mean_iterations\endcsname{\airasrecordlink[\#L6354]{39.2163}}
+% qwen3.8-27b-small-i40.mean_iterations = qwen3.8-27b-small-i40.mean_iterations
+\expandafter\def\csname airasval@qwen3.8-27b-small-i40.mean_iterations\endcsname{\airasrecordlink[\#L6477]{32.8077}}
+% qwen3.8-27b-large-i40.mean_iterations = qwen3.8-27b-large-i40.mean_iterations
+\expandafter\def\csname airasval@qwen3.8-27b-large-i40.mean_iterations\endcsname{\airasrecordlink[\#L6596]{39.522}}
 % nemotron-3-ultra-small-i40.mean_iterations = nemotron-3-ultra-small-i40.mean_iterations
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i40.mean_iterations\endcsname{\airasrecordlink[\#L6166]{26.438}}
-% deepseek-v4.1-flash-small-i20.mean_iterations = deepseek-v4.1-flash-small-i20.mean_iterations
-\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i20.mean_iterations\endcsname{\airasrecordlink[\#L691]{19.6324}}
-% qwen3.8-27b-small-i20.mean_iterations = qwen3.8-27b-small-i20.mean_iterations
-\expandafter\def\csname airasval@qwen3.8-27b-small-i20.mean_iterations\endcsname{\airasrecordlink[\#L1459]{19.8657}}
-% nemotron-3-ultra-small-i20.mean_iterations = nemotron-3-ultra-small-i20.mean_iterations
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i20.mean_iterations\endcsname{\airasrecordlink[\#L2227]{18.4526}}
-% deepseek-v4.1-flash-small-i20.n_early_submit = deepseek-v4.1-flash-small-i20.n_early_submit
-\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i20.n_early_submit\endcsname{\airasrecordlink[\#L692]{24}}
-% qwen3.8-27b-small-i20.n_early_submit = qwen3.8-27b-small-i20.n_early_submit
-\expandafter\def\csname airasval@qwen3.8-27b-small-i20.n_early_submit\endcsname{\airasrecordlink[\#L1460]{28}}
-% nemotron-3-ultra-small-i20.n_early_submit = nemotron-3-ultra-small-i20.n_early_submit
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i20.n_early_submit\endcsname{\airasrecordlink[\#L2228]{49}}
-% nemotron-3-ultra-small-i40.n_early_submit = nemotron-3-ultra-small-i40.n_early_submit
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i40.n_early_submit\endcsname{\airasrecordlink[\#L6167]{114}}
+\expandafter\def\csname airasval@nemotron-3-ultra-small-i40.mean_iterations\endcsname{\airasrecordlink[\#L6719]{26.438}}
+% nemotron-3-ultra-large-i40.mean_iterations = nemotron-3-ultra-large-i40.mean_iterations
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i40.mean_iterations\endcsname{\airasrecordlink[\#L6840]{29.9524}}
+% nemotron-3-ultra-small-i80.mean_iterations = nemotron-3-ultra-small-i80.mean_iterations
+\expandafter\def\csname airasval@nemotron-3-ultra-small-i80.mean_iterations\endcsname{\airasrecordlink[\#L2314]{31.8759}}
+% nemotron-3-ultra-large-i80.mean_iterations = nemotron-3-ultra-large-i80.mean_iterations
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i80.mean_iterations\endcsname{\airasrecordlink[\#L2768]{38.8077}}
+% nemotron-3-ultra-small-i80.n_early_submit = nemotron-3-ultra-small-i80.n_early_submit
+\expandafter\def\csname airasval@nemotron-3-ultra-small-i80.n_early_submit\endcsname{\airasrecordlink[\#L2315]{134}}
+% nemotron-3-ultra-large-i80.n_early_submit = nemotron-3-ultra-large-i80.n_early_submit
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i80.n_early_submit\endcsname{\airasrecordlink[\#L2769]{194}}
 % qwen3.8-27b-small-i01.n_early_submit = qwen3.8-27b-small-i01.n_early_submit
 \expandafter\def\csname airasval@qwen3.8-27b-small-i01.n_early_submit\endcsname{\airasrecordlink[\#L1199]{77}}
 % qwen3.8-27b-large-i01.n_early_submit = qwen3.8-27b-large-i01.n_early_submit
 \expandafter\def\csname airasval@qwen3.8-27b-large-i01.n_early_submit\endcsname{\airasrecordlink[\#L1587]{95}}
-% deepseek-v4.1-flash-small-i01.n_early_submit = deepseek-v4.1-flash-small-i01.n_early_submit
-\expandafter\def\csname airasval@deepseek-v4.1-flash-small-i01.n_early_submit\endcsname{\airasrecordlink[\#L431]{32}}
-% nemotron-3-ultra-small-i01.n_early_submit = nemotron-3-ultra-small-i01.n_early_submit
-\expandafter\def\csname airasval@nemotron-3-ultra-small-i01.n_early_submit\endcsname{\airasrecordlink[\#L1967]{0}}
-% qwen3.8-27b-small-i20.n_valid_submissions = qwen3.8-27b-small-i20.n_valid_submissions
-\expandafter\def\csname airasval@qwen3.8-27b-small-i20.n_valid_submissions\endcsname{\airasrecordlink[\#L1452]{120}}
-% deepseek-v4.1-flash-large-i20.n_valid_submissions = deepseek-v4.1-flash-large-i20.n_valid_submissions
-\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i20.n_valid_submissions\endcsname{\airasrecordlink[\#L1060]{208}}
-% nemotron-3-ultra-large-i20.n_valid_submissions = nemotron-3-ultra-large-i20.n_valid_submissions
-\expandafter\def\csname airasval@nemotron-3-ultra-large-i20.n_valid_submissions\endcsname{\airasrecordlink[\#L2678]{200}}
-% qwen3.8-27b-large-i20.n_valid_submissions = qwen3.8-27b-large-i20.n_valid_submissions
-\expandafter\def\csname airasval@qwen3.8-27b-large-i20.n_valid_submissions\endcsname{\airasrecordlink[\#L1828]{193}}
-% deepseek-v4.1-flash-large-i20.n_context_overflow = deepseek-v4.1-flash-large-i20.n_context_overflow
-\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i20.n_context_overflow\endcsname{\airasrecordlink[\#L1069]{3}}
-% nemotron-3-ultra-large-i20.n_context_overflow = nemotron-3-ultra-large-i20.n_context_overflow
-\expandafter\def\csname airasval@nemotron-3-ultra-large-i20.n_context_overflow\endcsname{\airasrecordlink[\#L2687]{3}}
-% deepseek-v4.1-flash-large-i20.max_prompt_tokens = deepseek-v4.1-flash-large-i20.max_prompt_tokens
-\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i20.max_prompt_tokens\endcsname{\airasrecordlink[\#L1065]{1.0035e+06}}
+% qwen3.8-27b-small-i40.n_valid_submissions = qwen3.8-27b-small-i40.n_valid_submissions
+\expandafter\def\csname airasval@qwen3.8-27b-small-i40.n_valid_submissions\endcsname{\airasrecordlink[\#L6470]{125}}
+% deepseek-v4.1-flash-large-i40.n_context_overflow = deepseek-v4.1-flash-large-i40.n_context_overflow
+\expandafter\def\csname airasval@deepseek-v4.1-flash-large-i40.n_context_overflow\endcsname{\airasrecordlink[\#L6356]{3}}
+% qwen3.8-27b-large-i40.n_context_overflow = qwen3.8-27b-large-i40.n_context_overflow
+\expandafter\def\csname airasval@qwen3.8-27b-large-i40.n_context_overflow\endcsname{\airasrecordlink[\#L6598]{4}}
+% nemotron-3-ultra-large-i80.n_context_overflow = nemotron-3-ultra-large-i80.n_context_overflow
+\expandafter\def\csname airasval@nemotron-3-ultra-large-i80.n_context_overflow\endcsname{\airasrecordlink[\#L2770]{5}}
 \makeatother
