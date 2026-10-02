@@ -1,0 +1,40 @@
+{
+  "curves": {},
+  "inputs_summary": {
+    "n_instances": 213.0,
+    "n_valid_submissions": 195.0
+  },
+  "metrics": {
+    "reaction_f1": 0.28711102307437475,
+    "reaction_f1_with_modifiers": 0.16313060860502684,
+    "reaction_precision": 0.3153171572733882,
+    "reaction_precision_with_modifiers": 0.18619189479781426,
+    "reaction_recall": 0.29568077517007224,
+    "reaction_recall_with_modifiers": 0.16542150772782122,
+    "topology_f1": 0.33967861694093354,
+    "topology_f1_modifier_product": 0.003241061130334487,
+    "topology_f1_reactant_modifier": 0.0056603773584905665,
+    "topology_f1_reactant_product": 0.29712346749382096,
+    "topology_precision": 0.5627758897747124,
+    "topology_recall": 0.2955008478688628,
+    "trajectory_smape": 0.2997472271460556
+  },
+  "omitted_optional_inputs": [],
+  "provenance": {
+    "inputs_sha256": "e93a488a09fce68ee98570873b9b1e364f098cc0fd5a0641119a519fb4770fcf",
+    "task_signature": "scigym_large/v1@e2594567c496",
+    "versions": {
+      "airas-eval": "0.13.1",
+      "libroadrunner": "2.7.0",
+      "python-libsbml": "5.20.4",
+      "scigym": "0.0.1"
+    }
+  },
+  "skipped": {
+    "missing_dependency": {},
+    "missing_optional_input": [],
+    "not_applicable": {},
+    "undefined_on_data": {}
+  },
+  "task_type": "scigym_large"
+}
