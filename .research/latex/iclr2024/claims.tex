@@ -8,25 +8,25 @@
   \emph{Criterion:} \texttt{\detokenize{deepseek-v4.1-flash-small-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{deepseek-v4.1-flash-small-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.15, -0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
   \emph{Observed:} -0.0643907.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 2}] DeepSeek-V4.1-Flash で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。~\cite[s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} DeepSeek-V4.1-Flash の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{deepseek-v4.1-flash-large-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{deepseek-v4.1-flash-large-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.15, -0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
   \emph{Observed:} -0.1495.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 3}] Qwen3.8-27B で SciGym-small 137 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。~\cite[s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Qwen3.8-27B の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{qwen3.8-27b-small-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{qwen3.8-27b-small-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.08, 0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
   \emph{Observed:} -0.0973588.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 4}] Qwen3.8-27B で SciGym-large 213 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。~\cite[s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Qwen3.8-27B の large split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{qwen3.8-27b-large-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{qwen3.8-27b-large-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
   \emph{Prediction:} $[-0.08, 0.02]$ (先行する 100 反復の内部試行では kimi-k3 が 20$\to$100 反復で STE 0.225$\to$0.088（平均 67.8 反復を使用）、qwen3.6-35b は平均 20.7 反復で自発提出し 0.457$\to$0.446。予算を使い切るモデルほど改善が大きいと見て、モデルごとに幅を置く).
   \emph{Observed:} -0.130822.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 5}] Nemotron-3-Ultra で SciGym-small 137 件を解かせたとき、反復上限 80 の平均 STE は反復上限 20（論文条件）より 0.03 以上低い。~\cite[s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Nemotron-3-Ultra の small split で、論文条件を超える予算が雑音幅（137 件平均の標準誤差約 0.02、差で約 0.03）を超えて効くことを示し、h1 の当該モデル・split の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-small-i80}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-small-i20}}.\texttt{\detokenize{trajectory_smape}} $\leq -0.03$.
@@ -54,25 +54,25 @@
   \emph{Criterion:} \texttt{\detokenize{deepseek-v4.1-flash-small-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{deepseek-v4.1-flash-small-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[0, 0.08]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
   \emph{Observed:} 0.0390427.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 8}] DeepSeek-V4.1-Flash で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。~\cite[s1.p3, s1.p4]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} DeepSeek-V4.1-Flash の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c2 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{deepseek-v4.1-flash-large-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{deepseek-v4.1-flash-large-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[0, 0.08]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
   \emph{Observed:} 0.0583697.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} refuted.
 \item[\textbf{Claim 9}] Qwen3.8-27B で SciGym-small 137 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。~\cite[s1.p3, s1.p4]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Qwen3.8-27B の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c3 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{qwen3.8-27b-small-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{qwen3.8-27b-small-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[-0.02, 0.04]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
   \emph{Observed:} 0.0443245.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{Claim 10}] Qwen3.8-27B で SciGym-large 213 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。~\cite[s1.p3, s1.p4]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Qwen3.8-27B の large split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c4 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{qwen3.8-27b-large-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{qwen3.8-27b-large-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.
   \emph{Prediction:} $[-0.02, 0.04]$ (内部試行では kimi-k3 が 100 反復でも平均 67.8 反復で提出しており、40 を超える予算の使用は部分的。qwen 系は 20 前後で自発提出する。40$\to$80 の差は雑音幅（約 0.03）程度と見る).
   \emph{Observed:} 0.07322.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} refuted.
 \item[\textbf{Claim 11}] Nemotron-3-Ultra で SciGym-small 137 件を解かせたとき、反復上限 40 から 80 への平均 STE の改善は 0.05 未満である。~\cite[s1.p3, s1.p4]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Nemotron-3-Ultra の small split で、予算を 40 から 80 に倍増しても伸びが判定幅に収まる（飽和している）ことを示し、h2 の当該モデル・split の部分を担う。基準 run は c5 の反復上限 80。
   \emph{Criterion:} \texttt{\detokenize{nemotron-3-ultra-small-i40}}.\texttt{\detokenize{trajectory_smape}} $-$ \texttt{\detokenize{nemotron-3-ultra-small-i80}}.\texttt{\detokenize{trajectory_smape}} $\leq 0.05$.

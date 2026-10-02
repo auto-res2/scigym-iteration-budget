@@ -3,7 +3,7 @@
 % and fails on any difference, so manual edits always surface.
 \begin{table}[t]
 \centering
-\caption{トークン使用量。行はモデル split / 反復上限（DeepSeek = DeepSeek-V4.1-Flash、Qwen = Qwen3.8-27B、Nemotron = Nemotron-3-Ultra）。入力・出力トークン総数、LLM 呼び出し数、思考が本文に混じって除去した応答数。 実行中の 4 run（DeepSeek と Qwen の上限 80）は含めない（暫定版 v2）。}
+\caption{トークン使用量。行はモデル split / 反復上限（DeepSeek = DeepSeek-V4.1-Flash、Qwen = Qwen3.8-27B、Nemotron = Nemotron-3-Ultra）。入力・出力トークン総数、LLM 呼び出し数、思考が本文に混じって除去した応答数。 全 36 run（最終版）。}
 \label{tab:tokens}
 \begin{tabular}{lrrrr}
 \hline
@@ -13,34 +13,38 @@ DeepSeek small / 1 & \airasrecordlink[\#L435]{1274290} & \airasrecordlink[\#L436
 DeepSeek small / 5 & \airasrecordlink[\#L522]{6891226} & \airasrecordlink[\#L523]{3364660} & \airasrecordlink[\#L524]{998} & \airasrecordlink[\#L525]{2} \\
 DeepSeek small / 10 & \airasrecordlink[\#L609]{16828516} & \airasrecordlink[\#L610]{4474220} & \airasrecordlink[\#L611]{1643} & \airasrecordlink[\#L612]{4} \\
 DeepSeek small / 20 & \airasrecordlink[\#L696]{46317718} & \airasrecordlink[\#L697]{6966753} & \airasrecordlink[\#L698]{2826} & \airasrecordlink[\#L699]{7} \\
-DeepSeek small / 40 & \airasrecordlink[\#L6240]{131929994} & \airasrecordlink[\#L6241]{12322098} & \airasrecordlink[\#L6242]{4660} & \airasrecordlink[\#L6243]{79} \\
-Qwen small / 1 & \airasrecordlink[\#L1203]{1221631} & \airasrecordlink[\#L1204]{4386426} & \airasrecordlink[\#L1205]{290} & \airasrecordlink[\#L1206]{285} \\
-Qwen small / 5 & \airasrecordlink[\#L1290]{10542963} & \airasrecordlink[\#L1291]{11869691} & \airasrecordlink[\#L1292]{1041} & \airasrecordlink[\#L1293]{1037} \\
-Qwen small / 10 & \airasrecordlink[\#L1377]{25192969} & \airasrecordlink[\#L1378]{14662945} & \airasrecordlink[\#L1379]{1706} & \airasrecordlink[\#L1380]{1703} \\
-Qwen small / 20 & \airasrecordlink[\#L1464]{64815651} & \airasrecordlink[\#L1465]{22112889} & \airasrecordlink[\#L1466]{2827} & \airasrecordlink[\#L1467]{2815} \\
-Qwen small / 40 & \airasrecordlink[\#L6482]{188658839} & \airasrecordlink[\#L6483]{31328832} & \airasrecordlink[\#L6484]{4506} & \airasrecordlink[\#L6485]{4421} \\
-Nemotron small / 1 & \airasrecordlink[\#L1971]{2460942} & \airasrecordlink[\#L1972]{1454084} & \airasrecordlink[\#L1973]{462} & \airasrecordlink[\#L1974]{18} \\
-Nemotron small / 5 & \airasrecordlink[\#L2058]{10665914} & \airasrecordlink[\#L2059]{2619710} & \airasrecordlink[\#L2060]{1010} & \airasrecordlink[\#L2061]{68} \\
-Nemotron small / 10 & \airasrecordlink[\#L2145]{29788521} & \airasrecordlink[\#L2146]{4196975} & \airasrecordlink[\#L2147]{1631} & \airasrecordlink[\#L2148]{104} \\
-Nemotron small / 20 & \airasrecordlink[\#L2232]{85518859} & \airasrecordlink[\#L2233]{7454118} & \airasrecordlink[\#L2234]{2665} & \airasrecordlink[\#L2235]{195} \\
-Nemotron small / 40 & \airasrecordlink[\#L6724]{185946822} & \airasrecordlink[\#L6725]{10258370} & \airasrecordlink[\#L6726]{3759} & \airasrecordlink[\#L6727]{300} \\
-Nemotron small / 80 & \airasrecordlink[\#L2319]{326380441} & \airasrecordlink[\#L2320]{13559568} & \airasrecordlink[\#L2321]{4504} & \airasrecordlink[\#L2322]{248} \\
-DeepSeek large / 1 & \airasrecordlink[\#L823]{5129492} & \airasrecordlink[\#L824]{3829635} & \airasrecordlink[\#L825]{554} & \airasrecordlink[\#L826]{1} \\
-DeepSeek large / 5 & \airasrecordlink[\#L906]{29564117} & \airasrecordlink[\#L907]{4944205} & \airasrecordlink[\#L908]{1536} & \airasrecordlink[\#L909]{4} \\
-DeepSeek large / 10 & \airasrecordlink[\#L989]{67733790} & \airasrecordlink[\#L990]{6907247} & \airasrecordlink[\#L991]{2568} & \airasrecordlink[\#L992]{10} \\
-DeepSeek large / 20 & \airasrecordlink[\#L1072]{194797668} & \airasrecordlink[\#L1073]{11480927} & \airasrecordlink[\#L1074]{4629} & \airasrecordlink[\#L1075]{30} \\
-DeepSeek large / 40 & \airasrecordlink[\#L6359]{522485256} & \airasrecordlink[\#L6360]{20496954} & \airasrecordlink[\#L6361]{8478} & \airasrecordlink[\#L6362]{121} \\
-Qwen large / 1 & \airasrecordlink[\#L1591]{5350897} & \airasrecordlink[\#L1592]{8630323} & \airasrecordlink[\#L1593]{505} & \airasrecordlink[\#L1594]{482} \\
-Qwen large / 5 & \airasrecordlink[\#L1674]{43866762} & \airasrecordlink[\#L1675]{18209921} & \airasrecordlink[\#L1676]{1674} & \airasrecordlink[\#L1677]{1642} \\
-Qwen large / 10 & \airasrecordlink[\#L1757]{92094533} & \airasrecordlink[\#L1758]{23167102} & \airasrecordlink[\#L1759]{2701} & \airasrecordlink[\#L1760]{2654} \\
-Qwen large / 20 & \airasrecordlink[\#L1840]{232090863} & \airasrecordlink[\#L1841]{35409870} & \airasrecordlink[\#L1842]{4722} & \airasrecordlink[\#L1843]{4630} \\
-Qwen large / 40 & \airasrecordlink[\#L6601]{646495199} & \airasrecordlink[\#L6602]{55672070} & \airasrecordlink[\#L6603]{8431} & \airasrecordlink[\#L6604]{8091} \\
-Nemotron large / 1 & \airasrecordlink[\#L2441]{12669803} & \airasrecordlink[\#L2442]{2800896} & \airasrecordlink[\#L2443]{764} & \airasrecordlink[\#L2444]{24} \\
-Nemotron large / 5 & \airasrecordlink[\#L2524]{53401416} & \airasrecordlink[\#L2525]{4593209} & \airasrecordlink[\#L2526]{1598} & \airasrecordlink[\#L2527]{107} \\
-Nemotron large / 10 & \airasrecordlink[\#L2607]{120229323} & \airasrecordlink[\#L2608]{6704393} & \airasrecordlink[\#L2609]{2559} & \airasrecordlink[\#L2610]{122} \\
-Nemotron large / 20 & \airasrecordlink[\#L2690]{309996279} & \airasrecordlink[\#L2691]{12988712} & \airasrecordlink[\#L2692]{4437} & \airasrecordlink[\#L2693]{278} \\
-Nemotron large / 40 & \airasrecordlink[\#L6845]{619428562} & \airasrecordlink[\#L6846]{19066662} & \airasrecordlink[\#L6847]{6520} & \airasrecordlink[\#L6848]{510} \\
-Nemotron large / 80 & \airasrecordlink[\#L2773]{1178177246} & \airasrecordlink[\#L2774]{25610557} & \airasrecordlink[\#L2775]{8405} & \airasrecordlink[\#L2776]{512} \\
+DeepSeek small / 40 & \airasrecordlink[\#L7755]{131929994} & \airasrecordlink[\#L7756]{12322098} & \airasrecordlink[\#L7757]{4660} & \airasrecordlink[\#L7758]{79} \\
+DeepSeek small / 80 & \airasrecordlink[\#L783]{273180219} & \airasrecordlink[\#L784]{16916137} & \airasrecordlink[\#L785]{6579} & \airasrecordlink[\#L786]{137} \\
+Qwen small / 1 & \airasrecordlink[\#L1363]{1221631} & \airasrecordlink[\#L1364]{4386426} & \airasrecordlink[\#L1365]{290} & \airasrecordlink[\#L1366]{285} \\
+Qwen small / 5 & \airasrecordlink[\#L1450]{10542963} & \airasrecordlink[\#L1451]{11869691} & \airasrecordlink[\#L1452]{1041} & \airasrecordlink[\#L1453]{1037} \\
+Qwen small / 10 & \airasrecordlink[\#L1537]{25192969} & \airasrecordlink[\#L1538]{14662945} & \airasrecordlink[\#L1539]{1706} & \airasrecordlink[\#L1540]{1703} \\
+Qwen small / 20 & \airasrecordlink[\#L1624]{64815651} & \airasrecordlink[\#L1625]{22112889} & \airasrecordlink[\#L1626]{2827} & \airasrecordlink[\#L1627]{2815} \\
+Qwen small / 40 & \airasrecordlink[\#L8001]{188658839} & \airasrecordlink[\#L8002]{31328832} & \airasrecordlink[\#L8003]{4506} & \airasrecordlink[\#L8004]{4421} \\
+Qwen small / 80 & \airasrecordlink[\#L1711]{477679860} & \airasrecordlink[\#L1712]{42977847} & \airasrecordlink[\#L1713]{6563} & \airasrecordlink[\#L1714]{6260} \\
+Nemotron small / 1 & \airasrecordlink[\#L2291]{2460942} & \airasrecordlink[\#L2292]{1454084} & \airasrecordlink[\#L2293]{462} & \airasrecordlink[\#L2294]{18} \\
+Nemotron small / 5 & \airasrecordlink[\#L2378]{10665914} & \airasrecordlink[\#L2379]{2619710} & \airasrecordlink[\#L2380]{1010} & \airasrecordlink[\#L2381]{68} \\
+Nemotron small / 10 & \airasrecordlink[\#L2465]{29788521} & \airasrecordlink[\#L2466]{4196975} & \airasrecordlink[\#L2467]{1631} & \airasrecordlink[\#L2468]{104} \\
+Nemotron small / 20 & \airasrecordlink[\#L2552]{85518859} & \airasrecordlink[\#L2553]{7454118} & \airasrecordlink[\#L2554]{2665} & \airasrecordlink[\#L2555]{195} \\
+Nemotron small / 40 & \airasrecordlink[\#L8247]{185946822} & \airasrecordlink[\#L8248]{10258370} & \airasrecordlink[\#L8249]{3759} & \airasrecordlink[\#L8250]{300} \\
+Nemotron small / 80 & \airasrecordlink[\#L2639]{326380441} & \airasrecordlink[\#L2640]{13559568} & \airasrecordlink[\#L2641]{4504} & \airasrecordlink[\#L2642]{248} \\
+DeepSeek large / 1 & \airasrecordlink[\#L905]{5129492} & \airasrecordlink[\#L906]{3829635} & \airasrecordlink[\#L907]{554} & \airasrecordlink[\#L908]{1} \\
+DeepSeek large / 5 & \airasrecordlink[\#L988]{29564117} & \airasrecordlink[\#L989]{4944205} & \airasrecordlink[\#L990]{1536} & \airasrecordlink[\#L991]{4} \\
+DeepSeek large / 10 & \airasrecordlink[\#L1071]{67733790} & \airasrecordlink[\#L1072]{6907247} & \airasrecordlink[\#L1073]{2568} & \airasrecordlink[\#L1074]{10} \\
+DeepSeek large / 20 & \airasrecordlink[\#L1154]{194797668} & \airasrecordlink[\#L1155]{11480927} & \airasrecordlink[\#L1156]{4629} & \airasrecordlink[\#L1157]{30} \\
+DeepSeek large / 40 & \airasrecordlink[\#L7876]{522485256} & \airasrecordlink[\#L7877]{20496954} & \airasrecordlink[\#L7878]{8478} & \airasrecordlink[\#L7879]{121} \\
+DeepSeek large / 80 & \airasrecordlink[\#L1237]{1223909791} & \airasrecordlink[\#L1238]{32242354} & \airasrecordlink[\#L1239]{13860} & \airasrecordlink[\#L1240]{457} \\
+Qwen large / 1 & \airasrecordlink[\#L1833]{5350897} & \airasrecordlink[\#L1834]{8630323} & \airasrecordlink[\#L1835]{505} & \airasrecordlink[\#L1836]{482} \\
+Qwen large / 5 & \airasrecordlink[\#L1916]{43866762} & \airasrecordlink[\#L1917]{18209921} & \airasrecordlink[\#L1918]{1674} & \airasrecordlink[\#L1919]{1642} \\
+Qwen large / 10 & \airasrecordlink[\#L1999]{92094533} & \airasrecordlink[\#L2000]{23167102} & \airasrecordlink[\#L2001]{2701} & \airasrecordlink[\#L2002]{2654} \\
+Qwen large / 20 & \airasrecordlink[\#L2082]{232090863} & \airasrecordlink[\#L2083]{35409870} & \airasrecordlink[\#L2084]{4722} & \airasrecordlink[\#L2085]{4630} \\
+Qwen large / 40 & \airasrecordlink[\#L8122]{646495199} & \airasrecordlink[\#L8123]{55672070} & \airasrecordlink[\#L8124]{8431} & \airasrecordlink[\#L8125]{8091} \\
+Qwen large / 80 & \airasrecordlink[\#L2165]{1844165376} & \airasrecordlink[\#L2166]{82746596} & \airasrecordlink[\#L2167]{14017} & \airasrecordlink[\#L2168]{12969} \\
+Nemotron large / 1 & \airasrecordlink[\#L2761]{12669803} & \airasrecordlink[\#L2762]{2800896} & \airasrecordlink[\#L2763]{764} & \airasrecordlink[\#L2764]{24} \\
+Nemotron large / 5 & \airasrecordlink[\#L2844]{53401416} & \airasrecordlink[\#L2845]{4593209} & \airasrecordlink[\#L2846]{1598} & \airasrecordlink[\#L2847]{107} \\
+Nemotron large / 10 & \airasrecordlink[\#L2927]{120229323} & \airasrecordlink[\#L2928]{6704393} & \airasrecordlink[\#L2929]{2559} & \airasrecordlink[\#L2930]{122} \\
+Nemotron large / 20 & \airasrecordlink[\#L3010]{309996279} & \airasrecordlink[\#L3011]{12988712} & \airasrecordlink[\#L3012]{4437} & \airasrecordlink[\#L3013]{278} \\
+Nemotron large / 40 & \airasrecordlink[\#L8368]{619428562} & \airasrecordlink[\#L8369]{19066662} & \airasrecordlink[\#L8370]{6520} & \airasrecordlink[\#L8371]{510} \\
+Nemotron large / 80 & \airasrecordlink[\#L3093]{1178177246} & \airasrecordlink[\#L3094]{25610557} & \airasrecordlink[\#L3095]{8405} & \airasrecordlink[\#L3096]{512} \\
 \hline
 \end{tabular}
 \end{table}

@@ -3,28 +3,30 @@
 % and fails on any difference, so manual edits always surface.
 \begin{table}[t]
 \centering
-\caption{SciGym-large 213 件。列は表 small と同じ。 実行中の 4 run（DeepSeek と Qwen の上限 80）は含めない（暫定版 v2）。}
+\caption{SciGym-large 213 件。列は表 small と同じ。 全 36 run（最終版）。}
 \label{tab:large}
-\begin{tabular}{lrrrrrrr}
+\begin{tabular}{lrrrrrrrr}
 \hline
- & STE $\downarrow$ & F1 & F1$_m$ & n\_valid & 平均反復 & 早期提出 & 文脈超過 \\
+ & STE $\downarrow$ & F1 & F1$_m$ & n\_valid & 平均反復 & 早期提出 & 文脈超過 & 未提出 \\
 \hline
-DeepSeek-V4.1-Flash / 1 & \airasrecordlink[\#L820]{0.508} & \airasrecordlink[\#L808]{0.131} & \airasrecordlink[\#L809]{0.063} & \airasrecordlink[\#L822]{209} & \airasrecordlink[\#L829]{1.6} & \airasrecordlink[\#L830]{40} & \airasrecordlink[\#L831]{0} \\
-DeepSeek-V4.1-Flash / 5 & \airasrecordlink[\#L903]{0.438} & \airasrecordlink[\#L891]{0.229} & \airasrecordlink[\#L892]{0.108} & \airasrecordlink[\#L905]{211} & \airasrecordlink[\#L912]{6.2} & \airasrecordlink[\#L913]{0} & \airasrecordlink[\#L914]{0} \\
-DeepSeek-V4.1-Flash / 10 & \airasrecordlink[\#L986]{0.437} & \airasrecordlink[\#L974]{0.212} & \airasrecordlink[\#L975]{0.105} & \airasrecordlink[\#L988]{208} & \airasrecordlink[\#L995]{11.1} & \airasrecordlink[\#L996]{0} & \airasrecordlink[\#L997]{1} \\
-DeepSeek-V4.1-Flash / 20 & \airasrecordlink[\#L1069]{0.443} & \airasrecordlink[\#L1057]{0.212} & \airasrecordlink[\#L1058]{0.117} & \airasrecordlink[\#L1071]{208} & \airasrecordlink[\#L1078]{20.9} & \airasrecordlink[\#L1079]{7} & \airasrecordlink[\#L1080]{3} \\
-DeepSeek-V4.1-Flash / 40 & \airasrecordlink[\#L6356]{0.352} & \airasrecordlink[\#L6344]{0.249} & \airasrecordlink[\#L6345]{0.135} & \airasrecordlink[\#L6358]{208} & \airasrecordlink[\#L6365]{39.2} & \airasrecordlink[\#L6366]{56} & \airasrecordlink[\#L6367]{3} \\
-Qwen3.8-27B / 1 & \airasrecordlink[\#L1588]{0.582} & \airasrecordlink[\#L1576]{0.072} & \airasrecordlink[\#L1577]{0.033} & \airasrecordlink[\#L1590]{200} & \airasrecordlink[\#L1597]{1.4} & \airasrecordlink[\#L1598]{95} & \airasrecordlink[\#L1599]{0} \\
-Qwen3.8-27B / 5 & \airasrecordlink[\#L1671]{0.483} & \airasrecordlink[\#L1659]{0.161} & \airasrecordlink[\#L1660]{0.079} & \airasrecordlink[\#L1673]{188} & \airasrecordlink[\#L1680]{6.9} & \airasrecordlink[\#L1681]{0} & \airasrecordlink[\#L1682]{0} \\
-Qwen3.8-27B / 10 & \airasrecordlink[\#L1754]{0.471} & \airasrecordlink[\#L1742]{0.164} & \airasrecordlink[\#L1743]{0.089} & \airasrecordlink[\#L1756]{195} & \airasrecordlink[\#L1763]{11.7} & \airasrecordlink[\#L1764]{0} & \airasrecordlink[\#L1765]{0} \\
-Qwen3.8-27B / 20 & \airasrecordlink[\#L1837]{0.431} & \airasrecordlink[\#L1825]{0.210} & \airasrecordlink[\#L1826]{0.112} & \airasrecordlink[\#L1839]{193} & \airasrecordlink[\#L1846]{21.2} & \airasrecordlink[\#L1847]{9} & \airasrecordlink[\#L1848]{1} \\
-Qwen3.8-27B / 40 & \airasrecordlink[\#L6598]{0.373} & \airasrecordlink[\#L6586]{0.244} & \airasrecordlink[\#L6587]{0.142} & \airasrecordlink[\#L6600]{200} & \airasrecordlink[\#L6607]{39.5} & \airasrecordlink[\#L6608]{51} & \airasrecordlink[\#L6609]{4} \\
-Nemotron-3-Ultra / 1 & \airasrecordlink[\#L2438]{0.516} & \airasrecordlink[\#L2426]{0.168} & \airasrecordlink[\#L2427]{0.083} & \airasrecordlink[\#L2440]{207} & \airasrecordlink[\#L2447]{2.6} & \airasrecordlink[\#L2448]{0} & \airasrecordlink[\#L2449]{0} \\
-Nemotron-3-Ultra / 5 & \airasrecordlink[\#L2521]{0.521} & \airasrecordlink[\#L2509]{0.193} & \airasrecordlink[\#L2510]{0.103} & \airasrecordlink[\#L2523]{203} & \airasrecordlink[\#L2530]{6.5} & \airasrecordlink[\#L2531]{0} & \airasrecordlink[\#L2532]{1} \\
-Nemotron-3-Ultra / 10 & \airasrecordlink[\#L2604]{0.488} & \airasrecordlink[\#L2592]{0.218} & \airasrecordlink[\#L2593]{0.123} & \airasrecordlink[\#L2606]{204} & \airasrecordlink[\#L2613]{11.1} & \airasrecordlink[\#L2614]{8} & \airasrecordlink[\#L2615]{3} \\
-Nemotron-3-Ultra / 20 & \airasrecordlink[\#L2687]{0.418} & \airasrecordlink[\#L2675]{0.218} & \airasrecordlink[\#L2676]{0.112} & \airasrecordlink[\#L2689]{200} & \airasrecordlink[\#L2696]{20.0} & \airasrecordlink[\#L2697]{60} & \airasrecordlink[\#L2698]{3} \\
-Nemotron-3-Ultra / 40 & \airasrecordlink[\#L6842]{0.392} & \airasrecordlink[\#L6830]{0.226} & \airasrecordlink[\#L6831]{0.128} & \airasrecordlink[\#L6844]{205} & \airasrecordlink[\#L6851]{30.0} & \airasrecordlink[\#L6852]{170} & \airasrecordlink[\#L6853]{3} \\
-Nemotron-3-Ultra / 80 & \airasrecordlink[\#L2770]{0.377} & \airasrecordlink[\#L2758]{0.213} & \airasrecordlink[\#L2759]{0.110} & \airasrecordlink[\#L2772]{207} & \airasrecordlink[\#L2779]{38.8} & \airasrecordlink[\#L2780]{194} & \airasrecordlink[\#L2781]{5} \\
+DeepSeek-V4.1-Flash / 1 & \airasrecordlink[\#L902]{0.508} & \airasrecordlink[\#L890]{0.131} & \airasrecordlink[\#L891]{0.063} & \airasrecordlink[\#L904]{209} & \airasrecordlink[\#L911]{1.6} & \airasrecordlink[\#L912]{40} & \airasrecordlink[\#L913]{0} & \airasrecordlink[\#L915]{0} \\
+DeepSeek-V4.1-Flash / 5 & \airasrecordlink[\#L985]{0.438} & \airasrecordlink[\#L973]{0.229} & \airasrecordlink[\#L974]{0.108} & \airasrecordlink[\#L987]{211} & \airasrecordlink[\#L994]{6.2} & \airasrecordlink[\#L995]{0} & \airasrecordlink[\#L996]{0} & \airasrecordlink[\#L998]{0} \\
+DeepSeek-V4.1-Flash / 10 & \airasrecordlink[\#L1068]{0.437} & \airasrecordlink[\#L1056]{0.212} & \airasrecordlink[\#L1057]{0.105} & \airasrecordlink[\#L1070]{208} & \airasrecordlink[\#L1077]{11.1} & \airasrecordlink[\#L1078]{0} & \airasrecordlink[\#L1079]{1} & \airasrecordlink[\#L1081]{1} \\
+DeepSeek-V4.1-Flash / 20 & \airasrecordlink[\#L1151]{0.443} & \airasrecordlink[\#L1139]{0.212} & \airasrecordlink[\#L1140]{0.117} & \airasrecordlink[\#L1153]{208} & \airasrecordlink[\#L1160]{20.9} & \airasrecordlink[\#L1161]{7} & \airasrecordlink[\#L1162]{3} & \airasrecordlink[\#L1164]{3} \\
+DeepSeek-V4.1-Flash / 40 & \airasrecordlink[\#L7873]{0.352} & \airasrecordlink[\#L7861]{0.249} & \airasrecordlink[\#L7862]{0.135} & \airasrecordlink[\#L7875]{208} & \airasrecordlink[\#L7882]{39.2} & \airasrecordlink[\#L7883]{56} & \airasrecordlink[\#L7884]{3} & \airasrecordlink[\#L7886]{5} \\
+DeepSeek-V4.1-Flash / 80 & \airasrecordlink[\#L1234]{0.293} & \airasrecordlink[\#L1222]{0.258} & \airasrecordlink[\#L1223]{0.142} & \airasrecordlink[\#L1236]{205} & \airasrecordlink[\#L1243]{65.4} & \airasrecordlink[\#L1244]{158} & \airasrecordlink[\#L1245]{3} & \airasrecordlink[\#L1247]{8} \\
+Qwen3.8-27B / 1 & \airasrecordlink[\#L1830]{0.582} & \airasrecordlink[\#L1818]{0.072} & \airasrecordlink[\#L1819]{0.033} & \airasrecordlink[\#L1832]{200} & \airasrecordlink[\#L1839]{1.4} & \airasrecordlink[\#L1840]{95} & \airasrecordlink[\#L1841]{0} & \airasrecordlink[\#L1843]{0} \\
+Qwen3.8-27B / 5 & \airasrecordlink[\#L1913]{0.483} & \airasrecordlink[\#L1901]{0.161} & \airasrecordlink[\#L1902]{0.079} & \airasrecordlink[\#L1915]{188} & \airasrecordlink[\#L1922]{6.9} & \airasrecordlink[\#L1923]{0} & \airasrecordlink[\#L1924]{0} & \airasrecordlink[\#L1926]{0} \\
+Qwen3.8-27B / 10 & \airasrecordlink[\#L1996]{0.471} & \airasrecordlink[\#L1984]{0.164} & \airasrecordlink[\#L1985]{0.089} & \airasrecordlink[\#L1998]{195} & \airasrecordlink[\#L2005]{11.7} & \airasrecordlink[\#L2006]{0} & \airasrecordlink[\#L2007]{0} & \airasrecordlink[\#L2009]{0} \\
+Qwen3.8-27B / 20 & \airasrecordlink[\#L2079]{0.431} & \airasrecordlink[\#L2067]{0.210} & \airasrecordlink[\#L2068]{0.112} & \airasrecordlink[\#L2081]{193} & \airasrecordlink[\#L2088]{21.2} & \airasrecordlink[\#L2089]{9} & \airasrecordlink[\#L2090]{1} & \airasrecordlink[\#L2092]{1} \\
+Qwen3.8-27B / 40 & \airasrecordlink[\#L8119]{0.373} & \airasrecordlink[\#L8107]{0.244} & \airasrecordlink[\#L8108]{0.142} & \airasrecordlink[\#L8121]{200} & \airasrecordlink[\#L8128]{39.5} & \airasrecordlink[\#L8129]{51} & \airasrecordlink[\#L8130]{4} & \airasrecordlink[\#L8132]{8} \\
+Qwen3.8-27B / 80 & \airasrecordlink[\#L2162]{0.300} & \airasrecordlink[\#L2150]{0.287} & \airasrecordlink[\#L2151]{0.163} & \airasrecordlink[\#L2164]{195} & \airasrecordlink[\#L2171]{67.2} & \airasrecordlink[\#L2172]{143} & \airasrecordlink[\#L2173]{5} & \airasrecordlink[\#L2175]{15} \\
+Nemotron-3-Ultra / 1 & \airasrecordlink[\#L2758]{0.516} & \airasrecordlink[\#L2746]{0.168} & \airasrecordlink[\#L2747]{0.083} & \airasrecordlink[\#L2760]{207} & \airasrecordlink[\#L2767]{2.6} & \airasrecordlink[\#L2768]{0} & \airasrecordlink[\#L2769]{0} & \airasrecordlink[\#L2771]{0} \\
+Nemotron-3-Ultra / 5 & \airasrecordlink[\#L2841]{0.521} & \airasrecordlink[\#L2829]{0.193} & \airasrecordlink[\#L2830]{0.103} & \airasrecordlink[\#L2843]{203} & \airasrecordlink[\#L2850]{6.5} & \airasrecordlink[\#L2851]{0} & \airasrecordlink[\#L2852]{1} & \airasrecordlink[\#L2854]{1} \\
+Nemotron-3-Ultra / 10 & \airasrecordlink[\#L2924]{0.488} & \airasrecordlink[\#L2912]{0.218} & \airasrecordlink[\#L2913]{0.123} & \airasrecordlink[\#L2926]{204} & \airasrecordlink[\#L2933]{11.1} & \airasrecordlink[\#L2934]{8} & \airasrecordlink[\#L2935]{3} & \airasrecordlink[\#L2937]{3} \\
+Nemotron-3-Ultra / 20 & \airasrecordlink[\#L3007]{0.418} & \airasrecordlink[\#L2995]{0.218} & \airasrecordlink[\#L2996]{0.112} & \airasrecordlink[\#L3009]{200} & \airasrecordlink[\#L3016]{20.0} & \airasrecordlink[\#L3017]{60} & \airasrecordlink[\#L3018]{3} & \airasrecordlink[\#L3020]{3} \\
+Nemotron-3-Ultra / 40 & \airasrecordlink[\#L8365]{0.392} & \airasrecordlink[\#L8353]{0.226} & \airasrecordlink[\#L8354]{0.128} & \airasrecordlink[\#L8367]{205} & \airasrecordlink[\#L8374]{30.0} & \airasrecordlink[\#L8375]{170} & \airasrecordlink[\#L8376]{3} & \airasrecordlink[\#L8378]{3} \\
+Nemotron-3-Ultra / 80 & \airasrecordlink[\#L3090]{0.377} & \airasrecordlink[\#L3078]{0.213} & \airasrecordlink[\#L3079]{0.110} & \airasrecordlink[\#L3092]{207} & \airasrecordlink[\#L3099]{38.8} & \airasrecordlink[\#L3100]{194} & \airasrecordlink[\#L3101]{5} & \airasrecordlink[\#L3103]{5} \\
 \hline
 \end{tabular}
 \end{table}
